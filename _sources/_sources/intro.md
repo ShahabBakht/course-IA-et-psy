@@ -4,7 +4,7 @@
 
 Bienvenue dans les notes de cours pour le cours **IA, Psychologie et Neuroscience Cognitive**.
 
-Ce livre contient les notes détaillées pour chaque séance du cours, conçues pour vous aider à comprendre les concepts fondamentaux de l'intelligence artificielle dans le contexte de la psychologie et des neurosciences.
+Ce livre interactif contient les notes détaillées pour chaque séance du cours, conçues pour vous aider à comprendre les concepts fondamentaux de l'intelligence artificielle dans le contexte de la psychologie et des neurosciences.
 
 ## Structure du cours
 
