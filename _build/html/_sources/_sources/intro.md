@@ -10,8 +10,8 @@ Ce livre interactif contient les notes détaillées pour chaque séance du cours
 
 Le cours est divisé en plusieurs sessions qui couvrent :
 
-- **[Séance 1 : Introduction à l'IA](seance1.html)** - Définitions, histoire et applications
-- **[Séance 2 : Apprentissage Automatique](seance2.html)** - Programmation vs ML, types d'apprentissage, applications en neurosciences
+- **[Séance 1 : Introduction à l'IA](seance1)** - Définitions, histoire et applications
+- **[Séance 2 : Apprentissage Automatique](seance2)** - Programmation vs ML, types d'apprentissage, applications en neurosciences
 - Sessions suivantes à venir...
 
 ## Comment utiliser ces notes
