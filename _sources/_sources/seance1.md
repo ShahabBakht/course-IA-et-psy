@@ -24,7 +24,7 @@ Marvin Minsky est l'un des pères fondateurs du domaine de l'IA dans les années
 **Concept clé :**
 L'objectif principal est d'imiter les fonctions cognitives humaines telles que l'apprentissage et la résolution de problèmes ("to mimic human-like cognitive function such as learning and problem solving").
 
-```{admonition} Point de discussion pour les étudiants en psychologie
+```{admonition} Point de discussion pour les étudiants
 :class: tip
 Cette définition soulève immédiatement la question : qu'est-ce que l'intelligence ? Pour créer une machine "intelligente", nous devons d'abord définir l'intelligence elle-même - un débat qui existe depuis longtemps en psychologie.
 ```
