@@ -4,13 +4,14 @@
 
 Bienvenue dans les notes de cours pour le cours **IA, Psychologie et Neuroscience Cognitive**.
 
-Ce livre contient les notes détaillées pour chaque séance du cours, conçues pour vous aider à comprendre les concepts fondamentaux de l'intelligence artificielle dans le contexte de la psychologie et des neurosciences.
+Ce livre interactif contient les notes détaillées pour chaque séance du cours, conçues pour vous aider à comprendre les concepts fondamentaux de l'intelligence artificielle dans le contexte de la psychologie et des neurosciences.
 
 ## Structure du cours
 
 Le cours est divisé en plusieurs sessions qui couvrent :
 
-- **Session 1** : Introduction à l'IA - Définitions, histoire et applications
+- **[Séance 1 : Introduction à l'IA](seance1.html)** - Définitions, histoire et applications
+- **[Séance 2 : Apprentissage Automatique](seance2.html)** - Programmation vs ML, types d'apprentissage, applications en neurosciences
 - Sessions suivantes à venir...
 
 ## Comment utiliser ces notes

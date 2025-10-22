@@ -1,0 +1,1169 @@
+
+<!DOCTYPE html>
+
+
+<html lang="fr" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Séance 1 : Introduction à l’Intelligence Artificielle &#8212; IA, Psychologie et Neuroscience Cognitive</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=720ed60b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=d2032c04" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=720ed60b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/theme.css?v=a243ae73" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/bootstrap.css?v=b4a3e8ba" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/vendor/fontawesome/6.5.2/css/all.min.css?v=f4fbef65" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/translations.js?v=041d0952"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'seance1';</script>
+    <script src="_static/translations.js?v=041d0952"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="_static/searchtools.js?v=63a53a7d"></script>
+    <script src="_static/french-stemmer.js?v=4cf82138"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="_static/base-stemmer.js?v=da076eef"></script>
+    <script src="_static/language_data.js?v=27445a5f"></script>
+    <script src="_static/copybutton_funcs.js?v=776a791e"></script>
+    <script src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/bootstrap.js?v=7583a70d"></script>
+    <script src="_static/scripts/pydata-sphinx-theme.js?v=4bc35cb3"></script>
+    <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?v=4e4fcec4"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="prev" title="IA, Psychologie et Neuroscience Cognitive" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">IA, Psychologie et Neuroscience Cognitive</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Séance 1 - Introduction à l'IA</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/seance1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Séance 1 : Introduction à l’Intelligence Artificielle</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vue-d-ensemble">Vue d’ensemble</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions-de-l-intelligence-artificielle">1. Définitions de l’Intelligence Artificielle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">1.1 Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-definition-fondatrice-marvin-minsky-1950s">1.2 La définition fondatrice : Marvin Minsky (1950s)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-definition-d-ibm-perspective-contemporaine">1.3 La définition d’IBM (perspective contemporaine)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-definition-de-coursera">1.4 La définition de Coursera</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synthese-des-definitions">1.5 Synthèse des définitions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histoire-et-etapes-cles-de-l-ia">2. Histoire et étapes clés de l’IA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-a-l-histoire-de-l-ia">2.1 Introduction à l’histoire de l’IA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-annees-1950-la-naissance-de-l-ia">2.2 Les années 1950 : La naissance de l’IA</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-test-de-turing-1950">Le Test de Turing (1950)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#la-conference-de-dartmouth-1956">La conférence de Dartmouth (1956)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-perceptron-1958">Le Perceptron (1958)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-annees-1960-1970-premiers-succes-et-premier-hiver">2.3 Les années 1960-1970 : Premiers succès et premier « hiver »</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eliza-1964-1966-le-premier-chatbot">ELIZA (1964-1966) : Le premier chatbot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#les-hivers-de-l-ia-annees-1970">Les hivers de l’IA (années 1970)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-annees-1980-renaissance-avec-les-reseaux-neuronaux">2.4 Les années 1980 : Renaissance avec les réseaux neuronaux</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#la-retropropagation-backpropagation">La rétropropagation (Backpropagation)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-annees-1990-passage-au-mainstream">2.5 Les années 1990 : Passage au mainstream</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-blue-vs-garry-kasparov-1997">Deep Blue vs. Garry Kasparov (1997)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-annees-2010-la-revolution-de-l-apprentissage-profond">2.6 Les années 2010 : La révolution de l’apprentissage profond</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#alexnet-2012-le-tournant-decisif">AlexNet (2012) : Le tournant décisif</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#alphago-vs-lee-sedol-2016">AlphaGo vs. Lee Sedol (2016)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gpt-2-2018-et-les-debuts-de-l-ia-generative">GPT-2 (2018) et les débuts de l’IA générative</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-annees-2020-l-ia-omnipresente">2.7 Les années 2020 : L’IA omniprésente</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-godfathers-of-ai-et-le-lien-avec-montreal">2.8 Les « Godfathers of AI » et le lien avec Montréal</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemples-et-applications-de-l-ia">3. Exemples et applications de l’IA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vision-par-ordinateur-detection-et-reconnaissance-de-visages">3.1 Vision par ordinateur : Détection et reconnaissance de visages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reconnaissance-des-emotions">3.2 Reconnaissance des émotions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ia-generative-text-to-image">3.3 IA générative : Text-to-Image</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ia-generative-text-to-video">3.4 IA générative : Text-to-Video</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-quotidiennes-de-l-ia">3.5 Applications quotidiennes de l’IA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#points-de-reflexion-pour-les-etudiants-en-psychologie">4. Points de réflexion pour les étudiants en psychologie</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l-ia-comme-outil-de-recherche-en-psychologie">4.1 L’IA comme outil de recherche en psychologie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l-ia-comme-objet-d-etude-psychologique">4.2 L’IA comme objet d’étude psychologique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liens-avec-les-neurosciences-cognitives">4.3 Liens avec les neurosciences cognitives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-ethiques">4.4 Questions éthiques</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts-cles-a-retenir">5. Concepts clés à retenir</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ressources-complementaires">6. Ressources complémentaires</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podcast-recommande">Podcast recommandé</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sites-web-pour-explorer">Sites web pour explorer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#institutions-a-montreal">Institutions à Montréal</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-pour-la-discussion-en-classe">7. Questions pour la discussion en classe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-pour-l-enseignant">Notes pour l’enseignant</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="seance-1-introduction-a-l-intelligence-artificielle">
+<h1>Séance 1 : Introduction à l’Intelligence Artificielle<a class="headerlink" href="#seance-1-introduction-a-l-intelligence-artificielle" title="Lien vers cette rubrique">#</a></h1>
+<section id="vue-d-ensemble">
+<h2>Vue d’ensemble<a class="headerlink" href="#vue-d-ensemble" title="Lien vers cette rubrique">#</a></h2>
+<p>Cette première séance introduit les concepts fondamentaux de l’intelligence artificielle, son histoire, et ses applications actuelles. Nous explorons comment l’IA est définie par différents experts et organisations, et comment le domaine a évolué depuis ses débuts dans les années 1950.</p>
+</section>
+<hr class="docutils" />
+<section id="definitions-de-l-intelligence-artificielle">
+<h2>1. Définitions de l’Intelligence Artificielle<a class="headerlink" href="#definitions-de-l-intelligence-artificielle" title="Lien vers cette rubrique">#</a></h2>
+<section id="introduction">
+<h3>1.1 Introduction<a class="headerlink" href="#introduction" title="Lien vers cette rubrique">#</a></h3>
+<p>Après avoir exploré les définitions spontanées des étudiants via le questionnaire Wooclap, il est important de comprendre comment les experts et les organisations majeures du domaine définissent l’intelligence artificielle. Ces définitions ont évolué au fil du temps et reflètent différentes perspectives sur ce qu’est l’intelligence et comment elle peut être reproduite par des machines.</p>
+</section>
+<section id="la-definition-fondatrice-marvin-minsky-1950s">
+<h3>1.2 La définition fondatrice : Marvin Minsky (1950s)<a class="headerlink" href="#la-definition-fondatrice-marvin-minsky-1950s" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>Définition :</strong> « La science et l’ingénierie de la création de machines intelligentes »</p>
+<div class="note admonition">
+<p class="admonition-title">Contexte historique</p>
+<p>Marvin Minsky est l’un des pères fondateurs du domaine de l’IA dans les années 1950. Cette définition est délibérément large et centrée sur l’objectif : créer des machines capables de fonctions cognitives.</p>
+</div>
+<p><strong>Concept clé :</strong>
+L’objectif principal est d’imiter les fonctions cognitives humaines telles que l’apprentissage et la résolution de problèmes (« to mimic human-like cognitive function such as learning and problem solving »).</p>
+<div class="tip admonition">
+<p class="admonition-title">Point de discussion pour les étudiants</p>
+<p>Cette définition soulève immédiatement la question : qu’est-ce que l’intelligence ? Pour créer une machine « intelligente », nous devons d’abord définir l’intelligence elle-même - un débat qui existe depuis longtemps en psychologie.</p>
+</div>
+</section>
+<section id="la-definition-d-ibm-perspective-contemporaine">
+<h3>1.3 La définition d’IBM (perspective contemporaine)<a class="headerlink" href="#la-definition-d-ibm-perspective-contemporaine" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>Définition :</strong> « L’intelligence artificielle (IA) est une technologie qui permet aux ordinateurs et aux machines de simuler l’apprentissage, la compréhension, la résolution de problèmes, la prise de décision, la créativité et l’autonomie de l’être humain. »</p>
+<p><strong>Analyse comparative avec Minsky :</strong></p>
+<p>La principale différence entre la définition d’IBM et celle de Minsky réside dans la précision du concept d’intelligence. IBM décompose l’intelligence en capacités spécifiques :</p>
+<ol class="arabic simple">
+<li><p>L’apprentissage</p></li>
+<li><p>La compréhension</p></li>
+<li><p>La résolution de problèmes</p></li>
+<li><p>La prise de décision</p></li>
+<li><p>La créativité</p></li>
+<li><p>L’autonomie</p></li>
+</ol>
+<div class="important admonition">
+<p class="admonition-title">Pourquoi cette évolution ?</p>
+<ul class="simple">
+<li><p>Après 70 ans de recherche en IA, nous avons une meilleure compréhension des composantes de l’intelligence</p></li>
+<li><p>Cette définition est plus opérationnelle - elle permet de mesurer et d’évaluer les systèmes d’IA</p></li>
+<li><p>Elle reconnaît explicitement la « simulation » plutôt que la reproduction exacte</p></li>
+</ul>
+</div>
+</section>
+<section id="la-definition-de-coursera">
+<h3>1.4 La définition de Coursera<a class="headerlink" href="#la-definition-de-coursera" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>Définition :</strong> « L’intelligence artificielle (IA) désigne les systèmes informatiques capables d’effectuer des tâches complexes que seul un être humain pouvait historiquement accomplir, telles que le raisonnement, la prise de décision ou la résolution de problèmes. »</p>
+<p><strong>Caractéristique distinctive :</strong>
+Cette définition met l’accent sur la relation avec l’intelligence humaine et sur l’aspect historique. Elle souligne que l’IA accomplit des tâches qui étaient auparavant l’apanage exclusif des humains.</p>
+<div class="warning admonition">
+<p class="admonition-title">Implication psychologique importante</p>
+<p>Il s’agit essentiellement de définir l’intelligence par rapport à l’intelligence humaine comme référence. Cela pose la question : l’IA doit-elle nécessairement imiter l’humain, ou peut-elle développer sa propre forme d’intelligence ?</p>
+</div>
+</section>
+<section id="synthese-des-definitions">
+<h3>1.5 Synthèse des définitions<a class="headerlink" href="#synthese-des-definitions" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>Points communs à travers toutes les définitions :</strong></p>
+<p>Si on analyse l’ensemble des définitions disponibles (Google, Britannica, Microsoft, etc.), plusieurs mots-clés reviennent constamment :</p>
+<ul class="simple">
+<li><p>Intelligence</p></li>
+<li><p>Humain/humaine</p></li>
+<li><p>Apprentissage</p></li>
+<li><p>Machines/ordinateurs</p></li>
+<li><p>Capacités/capabilities</p></li>
+<li><p>Résolution de problèmes</p></li>
+<li><p>Simulation</p></li>
+<li><p>Tâches</p></li>
+<li><p>Données</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Conclusion fondamentale :</strong>
+La définition de l’IA dépend fondamentalement de votre définition de l’intelligence en général. C’est pourquoi le débat sur « qu’est-ce que l’intelligence ? » reste central, non seulement en psychologie mais aussi en IA.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="histoire-et-etapes-cles-de-l-ia">
+<h2>2. Histoire et étapes clés de l’IA<a class="headerlink" href="#histoire-et-etapes-cles-de-l-ia" title="Lien vers cette rubrique">#</a></h2>
+<section id="introduction-a-l-histoire-de-l-ia">
+<h3>2.1 Introduction à l’histoire de l’IA<a class="headerlink" href="#introduction-a-l-histoire-de-l-ia" title="Lien vers cette rubrique">#</a></h3>
+<p>Maintenant que nous avons une idée claire des définitions de l’IA, explorons comment tout cela a commencé et évolué jusqu’à aujourd’hui. L’histoire de l’IA n’est pas une progression linéaire - elle est marquée par des périodes d’enthousiasme intense suivies de désillusions (« hivers de l’IA »), puis de renaissances spectaculaires.</p>
+</section>
+<section id="les-annees-1950-la-naissance-de-l-ia">
+<h3>2.2 Les années 1950 : La naissance de l’IA<a class="headerlink" href="#les-annees-1950-la-naissance-de-l-ia" title="Lien vers cette rubrique">#</a></h3>
+<section id="le-test-de-turing-1950">
+<h4>Le Test de Turing (1950)<a class="headerlink" href="#le-test-de-turing-1950" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>L’article fondateur :</strong>
+Alan Turing publie « Computing Machinery and Intelligence », proposant ce qui deviendra le célèbre Test de Turing.</p>
+<div class="note admonition">
+<p class="admonition-title">Qu’est-ce que le Test de Turing ?</p>
+<p>Il est tout à fait possible que vous ayez déjà entendu parler du test de Turing. Si ce n’est pas le cas, il s’agit d’un test permettant de déterminer si un système est intelligent.</p>
+</div>
+<p><strong>Le principe du test :</strong></p>
+<p>Le test est en fait une conversation entre le système et un humain. Si quelqu’un n’est pas capable de décider si son partenaire de conversation est un autre humain ou une machine, la machine passe le test.</p>
+<p>En d’autres termes : <strong>si quelqu’un n’est pas capable de distinguer l’humain de la machine dans une conversation, alors la machine est considérée comme intelligente.</strong></p>
+<p><strong>Implications pour la psychologie :</strong></p>
+<ul class="simple">
+<li><p>Le test se base sur le comportement observable (approche béhavioriste)</p></li>
+<li><p>Il évite la question philosophique de la conscience ou de la « vraie » intelligence</p></li>
+<li><p>Il pose la question : l’imitation de l’intelligence équivaut-elle à l’intelligence ?</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Pertinence aujourd’hui</p>
+<p>Avec des systèmes comme ChatGPT, GPT-4, et Claude, nous sommes plus proches que jamais de « passer » le Test de Turing dans certains contextes. Mais cela signifie-t-il que ces systèmes sont vraiment intelligents ? C’est un débat toujours d’actualité.</p>
+</div>
+</section>
+<section id="la-conference-de-dartmouth-1956">
+<h4>La conférence de Dartmouth (1956)<a class="headerlink" href="#la-conference-de-dartmouth-1956" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>L’événement fondateur :</strong>
+La conférence de Dartmouth introduit officiellement le terme « Intelligence Artificielle ». C’est la naissance officielle du domaine en tant que discipline scientifique distincte.</p>
+<p><strong>Les participants clés incluaient :</strong></p>
+<ul class="simple">
+<li><p>John McCarthy (qui a inventé le terme « Intelligence Artificielle »)</p></li>
+<li><p>Marvin Minsky</p></li>
+<li><p>Claude Shannon</p></li>
+<li><p>Allen Newell</p></li>
+</ul>
+</section>
+<section id="le-perceptron-1958">
+<h4>Le Perceptron (1958)<a class="headerlink" href="#le-perceptron-1958" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Innovation technique :</strong>
+Introduction du Perceptron, précurseur des réseaux neuronaux modernes.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Pourquoi est-ce important ?</strong>
+C’était la première tentative de créer un modèle mathématique inspiré du fonctionnement des neurones biologiques - un lien direct avec les neurosciences !</p>
+</div>
+</section>
+</section>
+<section id="les-annees-1960-1970-premiers-succes-et-premier-hiver">
+<h3>2.3 Les années 1960-1970 : Premiers succès et premier « hiver »<a class="headerlink" href="#les-annees-1960-1970-premiers-succes-et-premier-hiver" title="Lien vers cette rubrique">#</a></h3>
+<section id="eliza-1964-1966-le-premier-chatbot">
+<h4>ELIZA (1964-1966) : Le premier chatbot<a class="headerlink" href="#eliza-1964-1966-le-premier-chatbot" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Qu’est-ce qu’ELIZA ?</strong>
+ELIZA est la première chatbot qui pouvait converser en langage naturel. Elle a été créée par Joseph Weizenbaum au MIT.</p>
+<p><strong>Le mode « psychothérapeute » :</strong></p>
+<p>La version la plus célèbre d’ELIZA imitait un psychothérapeute rogérien, utilisant des techniques simples comme :</p>
+<ul class="simple">
+<li><p>Reformuler les déclarations du patient en questions</p></li>
+<li><p>Identifier des mots-clés et répondre avec des phrases pré-programmées</p></li>
+<li><p>Exemple : Patient : « Je suis triste » → ELIZA : « Pourquoi êtes-vous triste ? »</p></li>
+</ul>
+<div class="warning admonition">
+<p class="admonition-title">Découverte psychologique surprenante</p>
+<p>Son inventeur, Weizenbaum, a été choqué de découvrir que les gens développaient des attachements émotionnels envers ELIZA et lui confiaient des informations personnelles profondes, <strong>même en sachant qu’il s’agissait d’un programme informatique !</strong></p>
+<p>C’était l’une des premières démonstrations de l’anthropomorphisation des machines.</p>
+</div>
+<p><strong>Pertinence pour les étudiants en psychologie :</strong></p>
+<ul class="simple">
+<li><p>Effet de l’illusion de compréhension</p></li>
+<li><p>Tendance humaine à attribuer de l’intelligence et de l’empathie aux machines</p></li>
+<li><p>Précurseur des débats actuels sur les chatbots thérapeutiques et l’IA en santé mentale</p></li>
+</ul>
+</section>
+<section id="les-hivers-de-l-ia-annees-1970">
+<h4>Les hivers de l’IA (années 1970)<a class="headerlink" href="#les-hivers-de-l-ia-annees-1970" title="Lien vers cette rubrique">#</a></h4>
+<div class="note admonition">
+<p class="admonition-title">Qu’est-ce qu’un « hiver de l’IA » ?</p>
+<p>Période durant laquelle le financement et l’intérêt pour la recherche en IA diminuent drastiquement.</p>
+</div>
+<p><strong>Causes du premier hiver :</strong></p>
+<ul class="simple">
+<li><p>Promesses non tenues : les chercheurs avaient prédit que l’IA générale serait réalisée dans 10-20 ans</p></li>
+<li><p>Limitations techniques : les ordinateurs n’étaient pas assez puissants</p></li>
+<li><p>Problèmes de complexité : les tâches s’avéraient beaucoup plus difficiles que prévu</p></li>
+<li><p>Critique du Perceptron (1969) par Minsky et Papert, montrant ses limitations</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Leçon importante :</strong>
+Le développement de l’IA n’est pas linéaire. Les attentes irréalistes peuvent mener à des désillusions. C’est un cycle qui s’est répété plusieurs fois dans l’histoire de l’IA.</p>
+</div>
+</section>
+</section>
+<section id="les-annees-1980-renaissance-avec-les-reseaux-neuronaux">
+<h3>2.4 Les années 1980 : Renaissance avec les réseaux neuronaux<a class="headerlink" href="#les-annees-1980-renaissance-avec-les-reseaux-neuronaux" title="Lien vers cette rubrique">#</a></h3>
+<section id="la-retropropagation-backpropagation">
+<h4>La rétropropagation (Backpropagation)<a class="headerlink" href="#la-retropropagation-backpropagation" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Innovation majeure :</strong>
+Introduction de l’algorithme de rétropropagation pour entraîner les réseaux neuronaux multi-couches.</p>
+<p><strong>Pourquoi est-ce révolutionnaire ?</strong>
+Avant cela, on ne savait pas comment entraîner efficacement des réseaux avec plusieurs couches de neurones. La rétropropagation permet au réseau d“« apprendre de ses erreurs » en ajustant les connexions de manière systématique.</p>
+<div class="tip admonition">
+<p class="admonition-title">Analogie avec l’apprentissage humain</p>
+<p>C’est similaire à comment nous apprenons par essai-erreur et feedback. Le réseau fait une prédiction, compare avec la bonne réponse, et ajuste ses « synapses » (poids) en conséquence.</p>
+</div>
+</section>
+</section>
+<section id="les-annees-1990-passage-au-mainstream">
+<h3>2.5 Les années 1990 : Passage au mainstream<a class="headerlink" href="#les-annees-1990-passage-au-mainstream" title="Lien vers cette rubrique">#</a></h3>
+<section id="deep-blue-vs-garry-kasparov-1997">
+<h4>Deep Blue vs. Garry Kasparov (1997)<a class="headerlink" href="#deep-blue-vs-garry-kasparov-1997" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>L’événement :</strong>
+Le jeu d’échecs entre Garry Kasparov (champion du monde) et Deep Blue d’IBM, dans lequel Deep Blue a battu Kasparov.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Pourquoi c’était si important ?</strong></p>
+<ul class="simple">
+<li><p>C’était la première fois qu’un ordinateur battait le champion du monde d’échecs</p></li>
+<li><p>Cela a montré au monde entier, de manière très visible et dramatique, le potentiel de l’IA</p></li>
+<li><p>Impact médiatique énorme - l’IA est devenue un sujet de conversation publique</p></li>
+</ul>
+</div>
+<p><strong>Ce que cela a révélé :</strong>
+Les échecs étaient longtemps considérés comme le summum de l’intelligence humaine. Cette victoire a forcé une réévaluation de ce que signifie « être intelligent ».</p>
+<p><strong>Changement de paradigme :</strong>
+Cette période a également marqué une transition vers les méthodes statistiques et le raisonnement probabiliste, s’éloignant des systèmes purement basés sur des règles logiques.</p>
+</section>
+</section>
+<section id="les-annees-2010-la-revolution-de-l-apprentissage-profond">
+<h3>2.6 Les années 2010 : La révolution de l’apprentissage profond<a class="headerlink" href="#les-annees-2010-la-revolution-de-l-apprentissage-profond" title="Lien vers cette rubrique">#</a></h3>
+<section id="alexnet-2012-le-tournant-decisif">
+<h4>AlexNet (2012) : Le tournant décisif<a class="headerlink" href="#alexnet-2012-le-tournant-decisif" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>L’innovation :</strong>
+AlexNet révolutionne la vision par ordinateur avec les réseaux neuronaux convolutifs (CNN - Convolutional Neural Networks).</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Pourquoi AlexNet est-il si important ?</strong></p>
+<p>L’invention d’AlexNet est sans doute à l’origine de tous les développements et progrès récents dans le domaine de l’IA. AlexNet est un réseau de neurones artificiels pour la reconnaissance d’objets à partir d’images, qui a largement dépassé tous les autres modèles d’IA de l’époque.</p>
+</div>
+<p><strong>Impact historique :</strong>
+Cette invention a redonné de l’espoir aux réseaux de neurones artificiels après des décennies de scepticisme. C’est le début de l’ère moderne de l’apprentissage profond (deep learning).</p>
+<p><strong>Performance spectaculaire :</strong>
+Dans la compétition ImageNet 2012, AlexNet a réduit le taux d’erreur de 26% à 15% - une amélioration massive qui a stupéfié la communauté scientifique.</p>
+</section>
+<section id="alphago-vs-lee-sedol-2016">
+<h4>AlphaGo vs. Lee Sedol (2016)<a class="headerlink" href="#alphago-vs-lee-sedol-2016" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>L’événement :</strong>
+AlphaGo (développé par DeepMind/Google) bat Lee Sedol, l’un des meilleurs joueurs de Go au monde.</p>
+<p><strong>Pourquoi le Go est différent des échecs :</strong></p>
+<ul class="simple">
+<li><p>Le Go a environ 10^170 positions possibles (vs. 10^50 pour les échecs)</p></li>
+<li><p>Impossible d’utiliser la force brute pour explorer toutes les possibilités</p></li>
+<li><p>Nécessite de l’intuition et du « jugement » plutôt que du calcul pur</p></li>
+</ul>
+<p><strong>L’innovation technique :</strong>
+AlphaGo utilise l’apprentissage par renforcement profond, combinant :</p>
+<ul class="simple">
+<li><p>Réseaux neuronaux pour évaluer les positions</p></li>
+<li><p>Apprentissage par auto-jeu (la machine joue contre elle-même)</p></li>
+<li><p>Monte Carlo Tree Search pour la planification</p></li>
+</ul>
+</section>
+<section id="gpt-2-2018-et-les-debuts-de-l-ia-generative">
+<h4>GPT-2 (2018) et les débuts de l’IA générative<a class="headerlink" href="#gpt-2-2018-et-les-debuts-de-l-ia-generative" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Innovation :</strong>
+GPT-2 montre des capacités avancées de modélisation du langage, capable de générer du texte cohérent et contextuellement approprié.</p>
+<p><strong>Controverse :</strong>
+OpenAI a initialement refusé de publier le modèle complet par crainte d’abus (désinformation, fake news). C’était l’un des premiers débats publics sur la responsabilité en IA.</p>
+</section>
+</section>
+<section id="les-annees-2020-l-ia-omnipresente">
+<h3>2.7 Les années 2020 : L’IA omniprésente<a class="headerlink" href="#les-annees-2020-l-ia-omnipresente" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>Développements récents :</strong></p>
+<ul class="simple">
+<li><p>ChatGPT (2022) : explosion de l’utilisation grand public</p></li>
+<li><p>GPT-4, Claude, Gemini : modèles de langage de plus en plus sophistiqués</p></li>
+<li><p>DALL-E, Midjourney, Stable Diffusion : génération d’images</p></li>
+<li><p>Sora : génération de vidéos</p></li>
+</ul>
+<p><strong>L’IA est désormais partout :</strong>
+Des assistants vocaux aux recommandations Netflix, de la détection de spam à la traduction automatique, l’IA fait maintenant partie de notre quotidien.</p>
+</section>
+<section id="les-godfathers-of-ai-et-le-lien-avec-montreal">
+<h3>2.8 Les « Godfathers of AI » et le lien avec Montréal<a class="headerlink" href="#les-godfathers-of-ai-et-le-lien-avec-montreal" title="Lien vers cette rubrique">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>L’IA que nous avons aujourd’hui est le résultat des efforts de personnes qui croyaient en la puissance des réseaux neuronaux artificiels pendant les années où peu de chercheurs y croyaient.</p>
+</div>
+<p><strong>Les trois pionniers :</strong></p>
+<p>Les recherches de trois chercheurs en particulier ont été déterminantes pour l’avancement de l’IA et de l’apprentissage profond :</p>
+<ol class="arabic simple">
+<li><p><strong>Geoffrey Hinton</strong> (Université de Toronto)</p></li>
+<li><p><strong>Yann LeCun</strong> (maintenant chez Meta/Facebook)</p></li>
+<li><p><strong>Yoshua Bengio</strong> (Université de Montréal)</p></li>
+</ol>
+<p><strong>Ces trois chercheurs sont connus comme les « Godfathers of AI » (les parrains de l’IA).</strong></p>
+<div class="note admonition">
+<p class="admonition-title">Le lien avec l’UdeM et Montréal</p>
+<p>Yoshua Bengio est professeur au département d’informatique et de recherche opérationnelle (DIRO) de l’Université de Montréal.</p>
+<p>Grâce à ses efforts depuis plus de 30 ans, Montréal est maintenant mondialement reconnue pour la recherche en IA. L’écosystème de l’IA que nous avons aujourd’hui à Montréal est principalement dû aux efforts du professeur Bengio et de ses collaborateurs.</p>
+</div>
+<p><strong>Institutions importantes à Montréal :</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://mila.quebec/">MILA (Montreal Institute for Learning Algorithms)</a></p></li>
+<li><p><a class="reference external" href="https://ivado.ca/">IVADO (Institute for Data Valorization)</a></p></li>
+<li><p>Nombreuses startups d’IA</p></li>
+<li><p>Bureaux de recherche de grandes entreprises (Google, Meta, Microsoft, etc.)</p></li>
+</ul>
+<p><strong>Prix Nobel de physique 2024 :</strong>
+Geoffrey Hinton et John Hopfield ont reçu le prix Nobel de physique en 2024 pour leurs travaux fondateurs sur les réseaux neuronaux artificiels - reconnaissance ultime de l’importance de ce domaine.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="exemples-et-applications-de-l-ia">
+<h2>3. Exemples et applications de l’IA<a class="headerlink" href="#exemples-et-applications-de-l-ia" title="Lien vers cette rubrique">#</a></h2>
+<section id="vision-par-ordinateur-detection-et-reconnaissance-de-visages">
+<h3>3.1 Vision par ordinateur : Détection et reconnaissance de visages<a class="headerlink" href="#vision-par-ordinateur-detection-et-reconnaissance-de-visages" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>Technologie :</strong>
+Les systèmes modernes peuvent détecter des visages même dans des images très complexes avec de nombreuses personnes.</p>
+<p><strong>Comment ça fonctionne (niveau conceptuel) :</strong></p>
+<ul class="simple">
+<li><p>Le modèle analyse l’image pixel par pixel</p></li>
+<li><p>Il recherche des patterns caractéristiques des visages (yeux, nez, bouche, proportions)</p></li>
+<li><p>Il attribue un score de confiance (probabilité)</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Exemple</p>
+<p>Quand vous voyez un chiffre comme « 0.98 » à côté d’un visage détecté, cela indique que le modèle est très sûr (98% de confiance) qu’il y a un visage à cet endroit.</p>
+</div>
+<p><strong>Limites et erreurs :</strong>
+Même les meilleurs modèles font des erreurs. Par exemple, un système pourrait incorrectement identifier deux visages différents comme étant la même personne, ou manquer un visage dans certaines conditions (éclairage, angle, occlusion).</p>
+<p><strong>Applications :</strong></p>
+<ul class="simple">
+<li><p>Déverrouillage de téléphones</p></li>
+<li><p>Identification aux frontières</p></li>
+<li><p>Marquage automatique sur les réseaux sociaux</p></li>
+<li><p>Surveillance (avec implications éthiques importantes)</p></li>
+</ul>
+<div class="warning admonition">
+<p class="admonition-title">Questions éthiques pour discussion</p>
+<ul class="simple">
+<li><p>Vie privée et surveillance</p></li>
+<li><p>Biais raciaux dans les systèmes de reconnaissance faciale</p></li>
+<li><p>Consentement et utilisation des données biométriques</p></li>
+</ul>
+</div>
+<p><strong>Démo interactive :</strong>
+<a class="reference external" href="https://justadudewhohacks.github.io/face-api.js/face_and_landmark_detection">Face detection demo</a></p>
+</section>
+<section id="reconnaissance-des-emotions">
+<h3>3.2 Reconnaissance des émotions<a class="headerlink" href="#reconnaissance-des-emotions" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>Objectif :</strong>
+Les systèmes tentent d’identifier l’état émotionnel d’une personne à partir de son expression faciale.</p>
+<p><strong>Pertinence pour la psychologie :</strong></p>
+<ul class="simple">
+<li><p>Basé sur la théorie des émotions universelles de Paul Ekman</p></li>
+<li><p>Mais : débat sur la fiabilité de la reconnaissance d’émotions par l’expression faciale seule</p></li>
+<li><p>Contexte culturel et individuel</p></li>
+</ul>
+<p><strong>Applications potentielles :</strong></p>
+<ul class="simple">
+<li><p>Détection de l’engagement en éducation</p></li>
+<li><p>Analyse du comportement des consommateurs</p></li>
+<li><p>Assistance aux personnes avec autisme</p></li>
+</ul>
+<div class="warning admonition">
+<p class="admonition-title">Controverses</p>
+<p>De nombreux psychologues critiquent ces systèmes, arguant que :</p>
+<ul class="simple">
+<li><p>Les émotions sont complexes et ne se réduisent pas aux expressions faciales</p></li>
+<li><p>Le contexte est crucial</p></li>
+<li><p>Risque de sur-simplification de l’expérience émotionnelle humaine</p></li>
+</ul>
+</div>
+</section>
+<section id="ia-generative-text-to-image">
+<h3>3.3 IA générative : Text-to-Image<a class="headerlink" href="#ia-generative-text-to-image" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>Exemples de systèmes :</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://openai.com/index/dall-e-3/">DALL-E (OpenAI)</a></p></li>
+<li><p><a class="reference external" href="https://www.midjourney.com/home">Midjourney</a></p></li>
+<li><p>Stable Diffusion</p></li>
+</ul>
+<div class="note admonition">
+<p class="admonition-title">Exemple célèbre</p>
+<p><strong>Prompt:</strong> « An illustration of an avocado sitting in a therapist’s chair, saying “I just feel so empty inside” with a pit-sized hole in its center. The therapist, a spoon, scribbles notes. »</p>
+<p>Ce prompt généré par DALL-E est devenu viral, démontrant la capacité créative et humoristique de l’IA.</p>
+</div>
+<p><strong>Comment ça fonctionne (niveau conceptuel) :</strong></p>
+<ol class="arabic simple">
+<li><p>Le système a appris les relations entre des millions de paires image-texte</p></li>
+<li><p>Il comprend les concepts (avocat, thérapeute, vide, etc.)</p></li>
+<li><p>Il peut combiner ces concepts de manière créative et cohérente</p></li>
+</ol>
+<p><strong>Implications :</strong></p>
+<ul class="simple">
+<li><p>Démocratisation de la création artistique</p></li>
+<li><p>Questions sur l’originalité et les droits d’auteur</p></li>
+<li><p>Potentiel pour l’illustration, le design, la publicité</p></li>
+</ul>
+</section>
+<section id="ia-generative-text-to-video">
+<h3>3.4 IA générative : Text-to-Video<a class="headerlink" href="#ia-generative-text-to-video" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>Exemple principal :</strong> <a class="reference external" href="https://openai.com/index/sora/">Sora (OpenAI)</a></p>
+<p><strong>Capacités :</strong>
+Génération de vidéos réalistes à partir de descriptions textuelles.</p>
+<div class="danger admonition">
+<p class="admonition-title">Implications et risques</p>
+<p>Un des risques majeurs est la capacité de <strong>« leurer » ou « tromper »</strong> les gens avec des vidéos fausses mais réalistes (deepfakes).</p>
+<p><strong>Deepfakes - Un problème sérieux :</strong></p>
+<ul class="simple">
+<li><p>Vidéos manipulées de personnalités publiques</p></li>
+<li><p>Potentiel de désinformation à grande échelle</p></li>
+<li><p>Utilisation malveillante (revenge porn, fraude, manipulation politique)</p></li>
+<li><p>Difficulté croissante à distinguer le vrai du faux</p></li>
+</ul>
+</div>
+<p><strong>Questions éthiques urgentes :</strong></p>
+<ul class="simple">
+<li><p>Comment protéger la vérité et l’authenticité ?</p></li>
+<li><p>Responsabilité des créateurs de ces technologies</p></li>
+<li><p>Nécessité de littératie numérique</p></li>
+<li><p>Régulation et législation</p></li>
+</ul>
+</section>
+<section id="applications-quotidiennes-de-l-ia">
+<h3>3.5 Applications quotidiennes de l’IA<a class="headerlink" href="#applications-quotidiennes-de-l-ia" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>Google Photos :</strong>
+Tous ceux qui utilisent Google Photo savent qu’il doit y avoir une intelligence artificielle derrière. Le système peut :</p>
+<ul class="simple">
+<li><p>Reconnaître et regrouper automatiquement les visages</p></li>
+<li><p>Identifier des objets, animaux, lieux</p></li>
+<li><p>Créer des albums thématiques automatiquement</p></li>
+<li><p>Rechercher par contenu (« montre-moi les photos de plage »)</p></li>
+</ul>
+<p><strong>Autres exemples quotidiens :</strong></p>
+<ul class="simple">
+<li><p>Recommandations Netflix, Spotify, YouTube</p></li>
+<li><p>Assistant vocaux (Siri, Alexa, Google Assistant)</p></li>
+<li><p>Correction automatique et prédiction de texte</p></li>
+<li><p>Traduction automatique (Google Translate, DeepL)</p></li>
+<li><p>Filtres anti-spam dans les emails</p></li>
+<li><p>Navigation GPS et prédiction de trafic</p></li>
+<li><p>Détection de fraude bancaire</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Question pour réflexion</p>
+<p>Quoi d’autre ? Pensez à d’autres exemples d’IA que vous utilisez quotidiennement !</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="points-de-reflexion-pour-les-etudiants-en-psychologie">
+<h2>4. Points de réflexion pour les étudiants en psychologie<a class="headerlink" href="#points-de-reflexion-pour-les-etudiants-en-psychologie" title="Lien vers cette rubrique">#</a></h2>
+<section id="l-ia-comme-outil-de-recherche-en-psychologie">
+<h3>4.1 L’IA comme outil de recherche en psychologie<a class="headerlink" href="#l-ia-comme-outil-de-recherche-en-psychologie" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>Opportunités :</strong></p>
+<ul class="simple">
+<li><p>Analyse de grandes quantités de données comportementales</p></li>
+<li><p>Modélisation des processus cognitifs</p></li>
+<li><p>Détection de patterns invisibles à l’œil humain</p></li>
+<li><p>Personnalisation des interventions thérapeutiques</p></li>
+</ul>
+</section>
+<section id="l-ia-comme-objet-d-etude-psychologique">
+<h3>4.2 L’IA comme objet d’étude psychologique<a class="headerlink" href="#l-ia-comme-objet-d-etude-psychologique" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>Questions de recherche :</strong></p>
+<ul class="simple">
+<li><p>Comment les humains interagissent-ils avec l’IA ?</p></li>
+<li><p>Anthropomorphisation des machines</p></li>
+<li><p>Confiance et acceptation de l’IA</p></li>
+<li><p>Impact sur l’emploi et l’identité professionnelle</p></li>
+<li><p>Effets psychologiques de l’automatisation</p></li>
+</ul>
+</section>
+<section id="liens-avec-les-neurosciences-cognitives">
+<h3>4.3 Liens avec les neurosciences cognitives<a class="headerlink" href="#liens-avec-les-neurosciences-cognitives" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>Inspiration mutuelle :</strong></p>
+<ul class="simple">
+<li><p>Les réseaux neuronaux artificiels sont inspirés du cerveau</p></li>
+<li><p>L’IA peut aider à comprendre le fonctionnement cérébral</p></li>
+<li><p>Approche computationnelle des neurosciences</p></li>
+<li><p>Modélisation des processus cognitifs</p></li>
+</ul>
+</section>
+<section id="questions-ethiques">
+<h3>4.4 Questions éthiques<a class="headerlink" href="#questions-ethiques" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>Thèmes importants :</strong></p>
+<ul class="simple">
+<li><p>Biais algorithmiques et discrimination</p></li>
+<li><p>Vie privée et surveillance</p></li>
+<li><p>Autonomie et prise de décision</p></li>
+<li><p>Responsabilité et transparence</p></li>
+<li><p>Impact social et inégalités</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="concepts-cles-a-retenir">
+<h2>5. Concepts clés à retenir<a class="headerlink" href="#concepts-cles-a-retenir" title="Lien vers cette rubrique">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ol class="arabic simple">
+<li><p><strong>La définition de l’IA</strong> dépend fondamentalement de comment on définit l’intelligence</p></li>
+<li><p><strong>L’histoire de l’IA</strong> est cyclique : enthousiasme → désillusion → renaissance</p></li>
+<li><p><strong>Les années 2010</strong> marquent un tournant avec l’apprentissage profond (deep learning)</p></li>
+<li><p><strong>Montréal</strong> est un centre mondial de recherche en IA grâce à Yoshua Bengio</p></li>
+<li><p><strong>L’IA moderne</strong> est omniprésente dans notre quotidien</p></li>
+<li><p><strong>Les applications</strong> vont de la vision par ordinateur à la génération de contenu</p></li>
+<li><p><strong>Les enjeux éthiques</strong> sont cruciaux et multidimensionnels</p></li>
+</ol>
+</div>
+</section>
+<hr class="docutils" />
+<section id="ressources-complementaires">
+<h2>6. Ressources complémentaires<a class="headerlink" href="#ressources-complementaires" title="Lien vers cette rubrique">#</a></h2>
+<section id="podcast-recommande">
+<h3>Podcast recommandé<a class="headerlink" href="#podcast-recommande" title="Lien vers cette rubrique">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">À écouter</p>
+<p><strong>Radio-Canada OHdio - « Fascinant »</strong>
+Épisode sur Deep Blue vs. Kasparov</p>
+<p><a class="reference external" href="https://ici.radio-canada.ca/ohdio/balados/8225/fascinant/521128/intelligence-artificielle-ordinateur-deep-blue-echecs-garry-kasparov-robot-machines">Écouter le podcast</a></p>
+</div>
+</section>
+<section id="sites-web-pour-explorer">
+<h3>Sites web pour explorer<a class="headerlink" href="#sites-web-pour-explorer" title="Lien vers cette rubrique">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://justadudewhohacks.github.io/face-api.js/face_and_landmark_detection">Face detection demo</a></p></li>
+<li><p><a class="reference external" href="https://openai.com/index/dall-e-3/">DALL-E</a></p></li>
+<li><p><a class="reference external" href="https://www.midjourney.com/home">Midjourney</a></p></li>
+<li><p><a class="reference external" href="https://openai.com/index/sora/">Sora</a></p></li>
+</ul>
+</section>
+<section id="institutions-a-montreal">
+<h3>Institutions à Montréal<a class="headerlink" href="#institutions-a-montreal" title="Lien vers cette rubrique">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://mila.quebec/">MILA</a></p></li>
+<li><p><a class="reference external" href="https://ivado.ca/">IVADO</a></p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="questions-pour-la-discussion-en-classe">
+<h2>7. Questions pour la discussion en classe<a class="headerlink" href="#questions-pour-la-discussion-en-classe" title="Lien vers cette rubrique">#</a></h2>
+<div class="question admonition">
+<p class="admonition-title">Questions de réflexion</p>
+<ol class="arabic simple">
+<li><p>Comment votre définition personnelle de l’IA a-t-elle évolué après ce cours ?</p></li>
+<li><p>Le Test de Turing est-il encore pertinent aujourd’hui ? Pourquoi ou pourquoi pas ?</p></li>
+<li><p>Quelles sont les implications psychologiques des « hivers de l’IA » pour les chercheurs ?</p></li>
+<li><p>Comment l’expérience ELIZA éclaire-t-elle notre compréhension de l’anthropomorphisation ?</p></li>
+<li><p>Quels sont les risques psychologiques et sociaux des deepfakes ?</p></li>
+<li><p>Comment l’IA pourrait-elle transformer la pratique de la psychologie clinique ?</p></li>
+<li><p>Quelles compétences psychologiques sont difficiles ou impossibles à automatiser ?</p></li>
+</ol>
+</div>
+</section>
+<hr class="docutils" />
+<section id="notes-pour-l-enseignant">
+<h2>Notes pour l’enseignant<a class="headerlink" href="#notes-pour-l-enseignant" title="Lien vers cette rubrique">#</a></h2>
+<div class="note admonition">
+<p class="admonition-title">Timing suggéré</p>
+<ul class="simple">
+<li><p>Définitions : 15-20 minutes</p></li>
+<li><p>Histoire (avec Test de Turing détaillé) : 25-30 minutes</p></li>
+<li><p>Exemples et applications : 15-20 minutes</p></li>
+<li><p>Discussion : 10-15 minutes</p></li>
+</ul>
+</div>
+<p><strong>Activités interactives :</strong></p>
+<ul class="simple">
+<li><p>Questionnaire Wooclap avant et après les définitions</p></li>
+<li><p>Discussion sur le Test de Turing</p></li>
+<li><p>Démonstrations des applications (face detection, génération d’images)</p></li>
+<li><p>Débat sur les deepfakes</p></li>
+</ul>
+<p><strong>Points d’attention :</strong></p>
+<ul class="simple">
+<li><p>Relier constamment les concepts d’IA aux connaissances psychologiques des étudiants</p></li>
+<li><p>Encourager la pensée critique sur les capacités et limitations de l’IA</p></li>
+<li><p>Aborder les questions éthiques de manière nuancée</p></li>
+<li><p>Montrer l’enthousiasme pour le domaine tout en restant réaliste sur les défis</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">IA, Psychologie et Neuroscience Cognitive</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vue-d-ensemble">Vue d’ensemble</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions-de-l-intelligence-artificielle">1. Définitions de l’Intelligence Artificielle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">1.1 Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-definition-fondatrice-marvin-minsky-1950s">1.2 La définition fondatrice : Marvin Minsky (1950s)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-definition-d-ibm-perspective-contemporaine">1.3 La définition d’IBM (perspective contemporaine)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-definition-de-coursera">1.4 La définition de Coursera</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synthese-des-definitions">1.5 Synthèse des définitions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histoire-et-etapes-cles-de-l-ia">2. Histoire et étapes clés de l’IA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-a-l-histoire-de-l-ia">2.1 Introduction à l’histoire de l’IA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-annees-1950-la-naissance-de-l-ia">2.2 Les années 1950 : La naissance de l’IA</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-test-de-turing-1950">Le Test de Turing (1950)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#la-conference-de-dartmouth-1956">La conférence de Dartmouth (1956)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-perceptron-1958">Le Perceptron (1958)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-annees-1960-1970-premiers-succes-et-premier-hiver">2.3 Les années 1960-1970 : Premiers succès et premier « hiver »</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eliza-1964-1966-le-premier-chatbot">ELIZA (1964-1966) : Le premier chatbot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#les-hivers-de-l-ia-annees-1970">Les hivers de l’IA (années 1970)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-annees-1980-renaissance-avec-les-reseaux-neuronaux">2.4 Les années 1980 : Renaissance avec les réseaux neuronaux</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#la-retropropagation-backpropagation">La rétropropagation (Backpropagation)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-annees-1990-passage-au-mainstream">2.5 Les années 1990 : Passage au mainstream</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-blue-vs-garry-kasparov-1997">Deep Blue vs. Garry Kasparov (1997)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-annees-2010-la-revolution-de-l-apprentissage-profond">2.6 Les années 2010 : La révolution de l’apprentissage profond</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#alexnet-2012-le-tournant-decisif">AlexNet (2012) : Le tournant décisif</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#alphago-vs-lee-sedol-2016">AlphaGo vs. Lee Sedol (2016)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gpt-2-2018-et-les-debuts-de-l-ia-generative">GPT-2 (2018) et les débuts de l’IA générative</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-annees-2020-l-ia-omnipresente">2.7 Les années 2020 : L’IA omniprésente</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-godfathers-of-ai-et-le-lien-avec-montreal">2.8 Les « Godfathers of AI » et le lien avec Montréal</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemples-et-applications-de-l-ia">3. Exemples et applications de l’IA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vision-par-ordinateur-detection-et-reconnaissance-de-visages">3.1 Vision par ordinateur : Détection et reconnaissance de visages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reconnaissance-des-emotions">3.2 Reconnaissance des émotions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ia-generative-text-to-image">3.3 IA générative : Text-to-Image</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ia-generative-text-to-video">3.4 IA générative : Text-to-Video</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-quotidiennes-de-l-ia">3.5 Applications quotidiennes de l’IA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#points-de-reflexion-pour-les-etudiants-en-psychologie">4. Points de réflexion pour les étudiants en psychologie</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l-ia-comme-outil-de-recherche-en-psychologie">4.1 L’IA comme outil de recherche en psychologie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l-ia-comme-objet-d-etude-psychologique">4.2 L’IA comme objet d’étude psychologique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liens-avec-les-neurosciences-cognitives">4.3 Liens avec les neurosciences cognitives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-ethiques">4.4 Questions éthiques</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts-cles-a-retenir">5. Concepts clés à retenir</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ressources-complementaires">6. Ressources complémentaires</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podcast-recommande">Podcast recommandé</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sites-web-pour-explorer">Sites web pour explorer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#institutions-a-montreal">Institutions à Montréal</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-pour-la-discussion-en-classe">7. Questions pour la discussion en classe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-pour-l-enseignant">Notes pour l’enseignant</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par PSY3913 / 6913
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

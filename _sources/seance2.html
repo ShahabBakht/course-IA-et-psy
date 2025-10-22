@@ -1,0 +1,1459 @@
+
+<!DOCTYPE html>
+
+
+<html lang="fr" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Séance 2 : Introduction à l’Apprentissage Automatique &#8212; IA, Psychologie et Neuroscience Cognitive</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=720ed60b" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=d2032c04" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=720ed60b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/theme.css?v=a243ae73" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/bootstrap.css?v=b4a3e8ba" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?v=f4fbef65" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=041d0952"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_sources/seance2';</script>
+    <script src="../_static/translations.js?v=041d0952"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="../_static/searchtools.js?v=63a53a7d"></script>
+    <script src="../_static/french-stemmer.js?v=4cf82138"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/base-stemmer.js?v=da076eef"></script>
+    <script src="../_static/language_data.js?v=27445a5f"></script>
+    <script src="../_static/copybutton_funcs.js?v=776a791e"></script>
+    <script src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/scripts/bootstrap.js?v=7583a70d"></script>
+    <script src="../_static/scripts/pydata-sphinx-theme.js?v=4bc35cb3"></script>
+    <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?v=4e4fcec4"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">IA, Psychologie et Neuroscience Cognitive</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../seance1.html">Séance 1 - Introduction à l'IA</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/_sources/seance2.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Séance 2 : Introduction à l’Apprentissage Automatique</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vue-d-ensemble">Vue d’ensemble</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-types-d-ia-comprendre-la-hierarchie">1. Les types d’IA : Comprendre la hiérarchie</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-relation-entre-ia-machine-learning-et-deep-learning">1.1 La relation entre IA, Machine Learning et Deep Learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comprendre-la-relation">1.2 Comprendre la relation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programmation-traditionnelle-vs-apprentissage-automatique">2. Programmation Traditionnelle vs Apprentissage Automatique</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qu-est-ce-que-la-programmation-traditionnelle">2.1 Qu’est-ce que la programmation traditionnelle ?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l-approche-basee-sur-des-regles">2.2 L’approche basée sur des règles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l-approche-de-l-apprentissage-automatique">2.3 L’approche de l’apprentissage automatique</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemples-comparatifs-regles-vs-apprentissage">3. Exemples Comparatifs : Règles vs Apprentissage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-1-detection-de-spam-dans-les-courriels">3.1 Exemple 1 : Détection de spam dans les courriels</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#approche-traditionnelle-basee-sur-des-regles">Approche traditionnelle (basée sur des règles)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#approche-apprentissage-automatique">Approche apprentissage automatique</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-2-systeme-de-feux-de-circulation">3.2 Exemple 2 : Système de feux de circulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#approche-basee-sur-des-regles-explicites">Approche basée sur des règles explicites</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Approche apprentissage automatique</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-3-jeu-d-echecs">3.3 Exemple 3 : Jeu d’échecs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Approche basée sur des règles explicites</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cas-historique-deep-blue-1997">Cas historique : Deep Blue (1997)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#approche-apprentissage-automatique-alphazero">Approche apprentissage automatique : AlphaZero</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-4-reconnaissance-des-emotions-a-partir-des-expressions-faciales">3.4 Exemple 4 : Reconnaissance des émotions à partir des expressions faciales</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Approche basée sur des règles explicites</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#approche-basee-sur-l-apprentissage-automatique">Approche basée sur l’apprentissage automatique</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qu-est-ce-que-l-apprentissage-automatique">4. Qu’est-ce que l’Apprentissage Automatique ?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-formelle">4.1 Définition formelle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-deux-grandes-categories">4.2 Les deux grandes catégories</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apprentissage-supervise">5. Apprentissage Supervisé</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-et-principe">5.1 Définition et principe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-detection-des-emotions-dans-les-images">5.2 Exemple : Détection des émotions dans les images</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-detection-de-visages">5.3 Exemple : Détection de visages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#application-en-neurosciences-deeplabcut">5.4 Application en neurosciences : DeepLabCut</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apprentissage-non-supervise">6. Apprentissage Non Supervisé</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">6.1 Définition et principe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principe-du-clustering-regroupement">6.2 Principe du clustering (regroupement)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-regroupement-de-visages">6.3 Exemple : Regroupement de visages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#application-en-neurosciences-moseq">6.4 Application en neurosciences : MoSeq</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-en-psychologie-et-neurosciences">7. Applications en Psychologie et Neurosciences</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstruction-des-etats-visuels-du-cerveau-peut-on-lire-dans-les-pensees">7.1 Reconstruction des états visuels du cerveau : Peut-on lire dans les pensées ?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#comment-ca-fonctionne-l-approche-de-l-ia">Comment ça fonctionne : L’approche de l’IA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-potentielles">Applications potentielles</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recapitulatif-et-comparaison">8. Récapitulatif et Comparaison</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tableau-comparatif-regles-vs-apprentissage-automatique">8.1 Tableau comparatif : Règles vs Apprentissage Automatique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apprentissage-supervise-vs-non-supervise">8.2 Apprentissage Supervisé vs Non Supervisé</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts-cles-a-retenir">9. Concepts Clés à Retenir</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-de-reflexion">10. Questions de Réflexion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ressources-complementaires">11. Ressources Complémentaires</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lectures-recommandees">Lectures recommandées</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outils-et-demos">Outils et démos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparation-pour-la-seance-3">12. Préparation pour la Séance 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-pour-l-enseignant">Notes pour l’Enseignant</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#points-d-emphase">Points d’emphase</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activites-suggerees">Activités suggérées</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="seance-2-introduction-a-l-apprentissage-automatique">
+<h1>Séance 2 : Introduction à l’Apprentissage Automatique<a class="headerlink" href="#seance-2-introduction-a-l-apprentissage-automatique" title="Lien vers cette rubrique">#</a></h1>
+<section id="vue-d-ensemble">
+<h2>Vue d’ensemble<a class="headerlink" href="#vue-d-ensemble" title="Lien vers cette rubrique">#</a></h2>
+<p>Cette deuxième séance explore la distinction fondamentale entre l’intelligence artificielle basée sur des règles explicites et l’apprentissage automatique. Nous découvrons les types d’IA, comment l’apprentissage automatique diffère de la programmation traditionnelle, et ses applications en psychologie et neurosciences.</p>
+</section>
+<hr class="docutils" />
+<section id="les-types-d-ia-comprendre-la-hierarchie">
+<h2>1. Les types d’IA : Comprendre la hiérarchie<a class="headerlink" href="#les-types-d-ia-comprendre-la-hierarchie" title="Lien vers cette rubrique">#</a></h2>
+<section id="la-relation-entre-ia-machine-learning-et-deep-learning">
+<h3>1.1 La relation entre IA, Machine Learning et Deep Learning<a class="headerlink" href="#la-relation-entre-ia-machine-learning-et-deep-learning" title="Lien vers cette rubrique">#</a></h3>
+<p>Nous entendons différents termes lorsqu’on parle d’IA : intelligence artificielle, apprentissage automatique (machine learning), apprentissage profond (deep learning), et plus récemment, IA générative. Comment ces concepts sont-ils liés ?</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>La hiérarchie des concepts :</strong></p>
+<p><strong>IA (Intelligence Artificielle)</strong> - Le domaine le plus large
+↓
+<strong>Machine Learning (Apprentissage Automatique)</strong> - Un sous-ensemble de l’IA
+↓
+<strong>Deep Learning (Apprentissage Profond)</strong> - Un sous-ensemble du ML
+↓
+<strong>IA Générative</strong> - Un sous-ensemble du DL</p>
+</div>
+</section>
+<section id="comprendre-la-relation">
+<h3>1.2 Comprendre la relation<a class="headerlink" href="#comprendre-la-relation" title="Lien vers cette rubrique">#</a></h3>
+<div class="note admonition">
+<p class="admonition-title">Relations entre les concepts</p>
+<ul class="simple">
+<li><p><strong>Machine Learning est un sous-ensemble de l’IA</strong> : L’apprentissage automatique est l’une des approches possibles de l’IA, mais aujourd’hui c’est l’approche la plus populaire et la plus performante.</p></li>
+<li><p><strong>Deep Learning est un sous-ensemble du ML</strong> : Il existe différentes approches de ML, mais le deep learning est une approche particulière qui est très populaire aujourd’hui dans le développement de l’IA.</p></li>
+<li><p><strong>Chaque terme a un sens distinct</strong> : Bien que liés, ces quatre termes renvoient à des concepts différents avec des niveaux de spécificité différents.</p></li>
+</ul>
+</div>
+<p><strong>Pourquoi cette distinction est-elle importante ?</strong></p>
+<p>Dans le domaine de l’IA, il existe différentes approches. Le machine learning est l’approche la plus réussie et performante actuellement. De même, dans le machine learning, le deep learning est l’approche qui a permis les plus grandes avancées récentes.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="programmation-traditionnelle-vs-apprentissage-automatique">
+<h2>2. Programmation Traditionnelle vs Apprentissage Automatique<a class="headerlink" href="#programmation-traditionnelle-vs-apprentissage-automatique" title="Lien vers cette rubrique">#</a></h2>
+<section id="qu-est-ce-que-la-programmation-traditionnelle">
+<h3>2.1 Qu’est-ce que la programmation traditionnelle ?<a class="headerlink" href="#qu-est-ce-que-la-programmation-traditionnelle" title="Lien vers cette rubrique">#</a></h3>
+<p>La <strong>programmation traditionnelle</strong> utilise une <strong>approche basée sur des règles</strong> (« rule-based approach »).</p>
+<div class="tip admonition">
+<p class="admonition-title">Exemples de programmes traditionnels</p>
+<p>Les applications que vous utilisez quotidiennement sont principalement développées avec de la programmation traditionnelle :</p>
+<ul class="simple">
+<li><p>Applications de téléphone portable</p></li>
+<li><p>Systèmes de courriel</p></li>
+<li><p>Systèmes d’exploitation (Windows, macOS, iOS, Android)</p></li>
+<li><p>Studium et autres plateformes éducatives</p></li>
+</ul>
+</div>
+<p><strong>Question fondamentale :</strong>
+Quelle est la différence entre ces systèmes et l’IA ? Les deux fonctionnent sur des machines et effectuent des tâches, mais quelle est la différence ?</p>
+</section>
+<section id="l-approche-basee-sur-des-regles">
+<h3>2.2 L’approche basée sur des règles<a class="headerlink" href="#l-approche-basee-sur-des-regles" title="Lien vers cette rubrique">#</a></h3>
+<p>Dans la programmation traditionnelle, le développeur crée des <strong>règles explicites</strong> qui déterminent le comportement du programme.</p>
+<p><strong>Structure de base :</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IF</span> <span class="n">X</span><span class="p">:</span>
+    <span class="n">DO</span> <span class="n">Y</span>
+<span class="n">ELSE</span><span class="p">:</span>
+    <span class="n">DO</span> <span class="n">Z</span>
+</pre></div>
+</div>
+<p>Ces règles « if-then » (si-alors) sont prédéfinies par le programmeur. Selon la complexité du système désiré, vous aurez besoin de créer un programme avec plusieurs, voire des milliers de ces règles.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Caractéristique clé de la programmation traditionnelle :</strong>
+La performance du système dépend entièrement de l’exhaustivité et de la précision des règles définies par le programmeur.</p>
+</div>
+</section>
+<section id="l-approche-de-l-apprentissage-automatique">
+<h3>2.3 L’approche de l’apprentissage automatique<a class="headerlink" href="#l-approche-de-l-apprentissage-automatique" title="Lien vers cette rubrique">#</a></h3>
+<p>L”<strong>apprentissage automatique (Machine Learning)</strong> fonctionne différemment : <strong>apprentissage à partir de données et d’exemples, pas de règles prédéfinies</strong>.</p>
+<div class="note admonition">
+<p class="admonition-title">Définition formelle (Russell and Norvig, 2021)</p>
+<p>L’apprentissage automatique est un sous-domaine de l’IA qui étudie la capacité à améliorer les performances sur la base de l’expérience.</p>
+</div>
+<p><strong>Interprétation importante :</strong>
+« L’expérience » dans cette définition fait référence aux <strong>données</strong> que nous utilisons pour entraîner notre modèle d’IA.</p>
+<div class="tip admonition">
+<p class="admonition-title">Citation de Stanford HAI</p>
+<p>« Les humains programment les machines pour qu’elles se comportent de manière intelligente, comme par exemple jouer aux échecs, mais aujourd’hui nous mettons l’accent sur les machines capables d’apprendre, au moins « un peu » comme le font les êtres humains. »</p>
+<p>Source: Stanford Human-Centered AI Institute</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="exemples-comparatifs-regles-vs-apprentissage">
+<h2>3. Exemples Comparatifs : Règles vs Apprentissage<a class="headerlink" href="#exemples-comparatifs-regles-vs-apprentissage" title="Lien vers cette rubrique">#</a></h2>
+<section id="exemple-1-detection-de-spam-dans-les-courriels">
+<h3>3.1 Exemple 1 : Détection de spam dans les courriels<a class="headerlink" href="#exemple-1-detection-de-spam-dans-les-courriels" title="Lien vers cette rubrique">#</a></h3>
+<section id="approche-traditionnelle-basee-sur-des-regles">
+<h4>Approche traditionnelle (basée sur des règles)<a class="headerlink" href="#approche-traditionnelle-basee-sur-des-regles" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Principe :</strong> Le programmeur définit des règles explicites pour classer un courriel comme spam.</p>
+<p><strong>Exemple de code Python :</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">est_spam</span><span class="p">(</span><span class="n">texte_email</span><span class="p">):</span>
+    <span class="n">mots_clefs_spam</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;gagner&quot;</span><span class="p">,</span> <span class="s2">&quot;gratuit&quot;</span><span class="p">,</span> <span class="s2">&quot;offre&quot;</span><span class="p">,</span> <span class="s2">&quot;cliquez maintenant&quot;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">mot</span> <span class="ow">in</span> <span class="n">mots_clefs_spam</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">mot</span> <span class="ow">in</span> <span class="n">texte_email</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="n">courriel</span> <span class="o">=</span> <span class="s2">&quot;Félicitations ! Vous gagnez un iPhone gratuit. Cliquez maintenant !&quot;</span>
+<span class="k">if</span> <span class="n">est_spam</span><span class="p">(</span><span class="n">courriel</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ceci est un e-mail spam.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ceci n&#39;est pas un e-mail spam.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Comment ça fonctionne :</strong></p>
+<ol class="arabic simple">
+<li><p>On définit une liste de mots-clés qui apparaissent souvent dans les messages de spam</p></li>
+<li><p>Le programme vérifie si le courriel contient ces mots-clés</p></li>
+<li><p>Si l’un de ces mots est présent, il classe le courriel comme spam</p></li>
+</ol>
+<p><strong>La performance de ce programme dépend des règles et de leur degré d’exhaustivité et de précision.</strong></p>
+<div class="warning admonition">
+<p class="admonition-title">Limitations de l’approche basée sur règles</p>
+<p><strong>Inflexibilité :</strong> Incapable de s’adapter aux nouveaux modèles de spam. Les développeurs de spam pourraient simplement changer les mots dans leurs messages.</p>
+<p><strong>Faux positifs :</strong> Risque de mal classer des courriels légitimes contenant des mots similaires (par exemple : « Parking gratuit disponible »).</p>
+<p><strong>Maintenance constante :</strong> Nécessite une mise à jour manuelle constante des règles.</p>
+</div>
+</section>
+<section id="approche-apprentissage-automatique">
+<h4>Approche apprentissage automatique<a class="headerlink" href="#approche-apprentissage-automatique" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Principe :</strong> Il n’y a pas de règles ou de mots-clés prédéfinis. Le modèle voit de nombreux exemples de courriels spam et non-spam et apprend automatiquement les motifs.</p>
+<p><strong>Exemple de code Python (simplifié) :</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.naive_bayes</span><span class="w"> </span><span class="kn">import</span> <span class="n">MultinomialNB</span>
+
+<span class="c1"># Données d&#39;entraînement</span>
+<span class="n">courriels</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Gagnez des vacances gratuites maintenant&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;Réunion demain à 15h&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;Offre spéciale juste pour vous&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;Déjeuner avec l&#39;équipe&quot;</span>
+<span class="p">]</span>
+<span class="n">etiquettes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># 1 = spam, 0 = non spam</span>
+
+<span class="c1"># Convertir le texte en caractéristiques numériques</span>
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">courriels</span><span class="p">)</span>
+
+<span class="c1"># Entraîner un modèle de détection de spam</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">MultinomialNB</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">etiquettes</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Note importante</p>
+<p>C’est juste un exemple pour montrer la différence d’approche. Les détails techniques ne sont pas importants ici. Ce qui compte, c’est de comprendre que les deux méthodes sont implémentées dans un cadre de programmation, mais les programmes contiennent des choses complètement différentes.</p>
+</div>
+<p><strong>Comment ça fonctionne :</strong>
+Le modèle apprend à partir des données d’entraînement à détecter des motifs, tels que des combinaisons de mots ou des fréquences, qui indiquent la présence de spam.</p>
+<p><strong>Les motifs découverts par l’apprentissage automatique sont plus complexes et subtils que la simple liste de mots-clés de l’approche traditionnelle.</strong></p>
+<div class="tip admonition">
+<p class="admonition-title">Avantages de l’approche ML</p>
+<p>✅ <strong>Plus flexible et adaptatif</strong> : Peut s’adapter à de nouveaux types de spam avec un entraînement supplémentaire</p>
+<p>✅ <strong>Meilleure précision</strong> : Avec des ensembles de données larges et diversifiés</p>
+<p>✅ <strong>Découvre des patterns complexes</strong> : Au-delà des mots-clés simples</p>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Défis de l’approche ML</p>
+<p>⚠️ <strong>Nécessite des données étiquetées</strong> : Besoin d’exemples annotés de spam et non-spam</p>
+<p>⚠️ <strong>Ressources informatiques</strong> : Plus gourmand en calcul que les règles simples</p>
+<p>⚠️ <strong>Erreurs difficiles à interpréter</strong> : Moins transparent que des règles explicites</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="exemple-2-systeme-de-feux-de-circulation">
+<h3>3.2 Exemple 2 : Système de feux de circulation<a class="headerlink" href="#exemple-2-systeme-de-feux-de-circulation" title="Lien vers cette rubrique">#</a></h3>
+<section id="approche-basee-sur-des-regles-explicites">
+<h4>Approche basée sur des règles explicites<a class="headerlink" href="#approche-basee-sur-des-regles-explicites" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Principe :</strong> Un système de feux de circulation programmé avec un ensemble simple de règles.</p>
+<p><strong>Exemple de règle :</strong>
+« Passer au vert pendant 30 secondes dans une direction, puis passer au rouge et laisser passer l’autre direction pendant 30 secondes. »</p>
+<p><strong>Approche plus complexe :</strong>
+Vous pourriez définir des durées différentes selon les heures de la journée :</p>
+<ul class="simple">
+<li><p>Passer au vert pendant 60 secondes de 8h à 9h du matin (heure de pointe)</p></li>
+<li><p>Passer au vert pendant 30 secondes le reste de la journée</p></li>
+</ul>
+<div class="warning admonition">
+<p class="admonition-title">Limitation</p>
+<p>Cette méthode est <strong>rigide</strong> et ne tient pas compte des variations réelles des conditions de circulation (congestion imprévisible, accidents, événements spéciaux).</p>
+</div>
+</section>
+<section id="id1">
+<h4>Approche apprentissage automatique<a class="headerlink" href="#id1" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Principe :</strong> Un système basé sur l’apprentissage automatique pourrait utiliser des données de trafic en temps réel.</p>
+<p><strong>Fonctionnement :</strong></p>
+<ul class="simple">
+<li><p><strong>Sources de données :</strong> Capteurs, caméras de surveillance du trafic</p></li>
+<li><p><strong>Ajustement dynamique :</strong> Les durées des feux s’adaptent selon le trafic à chaque moment</p></li>
+<li><p><strong>Apprentissage continu :</strong> Le système apprend des motifs qui facilitent la circulation et réduisent les accidents</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Le système s’adapte automatiquement sans programmation manuelle des règles. Il découvre les patterns optimaux à partir des données de trafic réelles.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="exemple-3-jeu-d-echecs">
+<h3>3.3 Exemple 3 : Jeu d’échecs<a class="headerlink" href="#exemple-3-jeu-d-echecs" title="Lien vers cette rubrique">#</a></h3>
+<section id="id2">
+<h4>Approche basée sur des règles explicites<a class="headerlink" href="#id2" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Les premiers programmes d’échecs :</strong>
+Les développeurs programmaient des stratégies et des mouvements spécifiques basés sur des règles « if-then » :</p>
+<ul class="simple">
+<li><p>« Si votre adversaire déplace sa reine, déplacez votre cavalier pour le bloquer. »</p></li>
+<li><p>« Si vous pouvez capturer un pion sans risque, faites-le. »</p></li>
+</ul>
+<div class="warning admonition">
+<p class="admonition-title">Limitation</p>
+<p>Ces programmes ne pouvaient effectuer qu’un nombre limité de mouvements prédéfinis et ne pouvaient pas s’adapter à de nouvelles stratégies. Si le joueur change sa stratégie, le système n’est pas capable de s’adapter parce que les règles sont fixes.</p>
+</div>
+</section>
+<section id="cas-historique-deep-blue-1997">
+<h4>Cas historique : Deep Blue (1997)<a class="headerlink" href="#cas-historique-deep-blue-1997" title="Lien vers cette rubrique">#</a></h4>
+<div class="note admonition">
+<p class="admonition-title">Deep Blue vs Garry Kasparov</p>
+<p><strong>Fait intéressant :</strong> L’IA Deep Blue qui a battu Garry Kasparov en 1997 utilisait ce type de programmation traditionnelle (aussi connue sous le nom d’IA symbolique).</p>
+<p><strong>Fonctionnement :</strong></p>
+<ul class="simple">
+<li><p>Contenait un grand arbre de mouvements et de stratégies possibles</p></li>
+<li><p>Pouvait déterminer le meilleur mouvement à chaque état du jeu</p></li>
+<li><p>Structure : « Si le jeu est dans cette situation, il y a 3 choses que ton compétiteur pourrait faire. IF elle décide de faire X, DO A. IF elle décide de faire Y, DO B, etc. »</p></li>
+</ul>
+<p><strong>Limitation :</strong> L’arbre était fixe, non flexible, non adaptatif. Il ne pouvait donc pas apprendre une nouvelle stratégie.</p>
+</div>
+</section>
+<section id="approche-apprentissage-automatique-alphazero">
+<h4>Approche apprentissage automatique : AlphaZero<a class="headerlink" href="#approche-apprentissage-automatique-alphazero" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>AlphaZero (DeepMind)</strong> utilise une approche complètement différente basée sur l’apprentissage automatique (deep learning).</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Révolution majeure :</strong>
+AlphaZero a appris à jouer aux échecs en <strong>jouant des millions de parties contre lui-même</strong>, en améliorant ses stratégies et en prenant des décisions <strong>sans règles prédéfinies</strong>.</p>
+<p>Il a découvert des stratégies gagnantes que même les humains n’avaient pas envisagées, en se basant uniquement sur les données (l’historique de ses parties).</p>
+</div>
+<p><strong>Différence clé :</strong></p>
+<ul class="simple">
+<li><p><strong>Il n’y a aucune règle prédéfinie</strong> qui détermine les mouvements à chaque moment</p></li>
+<li><p><strong>Tout est découvert à partir de données</strong></p></li>
+<li><p>Il est très probable qu’AlphaZero découvre et utilise des stratégies qui n’ont pas été découvertes par les humains</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Témoignage de joueurs professionnels</p>
+<p>Les joueurs professionnels ont affirmé avoir vu des stratégies ou des mouvements utilisés par AlphaZero qu’ils n’avaient jamais vus auparavant. L’IA a littéralement inventé de nouvelles façons de jouer !</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="exemple-4-reconnaissance-des-emotions-a-partir-des-expressions-faciales">
+<h3>3.4 Exemple 4 : Reconnaissance des émotions à partir des expressions faciales<a class="headerlink" href="#exemple-4-reconnaissance-des-emotions-a-partir-des-expressions-faciales" title="Lien vers cette rubrique">#</a></h3>
+<section id="id3">
+<h4>Approche basée sur des règles explicites<a class="headerlink" href="#id3" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Principe :</strong> Vous définissez des règles explicites pour reconnaître les émotions.</p>
+<p><strong>Exemples de règles :</strong></p>
+<ul class="simple">
+<li><p>« Si les coins de la bouche sont relevés et que les dents sont visibles → classer comme un sourire (joie) »</p></li>
+<li><p>« Si les sourcils sont froncés et que la bouche est tournée vers le bas → classer comme une moue (tristesse) »</p></li>
+</ul>
+<p><strong>Le système repose entièrement sur des descriptions prédéfinies de configurations faciales.</strong></p>
+<div class="warning admonition">
+<p class="admonition-title">Limitations</p>
+<ul class="simple">
+<li><p>Difficulté à capturer la subtilité des expressions humaines</p></li>
+<li><p>Incapacité à gérer les variations individuelles et culturelles</p></li>
+<li><p>Nécessite de définir manuellement chaque configuration possible</p></li>
+<li><p>Ne peut pas s’adapter à de nouvelles expressions ou contextes</p></li>
+</ul>
+</div>
+</section>
+<section id="approche-basee-sur-l-apprentissage-automatique">
+<h4>Approche basée sur l’apprentissage automatique<a class="headerlink" href="#approche-basee-sur-l-apprentissage-automatique" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Principe :</strong> On entraîne un modèle sur un ensemble de données d’expressions faciales étiquetées.</p>
+<p><strong>Fonctionnement :</strong></p>
+<ul class="simple">
+<li><p>L’IA apprend les motifs qui correspondent aux différentes émotions</p></li>
+<li><p><strong>Sans nécessiter de règles explicites</strong></p></li>
+<li><p>Le modèle découvre automatiquement les caractéristiques pertinentes</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Avantages</p>
+<ul class="simple">
+<li><p>Capture des patterns subtils et complexes</p></li>
+<li><p>S’adapte aux variations individuelles</p></li>
+<li><p>Peut améliorer ses performances avec plus de données</p></li>
+<li><p>Découvre des associations que nous n’aurions pas pensé à programmer</p></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="qu-est-ce-que-l-apprentissage-automatique">
+<h2>4. Qu’est-ce que l’Apprentissage Automatique ?<a class="headerlink" href="#qu-est-ce-que-l-apprentissage-automatique" title="Lien vers cette rubrique">#</a></h2>
+<section id="definition-formelle">
+<h3>4.1 Définition formelle<a class="headerlink" href="#definition-formelle" title="Lien vers cette rubrique">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Apprentissage automatique (Machine Learning) :</strong>
+Algorithmes permettant aux ordinateurs d’apprendre des formes (ou motifs; patterns en anglais) à partir de données.</p>
+</div>
+<p><strong>Concept clé :</strong> Au lieu de programmer explicitement chaque règle, nous laissons l’ordinateur découvrir les patterns dans les données.</p>
+</section>
+<section id="les-deux-grandes-categories">
+<h3>4.2 Les deux grandes catégories<a class="headerlink" href="#les-deux-grandes-categories" title="Lien vers cette rubrique">#</a></h3>
+<p>Il existe deux catégories principales d’apprentissage automatique :</p>
+<ol class="arabic simple">
+<li><p><strong>Apprentissage supervisé</strong></p></li>
+<li><p><strong>Apprentissage non supervisé</strong></p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="apprentissage-supervise">
+<h2>5. Apprentissage Supervisé<a class="headerlink" href="#apprentissage-supervise" title="Lien vers cette rubrique">#</a></h2>
+<section id="definition-et-principe">
+<h3>5.1 Définition et principe<a class="headerlink" href="#definition-et-principe" title="Lien vers cette rubrique">#</a></h3>
+<div class="note admonition">
+<p class="admonition-title">Apprentissage supervisé</p>
+<p><strong>Apprentissage à partir de données annotées</strong></p>
+<p>Pour l’apprentissage supervisé, nous avons besoin de données annotées, c’est-à-dire que pour chaque échantillon de données, nous avons besoin de son <strong>étiquette</strong> ou de ses <strong>annotations</strong> - les choses que nous voulons que le modèle apprenne à prédire à partir de ces données.</p>
+</div>
+<p><strong>Le terme « supervisé » :</strong>
+Nous « supervisons » l’apprentissage du modèle en lui fournissant les bonnes réponses (étiquettes) pour chaque exemple.</p>
+</section>
+<section id="exemple-detection-des-emotions-dans-les-images">
+<h3>5.2 Exemple : Détection des émotions dans les images<a class="headerlink" href="#exemple-detection-des-emotions-dans-les-images" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>Objectif :</strong> Entraîner un modèle de ML pour détecter les expressions du visage.</p>
+<p><strong>Ce dont nous avons besoin :</strong></p>
+<ul class="simple">
+<li><p><strong>Données d’entrée (Input) :</strong> Images de visages</p></li>
+<li><p><strong>Données de sortie (Output) / Étiquettes :</strong> Les émotions correspondantes (joie, tristesse, colère, etc.)</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Pour chaque image de visage, nous devons fournir l’étiquette de l’émotion exprimée. C’est ce qu’on appelle des <strong>données annotées</strong>.</p>
+</div>
+</section>
+<section id="exemple-detection-de-visages">
+<h3>5.3 Exemple : Détection de visages<a class="headerlink" href="#exemple-detection-de-visages" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>Objectif :</strong> Entraîner un modèle capable de détecter des visages dans des images.</p>
+<p><strong>Ce dont nous avons besoin :</strong></p>
+<ul class="simple">
+<li><p><strong>Données d’entrée :</strong> Images diverses (avec et sans visages)</p></li>
+<li><p><strong>Étiquettes :</strong> Pour chaque image, indiquer s’il y a un visage ou non (et possiblement sa localisation)</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Pourquoi « supervisé » ?</p>
+<p>C’est de l’apprentissage <strong>supervisé</strong> parce que pour chaque échantillon de données (dans ce cas, chaque image), nous avons besoin d’une <strong>supervision explicite</strong> fournie par des étiquettes.</p>
+<p>Sans ces étiquettes, le modèle ne saurait pas ce qu’il doit apprendre à prédire.</p>
+</div>
+</section>
+<section id="application-en-neurosciences-deeplabcut">
+<h3>5.4 Application en neurosciences : DeepLabCut<a class="headerlink" href="#application-en-neurosciences-deeplabcut" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>DeepLabCut</strong> est un modèle d’apprentissage automatique très utile et populaire pour analyser les mouvements en neurosciences et psychologie.</p>
+<div class="note admonition">
+<p class="admonition-title">Qu’est-ce que DeepLabCut ?</p>
+<p>Un modèle d’apprentissage automatique capable de :</p>
+<ul class="simple">
+<li><p>Détecter les parties du corps des animaux</p></li>
+<li><p>Suivre leurs mouvements dans des vidéos</p></li>
+<li><p>Permettre aux chercheurs de suivre les mouvements de toutes les parties du corps avec une grande précision</p></li>
+</ul>
+</div>
+<p><strong>Applications concrètes :</strong></p>
+<p>Les chercheurs qui s’intéressent aux mouvements des animaux ou des êtres humains peuvent :</p>
+<ol class="arabic simple">
+<li><p>Enregistrer les mouvements dans des vidéos</p></li>
+<li><p>Utiliser DeepLabCut pour suivre automatiquement les mouvements de toutes les parties du corps</p></li>
+<li><p>Analyser ces données pour comprendre la structure du mouvement et le contrôle du mouvement par le cerveau</p></li>
+</ol>
+<p><strong>Exemples d’utilisation :</strong></p>
+<ul class="simple">
+<li><p><strong>Mouches (Fly) :</strong> Processus de ponte (egg-laying process)</p></li>
+<li><p><strong>Rongeurs :</strong> Comportements d’exploration</p></li>
+<li><p><strong>Primates :</strong> Mouvements de préhension</p></li>
+<li><p><strong>Humains :</strong> Analyse de la marche, sauts verticaux (jumping vertically)</p></li>
+</ul>
+<p><strong>Comment ça fonctionne :</strong></p>
+<ol class="arabic simple">
+<li><p>Des vidéos d’animaux sont fournies au modèle</p></li>
+<li><p>Le modèle est entraîné à détecter la position de chaque partie du corps dans chaque image des vidéos</p></li>
+<li><p>Résultat : Vous pouvez suivre les parties du corps tout au long des vidéos avec une grande précision</p></li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Très utile pour :</strong></p>
+<ul class="simple">
+<li><p>Étudier le mouvement en neurosciences et en psychologie</p></li>
+<li><p>Comprendre la structure du mouvement</p></li>
+<li><p>Comprendre le contrôle du mouvement par le cerveau</p></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="apprentissage-non-supervise">
+<h2>6. Apprentissage Non Supervisé<a class="headerlink" href="#apprentissage-non-supervise" title="Lien vers cette rubrique">#</a></h2>
+<section id="id4">
+<h3>6.1 Définition et principe<a class="headerlink" href="#id4" title="Lien vers cette rubrique">#</a></h3>
+<div class="note admonition">
+<p class="admonition-title">Apprentissage non supervisé</p>
+<p><strong>Apprentissage à partir de données non annotées</strong></p>
+<p>Pour l’apprentissage non supervisé, <strong>aucune étiquette n’est nécessaire</strong>. Les algorithmes peuvent fonctionner avec des données non annotées pour découvrir des motifs (patterns) dans les données.</p>
+</div>
+<p><strong>Différence fondamentale :</strong>
+Nous ne supervisons pas exactement ce qui doit être appris à partir des données. On donne au modèle les données et <strong>on le laisse découvrir les choses lui-même</strong>.</p>
+</section>
+<section id="principe-du-clustering-regroupement">
+<h3>6.2 Principe du clustering (regroupement)<a class="headerlink" href="#principe-du-clustering-regroupement" title="Lien vers cette rubrique">#</a></h3>
+<p>La plupart des modèles non supervisés <strong>regroupent les échantillons de données en fonction de leur similarité</strong>.</p>
+<p><strong>Objectif :</strong>
+Créer des groupes (ou <strong>clusters</strong>) où :</p>
+<ol class="arabic simple">
+<li><p>Les échantillons <strong>à l’intérieur</strong> d’un groupe sont <strong>plus similaires entre eux</strong></p></li>
+<li><p>Les échantillons sont <strong>différents</strong> des échantillons des <strong>autres groupes</strong></p></li>
+</ol>
+<div class="tip admonition">
+<p class="admonition-title">Point important</p>
+<p>Comment vous définissez la <strong>mesure de similarité</strong> influencera le regroupement ou clustering. La plupart des recherches dans le domaine de l’apprentissage non supervisé portent en fait sur les mesures de similarité.</p>
+</div>
+</section>
+<section id="exemple-regroupement-de-visages">
+<h3>6.3 Exemple : Regroupement de visages<a class="headerlink" href="#exemple-regroupement-de-visages" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>Scénario :</strong> Vous avez une base de données d’images de visages sans étiquettes.</p>
+<p><strong>Ce qu’un modèle d’apprentissage non supervisé peut faire :</strong>
+Regrouper automatiquement les images simplement selon leurs similarités, sans connaître l’identité des personnes ou leurs caractéristiques.</p>
+<p><strong>Résultat potentiel :</strong></p>
+<ul class="simple">
+<li><p>Groupe 1 : Visages d’enfants</p></li>
+<li><p>Groupe 2 : Visages d’adultes</p></li>
+<li><p>Groupe 3 : Visages souriants</p></li>
+<li><p>Groupe 4 : Visages de profil</p></li>
+<li><p>etc.</p></li>
+</ul>
+<p>Le modèle découvre ces groupements naturellement, sans qu’on lui dise à l’avance quelles catégories chercher.</p>
+</section>
+<section id="application-en-neurosciences-moseq">
+<h3>6.4 Application en neurosciences : MoSeq<a class="headerlink" href="#application-en-neurosciences-moseq" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>MoSeq (Motion Sequencing algorithm)</strong> est un exemple d’apprentissage non supervisé pour l’analyse comportementale.</p>
+<div class="note admonition">
+<p class="admonition-title">Qu’est-ce que MoSeq ?</p>
+<p><strong>Une méthode objective pour décrire le répertoire comportemental de la souris (ou d’autres animaux)</strong></p>
+<p>MoSeq découvre automatiquement les différents comportements dans des vidéos d’animaux sans avoir besoin d’étiquettes prédéfinies.</p>
+</div>
+<p><strong>Le problème à résoudre :</strong></p>
+<ol class="arabic simple">
+<li><p>Nous avons enregistré des vidéos de souris (ou d’autres animaux) bougeant dans un environnement</p></li>
+<li><p>Nous souhaitons découvrir les segments des vidéos contenant des <strong>comportements similaires</strong></p></li>
+<li><p>Nous voulons segmenter les vidéos en segments qui contiennent :</p>
+<ul class="simple">
+<li><p>Des comportements <strong>similaires à l’intérieur</strong> de ce segment</p></li>
+<li><p>Des comportements <strong>différents</strong> des comportements dans les autres segments</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Comment MoSeq fonctionne :</strong></p>
+<p>Le modèle est capable de :</p>
+<ul class="simple">
+<li><p>Détecter automatiquement les différents comportements de la souris dans la vidéo</p></li>
+<li><p>Nous donner les parties de la vidéo qui correspondent à chaque comportement</p></li>
+<li><p>Créer un « dictionnaire » objectif des comportements</p></li>
+</ul>
+<p><strong>Généralité de l’approche :</strong>
+Ce n’est pas seulement pour les souris ! Vous pouvez l’utiliser pour regrouper le comportement de n’importe quel animal, y compris les humains.</p>
+<div class="tip admonition">
+<p class="admonition-title">Quand utiliser l’apprentissage non supervisé ?</p>
+<p>Ce type d’apprentissage automatique est très utile lorsque :</p>
+<ol class="arabic simple">
+<li><p><strong>Vous avez beaucoup de données non annotées</strong> et il serait difficile ou coûteux d’annoter tous les échantillons</p></li>
+<li><p><strong>Vous ne savez pas exactement quels patterns chercher</strong> - vous voulez que le modèle découvre lui-même les structures dans les données</p></li>
+<li><p><strong>Vous voulez une analyse objective</strong> sans biais humains dans l’étiquetage</p></li>
+</ol>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="applications-en-psychologie-et-neurosciences">
+<h2>7. Applications en Psychologie et Neurosciences<a class="headerlink" href="#applications-en-psychologie-et-neurosciences" title="Lien vers cette rubrique">#</a></h2>
+<section id="reconstruction-des-etats-visuels-du-cerveau-peut-on-lire-dans-les-pensees">
+<h3>7.1 Reconstruction des états visuels du cerveau : Peut-on lire dans les pensées ?<a class="headerlink" href="#reconstruction-des-etats-visuels-du-cerveau-peut-on-lire-dans-les-pensees" title="Lien vers cette rubrique">#</a></h3>
+<p>Une des applications les plus fascinantes de l’apprentissage automatique est la capacité de <strong>reconstruire ce qu’une personne voit ou imagine</strong> à partir de l’activité cérébrale.</p>
+<div class="question admonition">
+<p class="admonition-title">La question</p>
+<p><strong>Peut-on lire le contenu visuel de la pensée humaine ?</strong> (Mind reading en anglais)</p>
+<p>C’est une question qui fascine les scientifiques depuis des années.</p>
+</div>
+<section id="comment-ca-fonctionne-l-approche-de-l-ia">
+<h4>Comment ça fonctionne : L’approche de l’IA<a class="headerlink" href="#comment-ca-fonctionne-l-approche-de-l-ia" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Type de modèle :</strong> Apprentissage supervisé</p>
+<p><strong>Structure du modèle :</strong></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Entrées (Inputs) :</strong> Données IRMf enregistrées du cerveau au moment où les humains regardent des images ou des vidéos</p>
+<p><strong>Sorties (Outputs) :</strong> Les images ou vidéos reconstruites que les humains ont regardées pendant l’enregistrement</p>
+</div>
+<p><strong>Processus d’entraînement :</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Phase d’entraînement :</strong></p>
+<ul class="simple">
+<li><p>Des participants regardent des images/vidéos</p></li>
+<li><p>On enregistre leur activité cérébrale (IRMf)</p></li>
+<li><p>Le modèle apprend les associations entre patterns d’activité cérébrale et contenu visuel</p></li>
+</ul>
+</li>
+<li><p><strong>Phase de test :</strong></p>
+<ul class="simple">
+<li><p>On enregistre l’activité cérébrale d’une personne regardant une nouvelle image</p></li>
+<li><p>Le modèle reconstruit l’image à partir de l’activité cérébrale seule</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Référence :</strong> Takagi and Nishimoto, 2023
+<a class="reference external" href="https://sites.google.com/view/stablediffusion-with-brain/">Lien vers la recherche</a></p>
+</section>
+<section id="applications-potentielles">
+<h4>Applications potentielles<a class="headerlink" href="#applications-potentielles" title="Lien vers cette rubrique">#</a></h4>
+<div class="tip admonition">
+<p class="admonition-title">En quoi est-ce utile pour les neurosciences cognitives ?</p>
+<p><strong>1. Comprendre le cerveau :</strong>
+Après avoir créé un tel modèle, nous pouvons l’examiner pour découvrir :</p>
+<ul class="simple">
+<li><p>Comment il pouvait reconstruire les images</p></li>
+<li><p>Quelle combinaison de motifs d’activité cérébrale permet la reconstruction</p></li>
+<li><p>Cela nous aide à mieux comprendre le fonctionnement du cerveau</p></li>
+</ul>
+<p><strong>2. Accéder aux états non conscients :</strong>
+Nous pouvons l’utiliser pour reconstruire les contenus du cerveau dans des états non conscients :</p>
+<ul class="simple">
+<li><p><strong>Les rêves</strong> : Que voyons-nous quand nous rêvons ?</p></li>
+<li><p><strong>Patients souffrant de troubles de la conscience</strong> : Communication avec des patients en état végétatif ou minimalement conscients</p></li>
+<li><p><strong>Obtenir une meilleure compréhension des bases neurales</strong> de ces états</p></li>
+</ul>
+<p><strong>3. Applications cliniques potentielles :</strong></p>
+<ul class="simple">
+<li><p>Communication avec des patients qui ne peuvent pas parler</p></li>
+<li><p>Diagnostic de troubles neurologiques</p></li>
+<li><p>Prothèses visuelles pour les aveugles</p></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="recapitulatif-et-comparaison">
+<h2>8. Récapitulatif et Comparaison<a class="headerlink" href="#recapitulatif-et-comparaison" title="Lien vers cette rubrique">#</a></h2>
+<section id="tableau-comparatif-regles-vs-apprentissage-automatique">
+<h3>8.1 Tableau comparatif : Règles vs Apprentissage Automatique<a class="headerlink" href="#tableau-comparatif-regles-vs-apprentissage-automatique" title="Lien vers cette rubrique">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Aspect</p></th>
+<th class="head"><p>Programmation Traditionnelle (Règles)</p></th>
+<th class="head"><p>Apprentissage Automatique</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Base</strong></p></td>
+<td><p>Règles explicites « if-then »</p></td>
+<td><p>Patterns découverts dans les données</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Développement</strong></p></td>
+<td><p>Programmeur définit toutes les règles</p></td>
+<td><p>Modèle apprend automatiquement</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Flexibilité</strong></p></td>
+<td><p>Rigide, fixe</p></td>
+<td><p>Adaptatif, peut apprendre de nouvelles situations</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Performance</strong></p></td>
+<td><p>Dépend de l’exhaustivité des règles</p></td>
+<td><p>S’améliore avec plus de données</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Nouveaux cas</strong></p></td>
+<td><p>Nécessite modification manuelle du code</p></td>
+<td><p>S’adapte avec réentraînement</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Transparence</strong></p></td>
+<td><p>Facile à comprendre (règles explicites)</p></td>
+<td><p>Moins transparent (« boîte noire »)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Exemples</strong></p></td>
+<td><p>Deep Blue (1997), systèmes de feux fixes</p></td>
+<td><p>AlphaZero, détection de spam moderne, DeepLabCut</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="apprentissage-supervise-vs-non-supervise">
+<h3>8.2 Apprentissage Supervisé vs Non Supervisé<a class="headerlink" href="#apprentissage-supervise-vs-non-supervise" title="Lien vers cette rubrique">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Aspect</p></th>
+<th class="head"><p>Apprentissage Supervisé</p></th>
+<th class="head"><p>Apprentissage Non Supervisé</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Données requises</strong></p></td>
+<td><p>Données annotées (avec étiquettes)</p></td>
+<td><p>Données non annotées</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Supervision</strong></p></td>
+<td><p>Explicite (étiquettes)</p></td>
+<td><p>Aucune</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Objectif</strong></p></td>
+<td><p>Prédire une sortie spécifique</p></td>
+<td><p>Découvrir des structures cachées</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Coût</strong></p></td>
+<td><p>Plus élevé (annotation nécessaire)</p></td>
+<td><p>Moins élevé</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Exemples</strong></p></td>
+<td><p>Détection d’émotions, DeepLabCut</p></td>
+<td><p>Clustering de comportements, MoSeq</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Quand l’utiliser</strong></p></td>
+<td><p>Quand on sait ce qu’on cherche</p></td>
+<td><p>Quand on explore les données</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="concepts-cles-a-retenir">
+<h2>9. Concepts Clés à Retenir<a class="headerlink" href="#concepts-cles-a-retenir" title="Lien vers cette rubrique">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Les points essentiels de la séance 2 :</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Hiérarchie :</strong> IA ⊃ Machine Learning ⊃ Deep Learning ⊃ IA Générative</p></li>
+<li><p><strong>Deux paradigmes :</strong></p>
+<ul class="simple">
+<li><p><strong>Programmation traditionnelle</strong> : Règles explicites prédéfinies</p></li>
+<li><p><strong>Apprentissage automatique</strong> : Découverte de patterns à partir de données</p></li>
+</ul>
+</li>
+<li><p><strong>L’apprentissage automatique est plus :</strong></p>
+<ul class="simple">
+<li><p>Flexible et adaptatif</p></li>
+<li><p>Capable de découvrir des patterns complexes</p></li>
+<li><p>Performant avec beaucoup de données</p></li>
+</ul>
+</li>
+<li><p><strong>Deux types d’apprentissage :</strong></p>
+<ul class="simple">
+<li><p><strong>Supervisé</strong> : Avec données annotées (exemples : détection d’émotions, DeepLabCut)</p></li>
+<li><p><strong>Non supervisé</strong> : Sans annotations (exemples : clustering, MoSeq)</p></li>
+</ul>
+</li>
+<li><p><strong>Applications en psychologie/neurosciences :</strong></p>
+<ul class="simple">
+<li><p>Analyse de mouvements (DeepLabCut)</p></li>
+<li><p>Analyse de comportements (MoSeq)</p></li>
+<li><p>Reconstruction d’états visuels (IRMf + ML)</p></li>
+</ul>
+</li>
+</ol>
+</div>
+</section>
+<hr class="docutils" />
+<section id="questions-de-reflexion">
+<h2>10. Questions de Réflexion<a class="headerlink" href="#questions-de-reflexion" title="Lien vers cette rubrique">#</a></h2>
+<div class="question admonition">
+<p class="admonition-title">Questions pour la discussion</p>
+<ol class="arabic simple">
+<li><p><strong>Quand préféreriez-vous utiliser des règles explicites plutôt que l’apprentissage automatique ?</strong></p>
+<ul class="simple">
+<li><p>Y a-t-il des situations où les règles sont préférables ?</p></li>
+</ul>
+</li>
+<li><p><strong>Implications éthiques de la lecture des pensées :</strong></p>
+<ul class="simple">
+<li><p>Si nous pouvons reconstruire ce qu’une personne voit, quelles sont les implications pour la vie privée ?</p></li>
+<li><p>Comment protéger les pensées privées ?</p></li>
+</ul>
+</li>
+<li><p><strong>Objectivité vs Biais :</strong></p>
+<ul class="simple">
+<li><p>L’apprentissage non supervisé est-il vraiment objectif ?</p></li>
+<li><p>Les mesures de similarité ne reflètent-elles pas aussi des biais humains ?</p></li>
+</ul>
+</li>
+<li><p><strong>Applications en psychologie clinique :</strong></p>
+<ul class="simple">
+<li><p>Comment l’apprentissage automatique pourrait-il transformer l’évaluation psychologique ?</p></li>
+<li><p>Quels sont les risques de s’appuyer trop sur l’IA pour le diagnostic ?</p></li>
+</ul>
+</li>
+<li><p><strong>Transparence vs Performance :</strong></p>
+<ul class="simple">
+<li><p>Est-ce un problème que les modèles d’apprentissage automatique soient des « boîtes noires » ?</p></li>
+<li><p>Comment équilibrer performance et interprétabilité ?</p></li>
+</ul>
+</li>
+</ol>
+</div>
+</section>
+<hr class="docutils" />
+<section id="ressources-complementaires">
+<h2>11. Ressources Complémentaires<a class="headerlink" href="#ressources-complementaires" title="Lien vers cette rubrique">#</a></h2>
+<section id="lectures-recommandees">
+<h3>Lectures recommandées<a class="headerlink" href="#lectures-recommandees" title="Lien vers cette rubrique">#</a></h3>
+<div class="note admonition">
+<p class="admonition-title">Références académiques</p>
+<ul class="simple">
+<li><p><strong>Russell, S., &amp; Norvig, P. (2021).</strong> <em>Artificial Intelligence: A Modern Approach</em> (4th ed.)</p>
+<ul>
+<li><p>Chapitre sur le Machine Learning</p></li>
+</ul>
+</li>
+<li><p><strong>Takagi, Y., &amp; Nishimoto, S. (2023).</strong> <em>High-resolution image reconstruction with latent diffusion models from human brain activity</em></p>
+<ul>
+<li><p><a class="reference external" href="https://sites.google.com/view/stablediffusion-with-brain/">Lien vers le projet</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="outils-et-demos">
+<h3>Outils et démos<a class="headerlink" href="#outils-et-demos" title="Lien vers cette rubrique">#</a></h3>
+<ul class="simple">
+<li><p><strong>DeepLabCut :</strong> <a class="reference external" href="http://www.mackenzielab.org/deeplabcut">http://www.mackenzi elab.org/deeplabcut</a></p></li>
+<li><p><strong>MoSeq :</strong> Motion Sequencing pour l’analyse comportementale</p></li>
+<li><p><strong>Stanford HAI :</strong> <a class="reference external" href="https://hai.stanford.edu/">https://hai.stanford.edu/</a></p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="preparation-pour-la-seance-3">
+<h2>12. Préparation pour la Séance 3<a class="headerlink" href="#preparation-pour-la-seance-3" title="Lien vers cette rubrique">#</a></h2>
+<p>La prochaine séance approfondira les concepts de l’apprentissage automatique :</p>
+<ul class="simple">
+<li><p>Comment entraîne-t-on un modèle concrètement ?</p></li>
+<li><p>Qu’est-ce que l’apprentissage profond (deep learning) ?</p></li>
+<li><p>Comment les réseaux de neurones artificiels fonctionnent-ils ?</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Pour aller plus loin</p>
+<p>Avant la prochaine séance, réfléchissez à :</p>
+<ul class="simple">
+<li><p>Comment le cerveau apprend-il de nouvelles choses ?</p></li>
+<li><p>Quelles sont les similarités et différences entre l’apprentissage humain et l’apprentissage automatique ?</p></li>
+<li><p>Comment pourriez-vous utiliser l’apprentissage automatique dans votre domaine de recherche en psychologie ?</p></li>
+</ul>
+</div>
+</section>
+<hr class="docutils" />
+<section id="notes-pour-l-enseignant">
+<h2>Notes pour l’Enseignant<a class="headerlink" href="#notes-pour-l-enseignant" title="Lien vers cette rubrique">#</a></h2>
+<div class="note admonition">
+<p class="admonition-title">Timing suggéré</p>
+<p><strong>Segment 1 : Programmation vs ML (45 minutes)</strong></p>
+<ul class="simple">
+<li><p>Introduction et hiérarchie des concepts (10 min)</p></li>
+<li><p>Exemples comparatifs (30 min)</p>
+<ul>
+<li><p>Spam (10 min)</p></li>
+<li><p>Feux de circulation (5 min)</p></li>
+<li><p>Échecs (10 min)</p></li>
+<li><p>Reconnaissance d’émotions (5 min)</p></li>
+</ul>
+</li>
+<li><p>Discussion (5 min)</p></li>
+</ul>
+<p><strong>Segment 2 : Types d’apprentissage (35 minutes)</strong></p>
+<ul class="simple">
+<li><p>Introduction au ML (5 min)</p></li>
+<li><p>Apprentissage supervisé + exemples (15 min)</p>
+<ul>
+<li><p>DeepLabCut démo</p></li>
+</ul>
+</li>
+<li><p>Apprentissage non supervisé + exemples (10 min)</p>
+<ul>
+<li><p>MoSeq démo</p></li>
+</ul>
+</li>
+<li><p>Application : Reconstruction visuelle (5 min)</p></li>
+</ul>
+<p><strong>Discussion finale (10 minutes)</strong></p>
+</div>
+<section id="points-d-emphase">
+<h3>Points d’emphase<a class="headerlink" href="#points-d-emphase" title="Lien vers cette rubrique">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Insister sur la différence fondamentale :</strong></p>
+<ul class="simple">
+<li><p>Règles = programmées par humain</p></li>
+<li><p>ML = découvertes dans les données</p></li>
+</ul>
+</li>
+<li><p><strong>Utiliser des exemples concrets :</strong></p>
+<ul class="simple">
+<li><p>Les étudiants comprennent mieux avec des cas pratiques</p></li>
+<li><p>Relier au quotidien (spam, etc.)</p></li>
+</ul>
+</li>
+<li><p><strong>Montrer l’utilité en psychologie/neurosciences :</strong></p>
+<ul class="simple">
+<li><p>DeepLabCut : analyse de mouvement</p></li>
+<li><p>MoSeq : comportements objectifs</p></li>
+<li><p>Reconstruction visuelle : comprendre le cerveau</p></li>
+</ul>
+</li>
+<li><p><strong>Encourager la pensée critique :</strong></p>
+<ul class="simple">
+<li><p>Quand utiliser quelle approche ?</p></li>
+<li><p>Limitations et biais</p></li>
+<li><p>Implications éthiques</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="activites-suggerees">
+<h3>Activités suggérées<a class="headerlink" href="#activites-suggerees" title="Lien vers cette rubrique">#</a></h3>
+<ul class="simple">
+<li><p><strong>Démonstration interactive :</strong> Montrer DeepLabCut et MoSeq en action</p></li>
+<li><p><strong>Exercice de réflexion :</strong> Demander aux étudiants de proposer d’autres domaines où ML serait utile</p></li>
+<li><p><strong>Débat :</strong> Lecture des pensées - fascinant ou inquiétant ?</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./_sources"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vue-d-ensemble">Vue d’ensemble</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-types-d-ia-comprendre-la-hierarchie">1. Les types d’IA : Comprendre la hiérarchie</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-relation-entre-ia-machine-learning-et-deep-learning">1.1 La relation entre IA, Machine Learning et Deep Learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comprendre-la-relation">1.2 Comprendre la relation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programmation-traditionnelle-vs-apprentissage-automatique">2. Programmation Traditionnelle vs Apprentissage Automatique</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qu-est-ce-que-la-programmation-traditionnelle">2.1 Qu’est-ce que la programmation traditionnelle ?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l-approche-basee-sur-des-regles">2.2 L’approche basée sur des règles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l-approche-de-l-apprentissage-automatique">2.3 L’approche de l’apprentissage automatique</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemples-comparatifs-regles-vs-apprentissage">3. Exemples Comparatifs : Règles vs Apprentissage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-1-detection-de-spam-dans-les-courriels">3.1 Exemple 1 : Détection de spam dans les courriels</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#approche-traditionnelle-basee-sur-des-regles">Approche traditionnelle (basée sur des règles)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#approche-apprentissage-automatique">Approche apprentissage automatique</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-2-systeme-de-feux-de-circulation">3.2 Exemple 2 : Système de feux de circulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#approche-basee-sur-des-regles-explicites">Approche basée sur des règles explicites</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Approche apprentissage automatique</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-3-jeu-d-echecs">3.3 Exemple 3 : Jeu d’échecs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Approche basée sur des règles explicites</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cas-historique-deep-blue-1997">Cas historique : Deep Blue (1997)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#approche-apprentissage-automatique-alphazero">Approche apprentissage automatique : AlphaZero</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-4-reconnaissance-des-emotions-a-partir-des-expressions-faciales">3.4 Exemple 4 : Reconnaissance des émotions à partir des expressions faciales</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Approche basée sur des règles explicites</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#approche-basee-sur-l-apprentissage-automatique">Approche basée sur l’apprentissage automatique</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qu-est-ce-que-l-apprentissage-automatique">4. Qu’est-ce que l’Apprentissage Automatique ?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-formelle">4.1 Définition formelle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-deux-grandes-categories">4.2 Les deux grandes catégories</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apprentissage-supervise">5. Apprentissage Supervisé</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-et-principe">5.1 Définition et principe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-detection-des-emotions-dans-les-images">5.2 Exemple : Détection des émotions dans les images</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-detection-de-visages">5.3 Exemple : Détection de visages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#application-en-neurosciences-deeplabcut">5.4 Application en neurosciences : DeepLabCut</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apprentissage-non-supervise">6. Apprentissage Non Supervisé</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">6.1 Définition et principe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principe-du-clustering-regroupement">6.2 Principe du clustering (regroupement)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-regroupement-de-visages">6.3 Exemple : Regroupement de visages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#application-en-neurosciences-moseq">6.4 Application en neurosciences : MoSeq</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-en-psychologie-et-neurosciences">7. Applications en Psychologie et Neurosciences</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstruction-des-etats-visuels-du-cerveau-peut-on-lire-dans-les-pensees">7.1 Reconstruction des états visuels du cerveau : Peut-on lire dans les pensées ?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#comment-ca-fonctionne-l-approche-de-l-ia">Comment ça fonctionne : L’approche de l’IA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-potentielles">Applications potentielles</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recapitulatif-et-comparaison">8. Récapitulatif et Comparaison</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tableau-comparatif-regles-vs-apprentissage-automatique">8.1 Tableau comparatif : Règles vs Apprentissage Automatique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apprentissage-supervise-vs-non-supervise">8.2 Apprentissage Supervisé vs Non Supervisé</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts-cles-a-retenir">9. Concepts Clés à Retenir</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-de-reflexion">10. Questions de Réflexion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ressources-complementaires">11. Ressources Complémentaires</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lectures-recommandees">Lectures recommandées</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outils-et-demos">Outils et démos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparation-pour-la-seance-3">12. Préparation pour la Séance 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-pour-l-enseignant">Notes pour l’Enseignant</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#points-d-emphase">Points d’emphase</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activites-suggerees">Activités suggérées</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par PSY3913 / 6913
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
