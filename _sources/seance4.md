@@ -42,9 +42,9 @@ Cette quatrième séance approfondit les concepts de régression et classificati
 
 Pour suivre cette séance de manière interactive, téléchargez les notebooks Jupyter :
 
-1. **[4.1_regression_lineaire.ipynb](notebooks/4.1_regression_lineaire.ipynb)** - Régression linéaire en pratique
-2. **[4.2_classification_lineaire.ipynb](notebooks/4.2_classification_lineaire.ipynb)** - Classification linéaire en pratique
-3. **[4.3_exercices.ipynb](notebooks/4.3_exercices.ipynb)** - Exercices pratiques
+1. **[4.1_regression_lineaire.ipynb](4.1_regression_lineaire.ipynb)** - Régression linéaire en pratique
+2. **[4.2_classification_lineaire.ipynb](4.2_classification_lineaire.ipynb)** - Classification linéaire en pratique
+3. **[4.3_exercices.ipynb](4.3_exercices.ipynb)** - Exercices pratiques
 
 Tous les notebooks sont disponibles dans le dossier `seance4/notebooks/` du dépôt GitHub.
 ```
