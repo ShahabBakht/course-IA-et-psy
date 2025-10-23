@@ -10,7 +10,7 @@ Cette première séance introduit les concepts fondamentaux de l'intelligence ar
 
 ### 1.1 Introduction
 
-Après avoir exploré les définitions spontanées des étudiants via le questionnaire Wooclap, il est important de comprendre comment les experts et les organisations majeures du domaine définissent l'intelligence artificielle. Ces définitions ont évolué au fil du temps et reflètent différentes perspectives sur ce qu'est l'intelligence et comment elle peut être reproduite par des machines.
+Il est important de comprendre comment les experts et les organisations majeures du domaine définissent l'intelligence artificielle. Ces définitions ont évolué au fil du temps et reflètent différentes perspectives sur ce qu'est l'intelligence et comment elle peut être reproduite par des machines.
 
 ### 1.2 La définition fondatrice : Marvin Minsky (1950s)
 
@@ -24,7 +24,7 @@ Marvin Minsky est l'un des pères fondateurs du domaine de l'IA dans les années
 **Concept clé :**
 L'objectif principal est d'imiter les fonctions cognitives humaines telles que l'apprentissage et la résolution de problèmes ("to mimic human-like cognitive function such as learning and problem solving").
 
-```{admonition} Point de discussion pour les étudiants
+```{admonition} Point de discussion
 :class: tip
 Cette définition soulève immédiatement la question : qu'est-ce que l'intelligence ? Pour créer une machine "intelligente", nous devons d'abord définir l'intelligence elle-même - un débat qui existe depuis longtemps en psychologie.
 ```
@@ -269,7 +269,7 @@ OpenAI a initialement refusé de publier le modèle complet par crainte d'abus (
 - ChatGPT (2022) : explosion de l'utilisation grand public
 - GPT-4, Claude, Gemini : modèles de langage de plus en plus sophistiqués
 - DALL-E, Midjourney, Stable Diffusion : génération d'images
-- Sora : génération de vidéos
+- Sora, Veo : génération de vidéos
 
 **L'IA est désormais partout :**
 Des assistants vocaux aux recommandations Netflix, de la détection de spam à la traduction automatique, l'IA fait maintenant partie de notre quotidien.
@@ -298,8 +298,8 @@ Grâce à ses efforts depuis plus de 30 ans, Montréal est maintenant mondialeme
 ```
 
 **Institutions importantes à Montréal :**
-- [MILA (Montreal Institute for Learning Algorithms)](https://mila.quebec/)
-- [IVADO (Institute for Data Valorization)](https://ivado.ca/)
+- [Mila (l'Institut québécois d’intelligence artificielle)](https://mila.quebec/)
+- [IVADO](https://ivado.ca/)
 - Nombreuses startups d'IA
 - Bureaux de recherche de grandes entreprises (Google, Meta, Microsoft, etc.)
 
@@ -516,41 +516,4 @@ Quoi d'autre ? Pensez à d'autres exemples d'IA que vous utilisez quotidiennemen
 - [MILA](https://mila.quebec/)
 - [IVADO](https://ivado.ca/)
 
----
 
-## 7. Questions pour la discussion en classe
-
-```{admonition} Questions de réflexion
-:class: question
-1. Comment votre définition personnelle de l'IA a-t-elle évolué après ce cours ?
-2. Le Test de Turing est-il encore pertinent aujourd'hui ? Pourquoi ou pourquoi pas ?
-3. Quelles sont les implications psychologiques des "hivers de l'IA" pour les chercheurs ?
-4. Comment l'expérience ELIZA éclaire-t-elle notre compréhension de l'anthropomorphisation ?
-5. Quels sont les risques psychologiques et sociaux des deepfakes ?
-6. Comment l'IA pourrait-elle transformer la pratique de la psychologie clinique ?
-7. Quelles compétences psychologiques sont difficiles ou impossibles à automatiser ?
-```
-
----
-
-## Notes pour l'enseignant
-
-```{admonition} Timing suggéré
-:class: note
-- Définitions : 15-20 minutes
-- Histoire (avec Test de Turing détaillé) : 25-30 minutes
-- Exemples et applications : 15-20 minutes
-- Discussion : 10-15 minutes
-```
-
-**Activités interactives :**
-- Questionnaire Wooclap avant et après les définitions
-- Discussion sur le Test de Turing
-- Démonstrations des applications (face detection, génération d'images)
-- Débat sur les deepfakes
-
-**Points d'attention :**
-- Relier constamment les concepts d'IA aux connaissances psychologiques des étudiants
-- Encourager la pensée critique sur les capacités et limitations de l'IA
-- Aborder les questions éthiques de manière nuancée
-- Montrer l'enthousiasme pour le domaine tout en restant réaliste sur les défis
