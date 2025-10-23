@@ -1,0 +1,1505 @@
+
+<!DOCTYPE html>
+
+
+<html lang="fr" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Séance 4 : Régression et Classification Linéaires - Théorie et Pratique &#8212; IA, Psychologie et Neuroscience Cognitive</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=720ed60b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=d2032c04" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=720ed60b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/theme.css?v=a243ae73" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/bootstrap.css?v=b4a3e8ba" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/vendor/fontawesome/6.5.2/css/all.min.css?v=f4fbef65" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/translations.js?v=041d0952"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'seance4';</script>
+    <script src="_static/translations.js?v=041d0952"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="_static/searchtools.js?v=63a53a7d"></script>
+    <script src="_static/french-stemmer.js?v=4cf82138"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="_static/base-stemmer.js?v=da076eef"></script>
+    <script src="_static/language_data.js?v=27445a5f"></script>
+    <script src="_static/copybutton_funcs.js?v=776a791e"></script>
+    <script src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/bootstrap.js?v=7583a70d"></script>
+    <script src="_static/scripts/pydata-sphinx-theme.js?v=4bc35cb3"></script>
+    <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?v=4e4fcec4"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="prev" title="Séance 3 : Classification et Régression" href="seance3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">IA, Psychologie et Neuroscience Cognitive</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="seance1.html">Séance 1 - Introduction à l'IA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seance2.html">Séance 2 - Apprentissage Automatique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seance3.html">Séance 3 - Classification et Régression</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Séance 4 - Classification et Régression (pratique)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/seance4.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Séance 4 : Régression et Classification Linéaires - Théorie et Pratique</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vue-d-ensemble">Vue d’ensemble</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-de-la-seance">Structure de la séance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#materiel-pratique">Matériel pratique</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooks-jupyter-disponibles">Notebooks Jupyter disponibles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-de-l-environnement">Installation de l’environnement</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-1-regression-lineaire">Partie 1 : Régression Linéaire</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rappel-conceptuel">1.1 Rappel conceptuel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formulation-mathematique-generale">1.2 Formulation mathématique générale</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cas-multi-variables-regression-lineaire-multiple">Cas multi-variables (régression linéaire multiple)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fonction-de-cout-loss-function">1.3 Fonction de coût (Loss Function)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes-d-optimisation">1.4 Méthodes d’optimisation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-solution-analytique-equations-normales">A. Solution analytique (Équations normales)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-descente-de-gradient-gradient-descent">B. Descente de gradient (Gradient Descent)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-pratique">1.5 Implémentation pratique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-du-modele">1.6 Évaluation du modèle</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-mean-squared-error-mse">A. Mean Squared Error (MSE)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-root-mean-squared-error-rmse">B. Root Mean Squared Error (RMSE)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c-mean-absolute-error-mae">C. Mean Absolute Error (MAE)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-coefficient-de-determination-r2">D. Coefficient de détermination (R²)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-et-diagnostic">1.7 Visualisation et diagnostic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-applique-neurosciences">1.8 Exemple appliqué : Neurosciences</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-2-classification-lineaire-regression-logistique">Partie 2 : Classification Linéaire (Régression Logistique)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#de-la-regression-a-la-classification">2.1 De la régression à la classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-regression-logistique">2.2 La régression logistique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-fonction-sigmoide">2.3 La fonction sigmoïde</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fonction-de-cout-binary-cross-entropy">2.4 Fonction de coût : Binary Cross-Entropy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descente-de-gradient-pour-la-regression-logistique">2.5 Descente de gradient pour la régression logistique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-multi-classe">2.6 Classification multi-classe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.7 Implémentation pratique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrie-de-la-classification-lineaire">2.8 Géométrie de la classification linéaire</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-du-modele-de-classification">2.9 Évaluation du modèle de classification</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-accuracy-exactitude">A. Accuracy (Exactitude)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-matrice-de-confusion">B. Matrice de confusion</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c-precision-et-rappel">C. Précision et Rappel</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-courbe-roc-et-auc">D. Courbe ROC et AUC</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisations-pour-la-classification">2.10 Visualisations pour la classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.11 Exemple appliqué : Neurosciences</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-3-comparaison-et-choix-du-modele">Partie 3 : Comparaison et Choix du Modèle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-vs-classification-tableau-recapitulatif">3.1 Régression vs Classification : Tableau récapitulatif</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quand-utiliser-quel-modele">3.2 Quand utiliser quel modèle ?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-des-modeles-lineaires">3.3 Limitations des modèles linéaires</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ameliorer-les-modeles-lineaires">3.4 Améliorer les modèles linéaires</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts-cles-a-retenir">Concepts clés à retenir</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercices-pratiques">Exercices pratiques</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ressources-complementaires">Ressources complémentaires</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-et-tutoriels">Documentation et tutoriels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lectures-approfondies">Lectures approfondies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prochaines-etapes">Prochaines étapes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recapitulatif-de-la-seance">Récapitulatif de la séance</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="seance-4-regression-et-classification-lineaires-theorie-et-pratique">
+<h1>Séance 4 : Régression et Classification Linéaires - Théorie et Pratique<a class="headerlink" href="#seance-4-regression-et-classification-lineaires-theorie-et-pratique" title="Lien vers cette rubrique">#</a></h1>
+<section id="vue-d-ensemble">
+<h2>Vue d’ensemble<a class="headerlink" href="#vue-d-ensemble" title="Lien vers cette rubrique">#</a></h2>
+<p>Cette quatrième séance approfondit les concepts de régression et classification linéaires avec une approche théorique et pratique. Nous allons explorer les mathématiques derrière ces modèles, les implémenter from scratch en Python, puis utiliser des bibliothèques standards comme scikit-learn. Cette séance inclut des notebooks Jupyter interactifs que vous pouvez exécuter localement pour expérimenter avec les concepts.</p>
+<p><strong>Durée : 2 heures</strong></p>
+<p><strong>Prérequis :</strong></p>
+<ul class="simple">
+<li><p>Concepts de la séance 3 (classification, régression, fonction objectif)</p></li>
+<li><p>Connaissances de base en Python</p></li>
+<li><p>Numpy, Matplotlib (installation nécessaire)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="structure-de-la-seance">
+<h2>Structure de la séance<a class="headerlink" href="#structure-de-la-seance" title="Lien vers cette rubrique">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Organisation :</strong></p>
+<p><strong>Partie 1 (60 min) : Régression Linéaire</strong></p>
+<ul class="simple">
+<li><p>Théorie mathématique</p></li>
+<li><p>Implémentation from scratch</p></li>
+<li><p>Utilisation de scikit-learn</p></li>
+<li><p>Application en neurosciences</p></li>
+</ul>
+<p><strong>Partie 2 (60 min) : Classification Linéaire</strong></p>
+<ul class="simple">
+<li><p>Régression logistique</p></li>
+<li><p>Implémentation from scratch</p></li>
+<li><p>Utilisation de scikit-learn</p></li>
+<li><p>Application en neurosciences</p></li>
+</ul>
+</div>
+</section>
+<hr class="docutils" />
+<section id="materiel-pratique">
+<h2>Matériel pratique<a class="headerlink" href="#materiel-pratique" title="Lien vers cette rubrique">#</a></h2>
+<section id="notebooks-jupyter-disponibles">
+<h3>Notebooks Jupyter disponibles<a class="headerlink" href="#notebooks-jupyter-disponibles" title="Lien vers cette rubrique">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Notebooks à télécharger</p>
+<p>Pour suivre cette séance de manière interactive, téléchargez les notebooks Jupyter :</p>
+<ol class="arabic simple">
+<li><p><strong><a class="reference internal" href="#notebooks/4.1_regression_lineaire.ipynb"><span class="xref myst">4.1_regression_lineaire.ipynb</span></a></strong> - Régression linéaire en pratique</p></li>
+<li><p><strong><a class="reference internal" href="#notebooks/4.2_classification_lineaire.ipynb"><span class="xref myst">4.2_classification_lineaire.ipynb</span></a></strong> - Classification linéaire en pratique</p></li>
+<li><p><strong><a class="reference internal" href="#notebooks/4.3_exercices.ipynb"><span class="xref myst">4.3_exercices.ipynb</span></a></strong> - Exercices pratiques</p></li>
+</ol>
+<p>Tous les notebooks sont disponibles dans le dossier <code class="docutils literal notranslate"><span class="pre">seance4/notebooks/</span></code> du dépôt GitHub.</p>
+</div>
+</section>
+<section id="installation-de-l-environnement">
+<h3>Installation de l’environnement<a class="headerlink" href="#installation-de-l-environnement" title="Lien vers cette rubrique">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Installer les bibliothèques nécessaires</span>
+pip<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>matplotlib<span class="w"> </span>scikit-learn<span class="w"> </span>jupyter
+
+<span class="c1"># Lancer Jupyter Notebook</span>
+jupyter<span class="w"> </span>notebook
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="partie-1-regression-lineaire">
+<h2>Partie 1 : Régression Linéaire<a class="headerlink" href="#partie-1-regression-lineaire" title="Lien vers cette rubrique">#</a></h2>
+<section id="rappel-conceptuel">
+<h3>1.1 Rappel conceptuel<a class="headerlink" href="#rappel-conceptuel" title="Lien vers cette rubrique">#</a></h3>
+<p>Dans la séance 3, nous avons vu que la régression linéaire est un modèle qui prédit une <strong>valeur numérique continue</strong> à partir de données d’entrée.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Formule de base :</strong></p>
+<p>y = Wx + b</p>
+<p>Où :</p>
+<ul class="simple">
+<li><p><strong>x</strong> : variable d’entrée (feature)</p></li>
+<li><p><strong>W</strong> : poids (weight) - paramètre à apprendre</p></li>
+<li><p><strong>b</strong> : biais (bias) - paramètre à apprendre</p></li>
+<li><p><strong>y</strong> : prédiction (sortie)</p></li>
+</ul>
+</div>
+<p><strong>Représentation géométrique :</strong> Le modèle est une ligne (en 2D) ou un hyperplan (en dimensions supérieures) qui « s’ajuste » aux données.</p>
+</section>
+<section id="formulation-mathematique-generale">
+<h3>1.2 Formulation mathématique générale<a class="headerlink" href="#formulation-mathematique-generale" title="Lien vers cette rubrique">#</a></h3>
+<section id="cas-multi-variables-regression-lineaire-multiple">
+<h4>Cas multi-variables (régression linéaire multiple)<a class="headerlink" href="#cas-multi-variables-regression-lineaire-multiple" title="Lien vers cette rubrique">#</a></h4>
+<p>Lorsqu’on a plusieurs variables d’entrée (features), la formulation devient :</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Forme matricielle :</strong></p>
+<p>ŷ = Xw + b</p>
+<p>Où :</p>
+<ul class="simple">
+<li><p><strong>X</strong> : matrice de données (n échantillons × m features)</p></li>
+<li><p><strong>w</strong> : vecteur de poids (m × 1)</p></li>
+<li><p><strong>b</strong> : scalaire (biais)</p></li>
+<li><p><strong>ŷ</strong> : vecteur de prédictions (n × 1)</p></li>
+</ul>
+<p>Plus explicitement :
+ŷᵢ = w₁x_{i1} + w₂x_{i2} + … + wₘx_{im} + b</p>
+</div>
+<p><strong>Notation compacte :</strong> On peut inclure le biais dans les poids en ajoutant une colonne de 1 à X :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ŷ</span> <span class="o">=</span> <span class="n">Xw</span>  <span class="p">(</span><span class="n">où</span> <span class="n">X</span> <span class="n">inclut</span> <span class="n">une</span> <span class="n">colonne</span> <span class="n">de</span> <span class="mi">1</span><span class="p">,</span> <span class="n">et</span> <span class="n">w</span> <span class="n">inclut</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="fonction-de-cout-loss-function">
+<h3>1.3 Fonction de coût (Loss Function)<a class="headerlink" href="#fonction-de-cout-loss-function" title="Lien vers cette rubrique">#</a></h3>
+<p>Pour entraîner le modèle, nous devons quantifier l’erreur entre les prédictions et les vraies valeurs.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Mean Squared Error (MSE) :</strong></p>
+<p>L(w, b) = (1/n) Σᵢ₌₁ⁿ (yᵢ - ŷᵢ)²</p>
+<p>L(w, b) = (1/n) Σᵢ₌₁ⁿ (yᵢ - (Xᵢw + b))²</p>
+<p>Où :</p>
+<ul class="simple">
+<li><p>n : nombre d’échantillons</p></li>
+<li><p>yᵢ : vraie valeur pour l’échantillon i</p></li>
+<li><p>ŷᵢ : prédiction pour l’échantillon i</p></li>
+</ul>
+</div>
+<p><strong>Objectif de l’entraînement :</strong> Trouver les valeurs de w et b qui <strong>minimisent</strong> L(w, b).</p>
+</section>
+<section id="methodes-d-optimisation">
+<h3>1.4 Méthodes d’optimisation<a class="headerlink" href="#methodes-d-optimisation" title="Lien vers cette rubrique">#</a></h3>
+<p>Il existe deux approches principales pour trouver les paramètres optimaux :</p>
+<section id="a-solution-analytique-equations-normales">
+<h4>A. Solution analytique (Équations normales)<a class="headerlink" href="#a-solution-analytique-equations-normales" title="Lien vers cette rubrique">#</a></h4>
+<p>Pour la régression linéaire, il existe une solution en forme fermée (closed-form solution) :</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Équations normales :</strong></p>
+<p>w* = (XᵀX)⁻¹Xᵀy</p>
+<p>Où :</p>
+<ul class="simple">
+<li><p>Xᵀ : transposée de X</p></li>
+<li><p>(XᵀX)⁻¹ : inverse de XᵀX</p></li>
+<li><p>w* : poids optimaux</p></li>
+</ul>
+</div>
+<p><strong>Avantages :</strong></p>
+<ul class="simple">
+<li><p>✅ Solution exacte</p></li>
+<li><p>✅ Pas besoin d’itérations</p></li>
+</ul>
+<p><strong>Inconvénients :</strong></p>
+<ul class="simple">
+<li><p>❌ Coûteux en calcul pour grandes matrices (O(n³))</p></li>
+<li><p>❌ Problèmes si XᵀX n’est pas inversible</p></li>
+<li><p>❌ Ne fonctionne que pour la régression linéaire</p></li>
+</ul>
+</section>
+<section id="b-descente-de-gradient-gradient-descent">
+<h4>B. Descente de gradient (Gradient Descent)<a class="headerlink" href="#b-descente-de-gradient-gradient-descent" title="Lien vers cette rubrique">#</a></h4>
+<p>Méthode itérative qui ajuste progressivement les paramètres dans la direction qui réduit l’erreur.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Algorithme de descente de gradient :</strong></p>
+<p>Répéter jusqu’à convergence :
+w := w - α × ∂L/∂w
+b := b - α × ∂L/∂b</p>
+<p>Où :</p>
+<ul class="simple">
+<li><p>α : taux d’apprentissage (learning rate)</p></li>
+<li><p>∂L/∂w : gradient (dérivée partielle) de L par rapport à w</p></li>
+<li><p>∂L/∂b : gradient de L par rapport à b</p></li>
+</ul>
+</div>
+<p><strong>Calcul des gradients pour MSE :</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>∂L/∂w = -(2/n) Σᵢ (yᵢ - ŷᵢ) xᵢ = -(2/n) Xᵀ(y - ŷ)
+∂L/∂b = -(2/n) Σᵢ (yᵢ - ŷᵢ)
+</pre></div>
+</div>
+<p><strong>Avantages :</strong></p>
+<ul class="simple">
+<li><p>✅ Fonctionne pour de grandes données</p></li>
+<li><p>✅ Généralisable à d’autres modèles</p></li>
+<li><p>✅ Contrôle sur le processus d’optimisation</p></li>
+</ul>
+<p><strong>Inconvénients :</strong></p>
+<ul class="simple">
+<li><p>❌ Nécessite le choix du learning rate α</p></li>
+<li><p>❌ Peut converger lentement</p></li>
+<li><p>❌ Solution approximative</p></li>
+</ul>
+</section>
+</section>
+<section id="implementation-pratique">
+<h3>1.5 Implémentation pratique<a class="headerlink" href="#implementation-pratique" title="Lien vers cette rubrique">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Notebook pratique</p>
+<p><strong>Ouvrez maintenant le notebook <a class="reference internal" href="#notebooks/4.1_regression_lineaire.ipynb"><span class="xref myst">4.1_regression_lineaire.ipynb</span></a></strong></p>
+<p>Dans ce notebook, vous allez :</p>
+<ol class="arabic simple">
+<li><p>Créer un dataset synthétique simple</p></li>
+<li><p>Implémenter la régression linéaire from scratch avec NumPy</p></li>
+<li><p>Visualiser la ligne de régression et la courbe d’apprentissage</p></li>
+<li><p>Comparer avec l’implémentation de scikit-learn</p></li>
+<li><p>Appliquer à un exemple de neurosciences (prédiction de vitesse)</p></li>
+</ol>
+</div>
+</section>
+<section id="evaluation-du-modele">
+<h3>1.6 Évaluation du modèle<a class="headerlink" href="#evaluation-du-modele" title="Lien vers cette rubrique">#</a></h3>
+<p>Plusieurs métriques permettent d’évaluer la performance d’un modèle de régression :</p>
+<section id="a-mean-squared-error-mse">
+<h4>A. Mean Squared Error (MSE)<a class="headerlink" href="#a-mean-squared-error-mse" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>MSE = (1/n) Σᵢ (yᵢ - ŷᵢ)²</p>
+<ul class="simple">
+<li><p>Plus le MSE est <strong>petit</strong>, meilleur est le modèle</p></li>
+<li><p>Sensible aux valeurs aberrantes (outliers)</p></li>
+<li><p>Même unité que y²</p></li>
+</ul>
+</div>
+</section>
+<section id="b-root-mean-squared-error-rmse">
+<h4>B. Root Mean Squared Error (RMSE)<a class="headerlink" href="#b-root-mean-squared-error-rmse" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>RMSE = √MSE = √[(1/n) Σᵢ (yᵢ - ŷᵢ)²]</p>
+<ul class="simple">
+<li><p>Même unité que y</p></li>
+<li><p>Plus interprétable que MSE</p></li>
+</ul>
+</div>
+</section>
+<section id="c-mean-absolute-error-mae">
+<h4>C. Mean Absolute Error (MAE)<a class="headerlink" href="#c-mean-absolute-error-mae" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>MAE = (1/n) Σᵢ |yᵢ - ŷᵢ|</p>
+<ul class="simple">
+<li><p>Moins sensible aux outliers que MSE</p></li>
+<li><p>Même unité que y</p></li>
+</ul>
+</div>
+</section>
+<section id="d-coefficient-de-determination-r2">
+<h4>D. Coefficient de détermination (R²)<a class="headerlink" href="#d-coefficient-de-determination-r2" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>R² = 1 - (Σᵢ (yᵢ - ŷᵢ)²) / (Σᵢ (yᵢ - ȳ)²)</p>
+<p>Où ȳ est la moyenne de y.</p>
+<p><strong>Interprétation :</strong></p>
+<ul class="simple">
+<li><p>R² = 1 : modèle parfait</p></li>
+<li><p>R² = 0 : modèle aussi bon qu’une simple moyenne</p></li>
+<li><p>R² &lt; 0 : modèle pire qu’une moyenne</p></li>
+<li><p>Généralement : 0 ≤ R² ≤ 1</p></li>
+</ul>
+<p><strong>R² représente la proportion de variance expliquée par le modèle.</strong></p>
+</div>
+</section>
+</section>
+<section id="visualisation-et-diagnostic">
+<h3>1.7 Visualisation et diagnostic<a class="headerlink" href="#visualisation-et-diagnostic" title="Lien vers cette rubrique">#</a></h3>
+<div class="note admonition">
+<p class="admonition-title">Visualisations importantes</p>
+<p><strong>1. Scatter plot avec ligne de régression</strong></p>
+<ul class="simple">
+<li><p>Points de données vs ligne prédite</p></li>
+<li><p>Permet de voir visuellement l’ajustement</p></li>
+</ul>
+<p><strong>2. Résidus (erreurs)</strong></p>
+<ul class="simple">
+<li><p>Plot des résidus vs prédictions</p></li>
+<li><p>Doit montrer une distribution aléatoire autour de 0</p></li>
+<li><p>Patterns indiquent des problèmes (non-linéarité, hétéroscédasticité)</p></li>
+</ul>
+<p><strong>3. Courbe d’apprentissage</strong></p>
+<ul class="simple">
+<li><p>Évolution du loss pendant l’entraînement</p></li>
+<li><p>Doit diminuer et converger</p></li>
+</ul>
+<p><strong>4. Prédictions vs vraies valeurs</strong></p>
+<ul class="simple">
+<li><p>Scatter plot : ŷ vs y</p></li>
+<li><p>Points doivent être proches de la ligne y=x</p></li>
+</ul>
+</div>
+</section>
+<section id="exemple-applique-neurosciences">
+<h3>1.8 Exemple appliqué : Neurosciences<a class="headerlink" href="#exemple-applique-neurosciences" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>Problème :</strong> Prédire la vitesse de mouvement d’un singe à partir de l’activité de neurones dans le cortex moteur.</p>
+<p><strong>Données :</strong></p>
+<ul class="simple">
+<li><p><strong>Entrées (X)</strong> : Activité de N neurones (firing rates)</p></li>
+<li><p><strong>Sortie (y)</strong> : Vitesse de mouvement (cm/s)</p></li>
+<li><p><strong>Échantillons</strong> : Mesures à différents moments</p></li>
+</ul>
+<p><strong>Processus :</strong></p>
+<ol class="arabic simple">
+<li><p>Enregistrer l’activité neuronale et la vitesse simultanément</p></li>
+<li><p>Diviser les données en ensembles d’entraînement et de test</p></li>
+<li><p>Entraîner le modèle de régression linéaire</p></li>
+<li><p>Évaluer les prédictions sur l’ensemble de test</p></li>
+<li><p>Interpréter les poids pour comprendre quelle activité neuronale prédit la vitesse</p></li>
+</ol>
+<div class="tip admonition">
+<p class="admonition-title">À explorer dans le notebook</p>
+<p>Le notebook 4.1 contient un exemple complet avec des données simulées de neurosciences.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="partie-2-classification-lineaire-regression-logistique">
+<h2>Partie 2 : Classification Linéaire (Régression Logistique)<a class="headerlink" href="#partie-2-classification-lineaire-regression-logistique" title="Lien vers cette rubrique">#</a></h2>
+<section id="de-la-regression-a-la-classification">
+<h3>2.1 De la régression à la classification<a class="headerlink" href="#de-la-regression-a-la-classification" title="Lien vers cette rubrique">#</a></h3>
+<p>La régression linéaire prédit des valeurs continues. Pour la classification, nous voulons prédire des <strong>catégories discrètes</strong>.</p>
+<p><strong>Question :</strong> Comment adapter la régression linéaire pour la classification ?</p>
+<p><strong>Réponse :</strong> Utiliser une <strong>fonction d’activation</strong> qui transforme les sorties continues en probabilités de classes.</p>
+</section>
+<section id="la-regression-logistique">
+<h3>2.2 La régression logistique<a class="headerlink" href="#la-regression-logistique" title="Lien vers cette rubrique">#</a></h3>
+<p>Malgré son nom, la régression logistique est un modèle de <strong>classification</strong>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Architecture de la régression logistique :</strong></p>
+<ol class="arabic simple">
+<li><p>Combinaison linéaire : z = Wx + b</p></li>
+<li><p>Fonction sigmoïde : ŷ = σ(z) = 1 / (1 + e⁻ᶻ)</p></li>
+</ol>
+<p>Résultat final :
+ŷ = σ(Wx + b) = 1 / (1 + e⁻⁽ᵂˣ⁺ᵇ⁾)</p>
+<p>Où ŷ représente la <strong>probabilité</strong> que l’échantillon appartienne à la classe 1.</p>
+</div>
+</section>
+<section id="la-fonction-sigmoide">
+<h3>2.3 La fonction sigmoïde<a class="headerlink" href="#la-fonction-sigmoide" title="Lien vers cette rubrique">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Propriétés de la fonction sigmoïde σ(z) :</strong></p>
+<p>σ(z) = 1 / (1 + e⁻ᶻ)</p>
+<p><strong>Caractéristiques :</strong></p>
+<ul class="simple">
+<li><p>Sortie entre 0 et 1 → peut être interprétée comme une probabilité</p></li>
+<li><p>σ(0) = 0.5</p></li>
+<li><p>σ(z) → 1 quand z → +∞</p></li>
+<li><p>σ(z) → 0 quand z → -∞</p></li>
+<li><p>Forme en « S » (sigmoïde)</p></li>
+</ul>
+</div>
+<p><strong>Visualisation :</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="mf">1.0</span> <span class="o">|</span>           <span class="n">___________</span>
+      <span class="o">|</span>         <span class="o">/</span>
+  <span class="mf">0.5</span> <span class="o">|</span>        <span class="o">/</span>
+      <span class="o">|</span>       <span class="o">/</span>
+  <span class="mf">0.0</span> <span class="o">|</span><span class="n">______</span><span class="o">/</span>
+      <span class="o">|</span><span class="n">_____</span><span class="o">|</span><span class="n">_____</span><span class="o">|</span><span class="n">_____</span><span class="o">|</span><span class="n">_____</span><span class="o">|</span>
+        <span class="o">-</span><span class="mi">5</span>    <span class="mi">0</span>     <span class="mi">5</span>    <span class="mi">10</span>
+</pre></div>
+</div>
+<p><strong>Décision de classification :</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">ŷ</span> <span class="err">≥</span> <span class="mf">0.5</span><span class="p">:</span>  <span class="c1"># Probabilité ≥ 50%</span>
+    <span class="n">classe</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">classe</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</section>
+<section id="fonction-de-cout-binary-cross-entropy">
+<h3>2.4 Fonction de coût : Binary Cross-Entropy<a class="headerlink" href="#fonction-de-cout-binary-cross-entropy" title="Lien vers cette rubrique">#</a></h3>
+<p>Pour la classification, on ne peut pas utiliser MSE (problème de non-convexité). On utilise la <strong>log-loss</strong> (binary cross-entropy).</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Binary Cross-Entropy Loss :</strong></p>
+<p>L(w, b) = -(1/n) Σᵢ [yᵢ log(ŷᵢ) + (1-yᵢ) log(1-ŷᵢ)]</p>
+<p>Où :</p>
+<ul class="simple">
+<li><p>yᵢ ∈ {0, 1} : vraie classe</p></li>
+<li><p>ŷᵢ ∈ [0, 1] : probabilité prédite de la classe 1</p></li>
+</ul>
+<p><strong>Interprétation :</strong></p>
+<ul class="simple">
+<li><p>Si yᵢ = 1 : L diminue quand ŷᵢ → 1 (bonne prédiction)</p></li>
+<li><p>Si yᵢ = 0 : L diminue quand ŷᵢ → 0 (bonne prédiction)</p></li>
+<li><p>Pénalise fortement les prédictions très confiantes mais fausses</p></li>
+</ul>
+</div>
+<p><strong>Pourquoi cette fonction ?</strong></p>
+<ul class="simple">
+<li><p>Dérivée de la théorie de l’information</p></li>
+<li><p>Convexe → garantit un optimum global</p></li>
+<li><p>Bien adaptée aux probabilités</p></li>
+</ul>
+</section>
+<section id="descente-de-gradient-pour-la-regression-logistique">
+<h3>2.5 Descente de gradient pour la régression logistique<a class="headerlink" href="#descente-de-gradient-pour-la-regression-logistique" title="Lien vers cette rubrique">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Calcul des gradients :</strong></p>
+<p>∂L/∂w = (1/n) Xᵀ(ŷ - y)
+∂L/∂b = (1/n) Σᵢ (ŷᵢ - yᵢ)</p>
+<p><strong>Mise à jour des paramètres :</strong></p>
+<p>w := w - α × ∂L/∂w
+b := b - α × ∂L/∂b</p>
+<p>Note : La forme des gradients est similaire à la régression linéaire, mais ŷ = σ(Wx + b) ici.</p>
+</div>
+</section>
+<section id="classification-multi-classe">
+<h3>2.6 Classification multi-classe<a class="headerlink" href="#classification-multi-classe" title="Lien vers cette rubrique">#</a></h3>
+<p>Pour plus de 2 classes, on utilise la <strong>régression logistique multinomiale</strong> (softmax regression).</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Softmax (généralisation de sigmoïde) :</strong></p>
+<p>Pour K classes, la probabilité de la classe k est :</p>
+<p>ŷₖ = exp(zₖ) / Σⱼ exp(zⱼ)</p>
+<p>Où zₖ = Wₖx + bₖ pour chaque classe k.</p>
+<p><strong>Propriétés :</strong></p>
+<ul class="simple">
+<li><p>Σₖ ŷₖ = 1 (somme des probabilités = 1)</p></li>
+<li><p>Chaque ŷₖ ∈ [0, 1]</p></li>
+<li><p>La classe prédite est : argmax(ŷₖ)</p></li>
+</ul>
+</div>
+<p><strong>Fonction de coût : Categorical Cross-Entropy</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">)</span> <span class="n">Σᵢ</span> <span class="n">Σₖ</span> <span class="n">yᵢₖ</span> <span class="n">log</span><span class="p">(</span><span class="n">ŷᵢₖ</span><span class="p">)</span>
+
+<span class="n">Où</span> <span class="n">yᵢₖ</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">si</span> <span class="n">l</span><span class="s1">&#39;échantillon i appartient à la classe k, 0 sinon.</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h3>2.7 Implémentation pratique<a class="headerlink" href="#id1" title="Lien vers cette rubrique">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Notebook pratique</p>
+<p><strong>Ouvrez maintenant le notebook <a class="reference internal" href="#notebooks/4.2_classification_lineaire.ipynb"><span class="xref myst">4.2_classification_lineaire.ipynb</span></a></strong></p>
+<p>Dans ce notebook, vous allez :</p>
+<ol class="arabic simple">
+<li><p>Créer un dataset 2D avec 2 classes linéairement séparables</p></li>
+<li><p>Implémenter la régression logistique from scratch</p></li>
+<li><p>Visualiser la frontière de décision</p></li>
+<li><p>Comparer avec sklearn.linear_model.LogisticRegression</p></li>
+<li><p>Étendre à la classification multi-classe</p></li>
+<li><p>Appliquer à un exemple de neurosciences (classification de directions)</p></li>
+</ol>
+</div>
+</section>
+<section id="geometrie-de-la-classification-lineaire">
+<h3>2.8 Géométrie de la classification linéaire<a class="headerlink" href="#geometrie-de-la-classification-lineaire" title="Lien vers cette rubrique">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Frontière de décision (decision boundary) :</strong></p>
+<p>La frontière de décision est l’ensemble des points où ŷ = 0.5, c’est-à-dire où :</p>
+<p>Wx + b = 0</p>
+<p>C’est une <strong>ligne</strong> (en 2D) ou un <strong>hyperplan</strong> (en dimensions supérieures) qui sépare l’espace en deux régions :</p>
+<ul class="simple">
+<li><p>Région 1 : Wx + b &gt; 0 → classe 1</p></li>
+<li><p>Région 0 : Wx + b &lt; 0 → classe 0</p></li>
+</ul>
+</div>
+<p><strong>Visualisation en 2D :</strong></p>
+<p>Avec deux features x₁ et x₂, la frontière est :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>w₁x₁ + w₂x₂ + b = 0
+</pre></div>
+</div>
+<p>Cette ligne sépare les deux classes dans le plan (x₁, x₂).</p>
+</section>
+<section id="evaluation-du-modele-de-classification">
+<h3>2.9 Évaluation du modèle de classification<a class="headerlink" href="#evaluation-du-modele-de-classification" title="Lien vers cette rubrique">#</a></h3>
+<p>Plusieurs métriques sont utilisées pour évaluer la performance d’un classificateur :</p>
+<section id="a-accuracy-exactitude">
+<h4>A. Accuracy (Exactitude)<a class="headerlink" href="#a-accuracy-exactitude" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Accuracy = (Nombre de prédictions correctes) / (Nombre total de prédictions)</p>
+<p>Accuracy = (TP + TN) / (TP + TN + FP + FN)</p>
+<p>Où :</p>
+<ul class="simple">
+<li><p>TP (True Positives) : Vrais positifs</p></li>
+<li><p>TN (True Negatives) : Vrais négatifs</p></li>
+<li><p>FP (False Positives) : Faux positifs</p></li>
+<li><p>FN (False Negatives) : Faux négatifs</p></li>
+</ul>
+</div>
+<p><strong>Limitation :</strong> Peut être trompeuse avec des classes déséquilibrées.</p>
+</section>
+<section id="b-matrice-de-confusion">
+<h4>B. Matrice de confusion<a class="headerlink" href="#b-matrice-de-confusion" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Structure de la matrice de confusion (2 classes) :</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>              Prédit Négatif    Prédit Positif
+</pre></div>
+</div>
+<p>Réel Négatif           TN                FP
+Réel Positif           FN                TP</p>
+<p><strong>Matrice idéale :</strong> Diagonale pleine, reste à zéro.</p>
+</div>
+<p>Pour K classes, c’est une matrice K×K où l’élément (i,j) indique combien d’échantillons de la classe i ont été classés comme classe j.</p>
+</section>
+<section id="c-precision-et-rappel">
+<h4>C. Précision et Rappel<a class="headerlink" href="#c-precision-et-rappel" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Précision (Precision) :</strong>
+Proportion de prédictions positives qui sont correctes</p>
+<p>Precision = TP / (TP + FP)</p>
+<p><strong>Rappel (Recall / Sensibilité) :</strong>
+Proportion de vrais positifs correctement identifiés</p>
+<p>Recall = TP / (TP + FN)</p>
+<p><strong>F1-Score :</strong>
+Moyenne harmonique de précision et rappel</p>
+<p>F1 = 2 × (Precision × Recall) / (Precision + Recall)</p>
+</div>
+</section>
+<section id="d-courbe-roc-et-auc">
+<h4>D. Courbe ROC et AUC<a class="headerlink" href="#d-courbe-roc-et-auc" title="Lien vers cette rubrique">#</a></h4>
+<div class="note admonition">
+<p class="admonition-title">ROC (Receiver Operating Characteristic)</p>
+<p><strong>Courbe ROC :</strong></p>
+<ul class="simple">
+<li><p>Axe X : Taux de faux positifs (FPR) = FP / (FP + TN)</p></li>
+<li><p>Axe Y : Taux de vrais positifs (TPR) = TP / (TP + FN) = Recall</p></li>
+<li><p>Montre le compromis entre TPR et FPR pour différents seuils</p></li>
+</ul>
+<p><strong>AUC (Area Under Curve) :</strong></p>
+<ul class="simple">
+<li><p>Aire sous la courbe ROC</p></li>
+<li><p>AUC = 1 : classificateur parfait</p></li>
+<li><p>AUC = 0.5 : classificateur aléatoire</p></li>
+<li><p>Plus l’AUC est proche de 1, meilleur est le modèle</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="visualisations-pour-la-classification">
+<h3>2.10 Visualisations pour la classification<a class="headerlink" href="#visualisations-pour-la-classification" title="Lien vers cette rubrique">#</a></h3>
+<div class="note admonition">
+<p class="admonition-title">Visualisations importantes</p>
+<p><strong>1. Frontière de décision</strong></p>
+<ul class="simple">
+<li><p>Visualisation 2D avec les points de données</p></li>
+<li><p>Montre comment le modèle sépare les classes</p></li>
+<li><p>Utile pour comprendre le comportement du modèle</p></li>
+</ul>
+<p><strong>2. Matrice de confusion</strong></p>
+<ul class="simple">
+<li><p>Heatmap pour voir les erreurs de classification</p></li>
+<li><p>Diagonale = bonnes prédictions</p></li>
+<li><p>Hors diagonale = erreurs</p></li>
+</ul>
+<p><strong>3. Courbe d’apprentissage</strong></p>
+<ul class="simple">
+<li><p>Évolution de la loss pendant l’entraînement</p></li>
+<li><p>Doit diminuer et converger</p></li>
+</ul>
+<p><strong>4. Distributions des probabilités prédites</strong></p>
+<ul class="simple">
+<li><p>Histogrammes des ŷ pour chaque classe</p></li>
+<li><p>Bonnes séparation = distributions bien séparées</p></li>
+</ul>
+</div>
+</section>
+<section id="id2">
+<h3>2.11 Exemple appliqué : Neurosciences<a class="headerlink" href="#id2" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>Problème :</strong> Classifier la direction du mouvement d’un singe (8 directions) à partir de l’activité de neurones dans le cortex moteur.</p>
+<p><strong>Données :</strong></p>
+<ul class="simple">
+<li><p><strong>Entrées (X)</strong> : Activité de N neurones (firing rates)</p></li>
+<li><p><strong>Sortie (y)</strong> : Direction (0-7, représentant 8 directions)</p></li>
+<li><p><strong>Échantillons</strong> : Enregistrements de multiples mouvements</p></li>
+</ul>
+<p><strong>Approche :</strong></p>
+<ol class="arabic simple">
+<li><p>Classification multi-classe (8 classes)</p></li>
+<li><p>Utiliser softmax regression</p></li>
+<li><p>Évaluer avec matrice de confusion</p></li>
+<li><p>Interpréter les poids pour comprendre quels neurones sont informatifs pour chaque direction</p></li>
+</ol>
+<p><strong>Questions d’interprétation :</strong></p>
+<ul class="simple">
+<li><p>Quelles directions sont plus facilement distinguables ?</p></li>
+<li><p>Quels neurones contribuent le plus à la classification ?</p></li>
+<li><p>Y a-t-il des confusions systématiques entre certaines directions ?</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">À explorer dans le notebook</p>
+<p>Le notebook 4.2 contient un exemple complet avec des données simulées de classification de directions de mouvement.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="partie-3-comparaison-et-choix-du-modele">
+<h2>Partie 3 : Comparaison et Choix du Modèle<a class="headerlink" href="#partie-3-comparaison-et-choix-du-modele" title="Lien vers cette rubrique">#</a></h2>
+<section id="regression-vs-classification-tableau-recapitulatif">
+<h3>3.1 Régression vs Classification : Tableau récapitulatif<a class="headerlink" href="#regression-vs-classification-tableau-recapitulatif" title="Lien vers cette rubrique">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Aspect</p></th>
+<th class="head"><p>Régression Linéaire</p></th>
+<th class="head"><p>Classification Linéaire</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Type de sortie</strong></p></td>
+<td><p>Continue (ℝ)</p></td>
+<td><p>Discrète (catégories)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Fonction d’activation</strong></p></td>
+<td><p>Identité (y = z)</p></td>
+<td><p>Sigmoïde (2 classes) ou Softmax (multi-classes)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Fonction de coût</strong></p></td>
+<td><p>MSE</p></td>
+<td><p>Cross-Entropy</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Sortie du modèle</strong></p></td>
+<td><p>Valeur prédite</p></td>
+<td><p>Probabilités de classes</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Évaluation</strong></p></td>
+<td><p>R², MSE, RMSE, MAE</p></td>
+<td><p>Accuracy, Precision, Recall, F1, AUC</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Visualisation</strong></p></td>
+<td><p>Ligne/plan de régression</p></td>
+<td><p>Frontière de décision</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Applications</strong></p></td>
+<td><p>Prédire vitesse, température, prix</p></td>
+<td><p>Classifier espèces, diagnostics, directions</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="quand-utiliser-quel-modele">
+<h3>3.2 Quand utiliser quel modèle ?<a class="headerlink" href="#quand-utiliser-quel-modele" title="Lien vers cette rubrique">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Régression Linéaire</p>
+<p><strong>Utiliser quand :</strong></p>
+<ul class="simple">
+<li><p>✅ La sortie est une valeur numérique continue</p></li>
+<li><p>✅ La relation entre entrées et sortie est approximativement linéaire</p></li>
+<li><p>✅ Vous voulez prédire une quantité</p></li>
+</ul>
+<p><strong>Exemples :</strong></p>
+<ul class="simple">
+<li><p>Prédire la vitesse de mouvement</p></li>
+<li><p>Estimer l’âge à partir de données</p></li>
+<li><p>Prédire la température</p></li>
+<li><p>Estimer le prix d’une maison</p></li>
+</ul>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Classification Linéaire</p>
+<p><strong>Utiliser quand :</strong></p>
+<ul class="simple">
+<li><p>✅ La sortie est une catégorie (binaire ou multi-classe)</p></li>
+<li><p>✅ Les classes sont approximativement linéairement séparables</p></li>
+<li><p>✅ Vous voulez assigner des labels</p></li>
+</ul>
+<p><strong>Exemples :</strong></p>
+<ul class="simple">
+<li><p>Classifier la direction de mouvement</p></li>
+<li><p>Diagnostiquer maladie vs sain</p></li>
+<li><p>Reconnaître des chiffres manuscrits (simple)</p></li>
+<li><p>Spam vs non-spam</p></li>
+</ul>
+</div>
+</section>
+<section id="limitations-des-modeles-lineaires">
+<h3>3.3 Limitations des modèles linéaires<a class="headerlink" href="#limitations-des-modeles-lineaires" title="Lien vers cette rubrique">#</a></h3>
+<div class="warning admonition">
+<p class="admonition-title">Limitations importantes</p>
+<p><strong>Les modèles linéaires ont des limites :</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Hypothèse de linéarité</strong></p>
+<ul class="simple">
+<li><p>Ne peuvent capturer que des relations linéaires</p></li>
+<li><p>Performances médiocres si la vraie relation est non-linéaire</p></li>
+</ul>
+</li>
+<li><p><strong>Classes non linéairement séparables</strong></p>
+<ul class="simple">
+<li><p>Classification linéaire échoue si les classes ne peuvent être séparées par une ligne/hyperplan</p></li>
+<li><p>Exemple : problème XOR</p></li>
+</ul>
+</li>
+<li><p><strong>Sensibilité aux outliers</strong></p>
+<ul class="simple">
+<li><p>Les valeurs aberrantes peuvent fortement influencer le modèle</p></li>
+<li><p>Particulièrement vrai pour MSE (à cause du carré)</p></li>
+</ul>
+</li>
+<li><p><strong>Pas d’interactions complexes</strong></p>
+<ul class="simple">
+<li><p>Ne peut pas capturer automatiquement les interactions entre features</p></li>
+<li><p>Nécessite feature engineering manuel</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<p><strong>Solution :</strong> Utiliser des modèles non-linéaires (réseaux de neurones, arbres de décision, SVM avec kernel, etc.)</p>
+</section>
+<section id="ameliorer-les-modeles-lineaires">
+<h3>3.4 Améliorer les modèles linéaires<a class="headerlink" href="#ameliorer-les-modeles-lineaires" title="Lien vers cette rubrique">#</a></h3>
+<div class="note admonition">
+<p class="admonition-title">Techniques d’amélioration</p>
+<p><strong>1. Feature Engineering</strong></p>
+<ul class="simple">
+<li><p>Ajouter des features polynomiales : x₁², x₁x₂, etc.</p></li>
+<li><p>Transformations : log(x), √x, etc.</p></li>
+<li><p>Features d’interaction</p></li>
+</ul>
+<p><strong>2. Régularisation</strong></p>
+<ul class="simple">
+<li><p>Ridge (L2) : pénalise les grands poids</p></li>
+<li><p>Lasso (L1) : favorise la sparsité (sélection de features)</p></li>
+<li><p>Elastic Net : combinaison de L1 et L2</p></li>
+</ul>
+<p><strong>3. Normalisation/Standardisation des données</strong></p>
+<ul class="simple">
+<li><p>Centrer et réduire les features</p></li>
+<li><p>Améliore la convergence de la descente de gradient</p></li>
+<li><p>Important quand les features ont des échelles différentes</p></li>
+</ul>
+<p><strong>4. Validation croisée</strong></p>
+<ul class="simple">
+<li><p>Évaluer la généralisation du modèle</p></li>
+<li><p>Détecter le sur-apprentissage (overfitting)</p></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="concepts-cles-a-retenir">
+<h2>Concepts clés à retenir<a class="headerlink" href="#concepts-cles-a-retenir" title="Lien vers cette rubrique">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Points essentiels de cette séance :</strong></p>
+<p><strong>Régression Linéaire :</strong></p>
+<ol class="arabic simple">
+<li><p>Modèle : y = Wx + b (prédiction de valeurs continues)</p></li>
+<li><p>Loss : MSE = (1/n) Σ(y - ŷ)²</p></li>
+<li><p>Optimisation : Équations normales ou descente de gradient</p></li>
+<li><p>Évaluation : R², MSE, RMSE, MAE</p></li>
+<li><p>Visualisation : ligne de régression, résidus</p></li>
+</ol>
+<p><strong>Classification Linéaire :</strong></p>
+<ol class="arabic simple">
+<li><p>Modèle : ŷ = σ(Wx + b) avec σ = sigmoïde</p></li>
+<li><p>Loss : Binary Cross-Entropy</p></li>
+<li><p>Optimisation : Descente de gradient</p></li>
+<li><p>Évaluation : Accuracy, Precision, Recall, F1, AUC</p></li>
+<li><p>Visualisation : frontière de décision, matrice de confusion</p></li>
+</ol>
+<p><strong>Multi-classe :</strong></p>
+<ul class="simple">
+<li><p>Extension avec softmax</p></li>
+<li><p>Categorical cross-entropy</p></li>
+<li><p>Matrice de confusion K×K</p></li>
+</ul>
+<p><strong>Pratique :</strong></p>
+<ul class="simple">
+<li><p>Implémentation from scratch pour comprendre</p></li>
+<li><p>Bibliothèques (sklearn) pour la production</p></li>
+<li><p>Toujours visualiser et valider</p></li>
+</ul>
+</div>
+</section>
+<hr class="docutils" />
+<section id="exercices-pratiques">
+<h2>Exercices pratiques<a class="headerlink" href="#exercices-pratiques" title="Lien vers cette rubrique">#</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">Notebook d’exercices</p>
+<p><strong>Ouvrez le notebook <a class="reference internal" href="#notebooks/4.3_exercices.ipynb"><span class="xref myst">4.3_exercices.ipynb</span></a></strong></p>
+<p>Ce notebook contient des exercices progressifs pour mettre en pratique les concepts :</p>
+<p><strong>Exercice 1 : Régression sur données réelles</strong></p>
+<ul class="simple">
+<li><p>Charger un dataset (par exemple, Boston Housing)</p></li>
+<li><p>Explorer les données</p></li>
+<li><p>Entraîner un modèle de régression</p></li>
+<li><p>Évaluer et interpréter les résultats</p></li>
+</ul>
+<p><strong>Exercice 2 : Classification binaire</strong></p>
+<ul class="simple">
+<li><p>Dataset de neurosciences simulé</p></li>
+<li><p>Classifier deux types de mouvements</p></li>
+<li><p>Visualiser la frontière de décision</p></li>
+<li><p>Calculer les métriques de performance</p></li>
+</ul>
+<p><strong>Exercice 3 : Classification multi-classe</strong></p>
+<ul class="simple">
+<li><p>Classifier 8 directions de mouvement</p></li>
+<li><p>Analyser la matrice de confusion</p></li>
+<li><p>Identifier les confusions communes</p></li>
+<li><p>Interpréter les poids du modèle</p></li>
+</ul>
+<p><strong>Exercice 4 : Comparaison des approches</strong></p>
+<ul class="simple">
+<li><p>Implémenter from scratch vs sklearn</p></li>
+<li><p>Comparer les performances</p></li>
+<li><p>Analyser les différences</p></li>
+</ul>
+<p><strong>Exercice 5 (Bonus) : Feature engineering</strong></p>
+<ul class="simple">
+<li><p>Améliorer la performance avec des features polynomiales</p></li>
+<li><p>Comparer modèle linéaire vs polynomial</p></li>
+</ul>
+</div>
+</section>
+<hr class="docutils" />
+<section id="ressources-complementaires">
+<h2>Ressources complémentaires<a class="headerlink" href="#ressources-complementaires" title="Lien vers cette rubrique">#</a></h2>
+<section id="documentation-et-tutoriels">
+<h3>Documentation et tutoriels<a class="headerlink" href="#documentation-et-tutoriels" title="Lien vers cette rubrique">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Ressources en ligne</p>
+<p><strong>Documentation scikit-learn :</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html">Linear Regression</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">Logistic Regression</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/linear_model.html">User Guide - Linear Models</a></p></li>
+</ul>
+<p><strong>Tutoriels interactifs :</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developers.google.com/machine-learning/crash-course">Machine Learning Crash Course (Google)</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/tutorial/index.html">Scikit-learn Tutorials</a></p></li>
+</ul>
+<p><strong>Visualisations interactives :</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://playground.tensorflow.org/">TensorFlow Playground</a> - Pour visualiser les frontières de décision</p></li>
+<li><p><a class="reference external" href="https://seeing-theory.brown.edu/">Seeing Theory</a> - Pour la statistique visuelle</p></li>
+</ul>
+</div>
+</section>
+<section id="lectures-approfondies">
+<h3>Lectures approfondies<a class="headerlink" href="#lectures-approfondies" title="Lien vers cette rubrique">#</a></h3>
+<div class="note admonition">
+<p class="admonition-title">Pour aller plus loin</p>
+<p><strong>Livres recommandés :</strong></p>
+<ol class="arabic simple">
+<li><p><strong>« Pattern Recognition and Machine Learning »</strong> - Christopher Bishop</p>
+<ul class="simple">
+<li><p>Chapitre 3 : Linear Models for Regression</p></li>
+<li><p>Chapitre 4 : Linear Models for Classification</p></li>
+</ul>
+</li>
+<li><p><strong>« The Elements of Statistical Learning »</strong> - Hastie, Tibshirani, Friedman</p>
+<ul class="simple">
+<li><p>Chapitre 3 : Linear Methods for Regression</p></li>
+<li><p>Chapitre 4 : Linear Methods for Classification</p></li>
+</ul>
+</li>
+<li><p><strong>« Hands-On Machine Learning »</strong> - Aurélien Géron</p>
+<ul class="simple">
+<li><p>Chapitre 4 : Training Linear Models</p></li>
+<li><p>Très pratique avec code Python</p></li>
+</ul>
+</li>
+</ol>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="prochaines-etapes">
+<h2>Prochaines étapes<a class="headerlink" href="#prochaines-etapes" title="Lien vers cette rubrique">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Pour la prochaine séance :</strong></p>
+<p>Nous explorerons :</p>
+<ol class="arabic simple">
+<li><p><strong>Réseaux de neurones</strong> : au-delà des modèles linéaires</p></li>
+<li><p><strong>Apprentissage profond</strong> : architectures multi-couches</p></li>
+<li><p><strong>Rétropropagation</strong> : comment entraîner des réseaux profonds</p></li>
+<li><p><strong>Applications avancées</strong> : vision par ordinateur, traitement du langage</p></li>
+</ol>
+<p><strong>Préparez-vous en :</strong></p>
+<ul class="simple">
+<li><p>Complétant les exercices de cette séance</p></li>
+<li><p>Explorant les notebooks en profondeur</p></li>
+<li><p>Réfléchissant aux limitations des modèles linéaires</p></li>
+<li><p>Pensant à des problèmes non-linéaires en psychologie/neurosciences</p></li>
+</ul>
+</div>
+</section>
+<hr class="docutils" />
+<section id="recapitulatif-de-la-seance">
+<h2>Récapitulatif de la séance<a class="headerlink" href="#recapitulatif-de-la-seance" title="Lien vers cette rubrique">#</a></h2>
+<p>Aujourd’hui, nous avons :</p>
+<p>✅ Compris la théorie mathématique de la régression et classification linéaires
+✅ Implémenté ces modèles from scratch en Python
+✅ Utilisé scikit-learn pour des implémentations robustes
+✅ Appliqué ces techniques à des problèmes de neurosciences
+✅ Appris à évaluer et visualiser les performances des modèles
+✅ Identifié les limites des modèles linéaires</p>
+<p><strong>Bravo pour votre travail ! La pratique est essentielle - n’hésitez pas à expérimenter avec les notebooks.</strong></p>
+<hr class="docutils" />
+<p><strong>Fin de la Séance 4</strong></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="seance3.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">Séance 3 : Classification et Régression</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vue-d-ensemble">Vue d’ensemble</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-de-la-seance">Structure de la séance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#materiel-pratique">Matériel pratique</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooks-jupyter-disponibles">Notebooks Jupyter disponibles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-de-l-environnement">Installation de l’environnement</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-1-regression-lineaire">Partie 1 : Régression Linéaire</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rappel-conceptuel">1.1 Rappel conceptuel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formulation-mathematique-generale">1.2 Formulation mathématique générale</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cas-multi-variables-regression-lineaire-multiple">Cas multi-variables (régression linéaire multiple)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fonction-de-cout-loss-function">1.3 Fonction de coût (Loss Function)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes-d-optimisation">1.4 Méthodes d’optimisation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-solution-analytique-equations-normales">A. Solution analytique (Équations normales)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-descente-de-gradient-gradient-descent">B. Descente de gradient (Gradient Descent)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-pratique">1.5 Implémentation pratique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-du-modele">1.6 Évaluation du modèle</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-mean-squared-error-mse">A. Mean Squared Error (MSE)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-root-mean-squared-error-rmse">B. Root Mean Squared Error (RMSE)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c-mean-absolute-error-mae">C. Mean Absolute Error (MAE)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-coefficient-de-determination-r2">D. Coefficient de détermination (R²)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-et-diagnostic">1.7 Visualisation et diagnostic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-applique-neurosciences">1.8 Exemple appliqué : Neurosciences</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-2-classification-lineaire-regression-logistique">Partie 2 : Classification Linéaire (Régression Logistique)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#de-la-regression-a-la-classification">2.1 De la régression à la classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-regression-logistique">2.2 La régression logistique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-fonction-sigmoide">2.3 La fonction sigmoïde</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fonction-de-cout-binary-cross-entropy">2.4 Fonction de coût : Binary Cross-Entropy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descente-de-gradient-pour-la-regression-logistique">2.5 Descente de gradient pour la régression logistique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-multi-classe">2.6 Classification multi-classe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.7 Implémentation pratique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrie-de-la-classification-lineaire">2.8 Géométrie de la classification linéaire</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-du-modele-de-classification">2.9 Évaluation du modèle de classification</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-accuracy-exactitude">A. Accuracy (Exactitude)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-matrice-de-confusion">B. Matrice de confusion</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c-precision-et-rappel">C. Précision et Rappel</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-courbe-roc-et-auc">D. Courbe ROC et AUC</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisations-pour-la-classification">2.10 Visualisations pour la classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.11 Exemple appliqué : Neurosciences</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-3-comparaison-et-choix-du-modele">Partie 3 : Comparaison et Choix du Modèle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-vs-classification-tableau-recapitulatif">3.1 Régression vs Classification : Tableau récapitulatif</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quand-utiliser-quel-modele">3.2 Quand utiliser quel modèle ?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-des-modeles-lineaires">3.3 Limitations des modèles linéaires</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ameliorer-les-modeles-lineaires">3.4 Améliorer les modèles linéaires</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts-cles-a-retenir">Concepts clés à retenir</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercices-pratiques">Exercices pratiques</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ressources-complementaires">Ressources complémentaires</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-et-tutoriels">Documentation et tutoriels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lectures-approfondies">Lectures approfondies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prochaines-etapes">Prochaines étapes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recapitulatif-de-la-seance">Récapitulatif de la séance</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par PSY3913 / 6913
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
