@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="fr" data-content_root="./" >
+<html lang="fr" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Séance 3 : Classification et Régression &#8212; IA, Psychologie et Neuroscience Cognitive</title>
+    <title>Séance 3 : Apprentissage Automatique - Classification et Régression &#8212; IA, Psychologie et Neuroscience Cognitive</title>
   
   
   
@@ -18,79 +18,78 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=720ed60b" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=d2032c04" />
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=720ed60b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/theme.css?v=a243ae73" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/bootstrap.css?v=b4a3e8ba" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/vendor/fontawesome/6.5.2/css/all.min.css?v=f4fbef65" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=720ed60b" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=d2032c04" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=720ed60b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/theme.css?v=a243ae73" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/bootstrap.css?v=b4a3e8ba" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?v=f4fbef65" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=72dce1d2"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="_static/translations.js?v=041d0952"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=041d0952"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'seance3';</script>
-    <script src="_static/translations.js?v=041d0952"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/documentation_options.js?v=72dce1d2"></script>
-    <script src="_static/searchtools.js?v=63a53a7d"></script>
-    <script src="_static/french-stemmer.js?v=4cf82138"></script>
-    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/design-tabs.js?v=f930bc37"></script>
-    <script src="_static/base-stemmer.js?v=da076eef"></script>
-    <script src="_static/language_data.js?v=27445a5f"></script>
-    <script src="_static/copybutton_funcs.js?v=776a791e"></script>
-    <script src="_static/sphinx-thebe.js?v=c100c467"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script src="_static/scripts/bootstrap.js?v=7583a70d"></script>
-    <script src="_static/scripts/pydata-sphinx-theme.js?v=4bc35cb3"></script>
-    <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?v=4e4fcec4"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Recherche" href="search.html" />
-    <link rel="prev" title="Séance 2 : Introduction à l’Apprentissage Automatique" href="seance2.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = '_sources/seance3';</script>
+    <script src="../_static/translations.js?v=041d0952"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="../_static/searchtools.js?v=63a53a7d"></script>
+    <script src="../_static/french-stemmer.js?v=4cf82138"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/base-stemmer.js?v=da076eef"></script>
+    <script src="../_static/language_data.js?v=27445a5f"></script>
+    <script src="../_static/copybutton_funcs.js?v=776a791e"></script>
+    <script src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/scripts/bootstrap.js?v=7583a70d"></script>
+    <script src="../_static/scripts/pydata-sphinx-theme.js?v=4bc35cb3"></script>
+    <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?v=4e4fcec4"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -122,7 +121,7 @@
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
-      action="search.html"
+      action="../search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -153,6 +152,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -171,7 +172,7 @@
     
   
 
-<a class="navbar-brand logo" href="intro.html">
+<a class="navbar-brand logo" href="../intro.html">
   
   
   
@@ -194,10 +195,10 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="seance1.html">Séance 1 - Introduction à l'IA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="seance2.html">Séance 2 - Apprentissage Automatique</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Séance 3 - Classification et Régression</a></li>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../seance1.html">Séance 1 - Introduction à l'IA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../seance2.html">Séance 2 - Apprentissage Automatique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../seance3.html">Séance 3 - Apprentissage Automatique - Classification et Régression</a></li>
 </ul>
 
     </div>
@@ -252,7 +253,7 @@
       
       
       
-      <li><a href="_sources/seance3.md" target="_blank"
+      <li><a href="../_sources/_sources/seance3.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Télécharger le fichier source"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -336,7 +337,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Séance 3 : Classification et Régression</h1>
+    <h1>Séance 3 : Apprentissage Automatique - Classification et Régression</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -479,8 +480,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="seance-3-classification-et-regression">
-<h1>Séance 3 : Classification et Régression<a class="headerlink" href="#seance-3-classification-et-regression" title="Lien vers cette rubrique">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="seance-3-apprentissage-automatique-classification-et-regression">
+<h1>Séance 3 : Apprentissage Automatique - Classification et Régression<a class="headerlink" href="#seance-3-apprentissage-automatique-classification-et-regression" title="Lien vers cette rubrique">#</a></h1>
 <section id="vue-d-ensemble">
 <h2>Vue d’ensemble<a class="headerlink" href="#vue-d-ensemble" title="Lien vers cette rubrique">#</a></h2>
 <p>Cette troisième séance approfondit les concepts d’apprentissage automatique en explorant les deux grandes familles d’apprentissage supervisé : la <strong>classification</strong> et la <strong>régression</strong>. Nous verrons comment ces approches sont appliquées en psychologie et neurosciences, notamment pour les neuroprothèses et la modélisation du cerveau. Nous comprendrons aussi les éléments clés de l’apprentissage automatique et comment les modèles sont entraînés.</p>
@@ -1571,7 +1572,7 @@ Axe Y : Vitesse prédite</p>
         },
         kernelOptions: {
             name: "python3",
-            path: "./."
+            path: "./_sources"
         },
         predefinedOutput: true
     }
@@ -1588,15 +1589,6 @@ Axe Y : Vitesse prédite</p>
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="seance2.html"
-       title="page précédente">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">Séance 2 : Introduction à l’Apprentissage Automatique</p>
-      </div>
-    </a>
 </div>
                 </footer>
               
@@ -1783,8 +1775,8 @@ Par PSY3913 / 6913
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

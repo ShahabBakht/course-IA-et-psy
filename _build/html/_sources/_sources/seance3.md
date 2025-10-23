@@ -1,4 +1,4 @@
-# Séance 3 : Classification et Régression
+# Séance 3 : Apprentissage Automatique - Classification et Régression
 
 ## Vue d'ensemble
 
