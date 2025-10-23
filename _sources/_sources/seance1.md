@@ -18,7 +18,7 @@ Il est important de comprendre comment les experts et les organisations majeures
 
 ```{admonition} Contexte historique
 :class: note
-Marvin Minsky est l'un des pères fondateurs du domaine de l'IA dans les années 1950. Cette définition est délibérément large et centrée sur l'objectif : créer des machines capables de fonctions cognitives.
+[Marvin Minsky](https://amturing.acm.org/award_winners/minsky_7440781.cfm) est l'un des pères fondateurs du domaine de l'IA dans les années 1950. Cette définition est délibérément large et centrée sur l'objectif : créer des machines capables de fonctions cognitives.
 ```
 
 **Concept clé :**

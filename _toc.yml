@@ -8,3 +8,5 @@ chapters:
   title: Séance 1 - Introduction à l'IA
 - file: seance2
   title: Séance 2 - Apprentissage Automatique
+- file: seance3
+  title: Séance 3 - Apprentissage Automatique - Classification et Régression

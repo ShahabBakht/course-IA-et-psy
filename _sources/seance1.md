@@ -14,11 +14,11 @@ Il est important de comprendre comment les experts et les organisations majeures
 
 ### 1.2 La définition fondatrice : Marvin Minsky (1950s)
 
-**Définition :** "La science et l'ingénierie de la création de machines intelligentes"
+**Définition :** "La science et l'ingénierie de la création de machines intelligentes." Cette définition est délibérément large et centrée sur l'objectif : créer des machines capables de fonctions cognitives.
 
 ```{admonition} Contexte historique
 :class: note
-[Marvin Minsky](https://amturing.acm.org/award_winners/minsky_7440781.cfm) est l'un des pères fondateurs du domaine de l'IA dans les années 1950. Cette définition est délibérément large et centrée sur l'objectif : créer des machines capables de fonctions cognitives.
+[Marvin Minsky](https://amturing.acm.org/award_winners/minsky_7440781.cfm) est l'un des pères fondateurs du domaine de l'IA dans les années 1950. 
 ```
 
 **Concept clé :**

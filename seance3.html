@@ -1,0 +1,1792 @@
+
+<!DOCTYPE html>
+
+
+<html lang="fr" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Séance 3 : Apprentissage Automatique - Classification et Régression &#8212; IA, Psychologie et Neuroscience Cognitive</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=720ed60b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=d2032c04" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=720ed60b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/theme.css?v=a243ae73" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/bootstrap.css?v=b4a3e8ba" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/vendor/fontawesome/6.5.2/css/all.min.css?v=f4fbef65" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/translations.js?v=041d0952"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'seance3';</script>
+    <script src="_static/translations.js?v=041d0952"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="_static/searchtools.js?v=63a53a7d"></script>
+    <script src="_static/french-stemmer.js?v=4cf82138"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="_static/base-stemmer.js?v=da076eef"></script>
+    <script src="_static/language_data.js?v=27445a5f"></script>
+    <script src="_static/copybutton_funcs.js?v=776a791e"></script>
+    <script src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/bootstrap.js?v=7583a70d"></script>
+    <script src="_static/scripts/pydata-sphinx-theme.js?v=4bc35cb3"></script>
+    <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?v=4e4fcec4"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="prev" title="Séance 2 : Introduction à l’Apprentissage Automatique" href="seance2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">IA, Psychologie et Neuroscience Cognitive</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="seance1.html">Séance 1 - Introduction à l'IA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seance2.html">Séance 2 - Apprentissage Automatique</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Séance 3 - Apprentissage Automatique - Classification et Régression</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/seance3.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Séance 3 : Apprentissage Automatique - Classification et Régression</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vue-d-ensemble">Vue d’ensemble</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-de-l-apprentissage-automatique-en-psychologie-et-neurosciences">1. Applications de l’apprentissage automatique en psychologie et neurosciences</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neuroprotheses-decodage-de-la-parole-chez-les-patients-paralyses">1.1 Neuroprothèses : Décodage de la parole chez les patients paralysés</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-defi">Le défi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#les-resultats-actuels">Les résultats actuels</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#comment-le-modele-d-apprentissage-automatique-fonctionne">Comment le modèle d’apprentissage automatique fonctionne</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-defi-de-la-collecte-de-donnees">Le défi de la collecte de données</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#l-importance-de-la-qualite-des-donnees">L’importance de la qualité des données</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neuroprotheses-neuralink">1.2 Neuroprothèses : Neuralink</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-projet-neuralink">Le projet Neuralink</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Le défi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-role-de-l-apprentissage-automatique">Le rôle de l’apprentissage automatique</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelisation-du-cerveau-utilisant-l-apprentissage-automatique">1.3 Modélisation du cerveau utilisant l’apprentissage automatique</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#un-nouveau-paradigme-de-recherche">Un nouveau paradigme de recherche</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-principe">Le principe</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-elements-cles-de-l-apprentissage-automatique">2. Les éléments clés de l’apprentissage automatique</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-donnees-d-entrainement">2.1 Les données d’entraînement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#le-modele-parametrique-de-l-apprentissage-automatique">2.2 Le modèle paramétrique de l’apprentissage automatique</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-importantes-pour-les-chercheurs-et-developpeurs">Questions importantes pour les chercheurs et développeurs</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l-objectif-de-l-apprentissage-fonction-objectif">2.3 L’objectif de l’apprentissage (fonction objectif)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l-algorithme-d-entrainement-algorithme-d-optimisation">2.4 L’algorithme d’entraînement (algorithme d’optimisation)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-de-donnees-en-apprentissage-automatique">3. Types de données en apprentissage automatique</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-diversite-des-types-de-donnees">3.1 La diversité des types de données</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l-apprentissage-multi-modal">3.2 L’apprentissage multi-modal</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l-apprentissage-supervise-classification">4. L’apprentissage supervisé : Classification</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-a-la-classification">4.1 Introduction à la classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-illustratif-chiens-et-chats">4.2 Exemple illustratif : Chiens et chats</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-sorties-categorielles">4.3 Les sorties catégorielles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-en-neurosciences-classification-des-directions-de-mouvement">4.4 Exemple en neurosciences : Classification des directions de mouvement</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#contexte-experimental">Contexte expérimental</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#definir-le-probleme-de-classification">Définir le problème de classification</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-de-ce-modele">Applications de ce modèle</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-en-neurosciences-classification-d-orientation-visuelle">4.5 Exemple en neurosciences : Classification d’orientation visuelle</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Contexte expérimental</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#la-structure-des-donnees">La structure des données</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#application-du-modele">Application du modèle</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-geometrie-de-la-classification">4.6 La géométrie de la classification</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-simplifiee-avec-deux-neurones">Visualisation simplifiée avec deux neurones</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-lineaire">Classification linéaire</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-non-lineaire">Classification non linéaire</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l-apprentissage-supervise-regression">5. L’apprentissage supervisé : Régression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-a-la-regression">5.1 Introduction à la régression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-entre-classification-et-regression">5.2 Différence entre classification et régression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-en-neurosciences-regression-de-la-vitesse-de-mouvement">5.3 Exemple en neurosciences : Régression de la vitesse de mouvement</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Contexte expérimental</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-du-probleme">Définition du problème</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-du-modele">Performance du modèle</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-en-neurosciences-prediction-d-activite-neuronale">5.4 Exemple en neurosciences : Prédiction d’activité neuronale</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Contexte expérimental</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Définition du problème</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-geometrie-de-la-regression">5.5 La géométrie de la régression</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-avec-un-seul-neurone">Visualisation avec un seul neurone</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-modele-comme-une-courbe">Le modèle comme une courbe</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entrainement-du-modele-la-fonction-objectif">6. Entraînement du modèle : La fonction objectif</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-a-la-fonction-objectif">6.1 Introduction à la fonction objectif</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principe-de-la-quantification-de-l-erreur">6.2 Principe de la quantification de l’erreur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notation-mathematique">6.3 Notation mathématique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-squared-error-mse-erreur-quadratique-moyenne">6.4 Mean Squared Error (MSE) - Erreur quadratique moyenne</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entrainement-du-modele-l-algorithme-d-optimisation">7. Entraînement du modèle : L’algorithme d’optimisation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#le-role-de-l-algorithme-d-apprentissage">7.1 Le rôle de l’algorithme d’apprentissage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#une-analogie-le-guessing-game">7.2 Une analogie : Le « Guessing Game »</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-jeu">Le jeu</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parallele-avec-l-apprentissage-automatique">Parallèle avec l’apprentissage automatique</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-processus-iteratif">Le processus itératif</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-courbe-d-apprentissage">7.3 La courbe d’apprentissage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elements-cles-du-processus-d-apprentissage">7.4 Éléments clés du processus d’apprentissage</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-parametres-du-modele-metaphore-des-boutons-ajustables">8. Les paramètres du modèle : Métaphore des boutons ajustables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-des-parametres">8.1 Visualisation des paramètres</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#le-processus-d-ajustement">8.2 Le processus d’ajustement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-regression-lineaire">8.3 Exemple : Régression linéaire</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parametrisation-du-modele">Paramétrisation du modèle</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-geometrique-le-role-des-poids-w">Visualisation géométrique : Le rôle des poids (W)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-geometrique-le-role-du-biais-b">Visualisation géométrique : Le rôle du biais (b)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comment-l-algorithme-ajuste-t-il-les-parametres">8.4 Comment l’algorithme ajuste-t-il les paramètres ?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts-cles-a-retenir">9. Concepts clés à retenir</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-de-reflexion">10. Questions de réflexion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ressources-complementaires">11. Ressources complémentaires</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#articles-scientifiques">Articles scientifiques</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Vidéos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts-pour-la-prochaine-seance">Concepts pour la prochaine séance</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="seance-3-apprentissage-automatique-classification-et-regression">
+<h1>Séance 3 : Apprentissage Automatique - Classification et Régression<a class="headerlink" href="#seance-3-apprentissage-automatique-classification-et-regression" title="Lien vers cette rubrique">#</a></h1>
+<section id="vue-d-ensemble">
+<h2>Vue d’ensemble<a class="headerlink" href="#vue-d-ensemble" title="Lien vers cette rubrique">#</a></h2>
+<p>Cette troisième séance approfondit les concepts d’apprentissage automatique en explorant les deux grandes familles d’apprentissage supervisé : la <strong>classification</strong> et la <strong>régression</strong>. Nous verrons comment ces approches sont appliquées en psychologie et neurosciences, notamment pour les neuroprothèses et la modélisation du cerveau. Nous comprendrons aussi les éléments clés de l’apprentissage automatique et comment les modèles sont entraînés.</p>
+</section>
+<hr class="docutils" />
+<section id="applications-de-l-apprentissage-automatique-en-psychologie-et-neurosciences">
+<h2>1. Applications de l’apprentissage automatique en psychologie et neurosciences<a class="headerlink" href="#applications-de-l-apprentissage-automatique-en-psychologie-et-neurosciences" title="Lien vers cette rubrique">#</a></h2>
+<section id="neuroprotheses-decodage-de-la-parole-chez-les-patients-paralyses">
+<h3>1.1 Neuroprothèses : Décodage de la parole chez les patients paralysés<a class="headerlink" href="#neuroprotheses-decodage-de-la-parole-chez-les-patients-paralyses" title="Lien vers cette rubrique">#</a></h3>
+<section id="le-defi">
+<h4>Le défi<a class="headerlink" href="#le-defi" title="Lien vers cette rubrique">#</a></h4>
+<p>Un des défis les plus importants et touchants de la neuroscience moderne est de redonner la parole aux personnes qui l’ont perdue à cause d’un accident neurologique ou d’un désordre neurologique, comme dans le cas de la paralysie.</p>
+<div class="tip admonition">
+<p class="admonition-title">Vidéo recommandée</p>
+<p>Pour comprendre visuellement ce défi et les progrès réalisés, visionnez cette vidéo :
+<a class="reference external" href="https://www.youtube.com/watch?v=vL7yMn6kiMg">A high-performance neuroprosthesis for speech decoding and avatar control</a></p>
+</div>
+</section>
+<section id="les-resultats-actuels">
+<h4>Les résultats actuels<a class="headerlink" href="#les-resultats-actuels" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Performance actuelle :</strong></p>
+<ul class="simple">
+<li><p>Vitesse de décodage : <strong>78 mots par minute</strong></p></li>
+<li><p>Conversation naturelle : <strong>160 mots par minute</strong></p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>C’est un grand progrès, mais nous avons encore une marge de progression significative. L’objectif est de se rapprocher le plus possible de la vitesse de conversation naturelle pour permettre une communication fluide.</p>
+</div>
+</section>
+<section id="comment-le-modele-d-apprentissage-automatique-fonctionne">
+<h4>Comment le modèle d’apprentissage automatique fonctionne<a class="headerlink" href="#comment-le-modele-d-apprentissage-automatique-fonctionne" title="Lien vers cette rubrique">#</a></h4>
+<div class="note admonition">
+<p class="admonition-title">Architecture du système</p>
+<p><strong>Entrée → Modèle → Sortie</strong></p>
+<ul class="simple">
+<li><p><strong>Entrée :</strong> Données cérébrales (activité neuronale enregistrée)</p></li>
+<li><p><strong>Modèle :</strong> Système d’apprentissage automatique entraîné</p></li>
+<li><p><strong>Sortie :</strong> Parole générée et texte correspondant</p></li>
+</ul>
+</div>
+<p><strong>Le modèle reçoit les données du cerveau et génère ce qui nous intéresse : la parole et les textes correspondants.</strong></p>
+</section>
+<section id="le-defi-de-la-collecte-de-donnees">
+<h4>Le défi de la collecte de données<a class="headerlink" href="#le-defi-de-la-collecte-de-donnees" title="Lien vers cette rubrique">#</a></h4>
+<p>Une question cruciale se pose : <strong>Comment collecter les données nécessaires pour entraîner le modèle alors que les patients ne peuvent pas parler ?</strong></p>
+<div class="tip admonition">
+<p class="admonition-title">Solution ingénieuse</p>
+<p><strong>Technique de collecte de données :</strong></p>
+<p>Avant d’entraîner le modèle, les chercheurs ont :</p>
+<ol class="arabic simple">
+<li><p>Présenté de nombreuses phrases et textes à l’écran au patient</p></li>
+<li><p>Demandé au patient d”<strong>essayer</strong> de prononcer ces phrases</p></li>
+<li><p>Pendant que le patient essayait (sans y arriver physiquement), enregistré l’activité cérébrale</p></li>
+<li><p>Supposé que ces activités correspondent aux phrases visées</p></li>
+</ol>
+<p><strong>Résultat :</strong> Phrases et activité cérébrale - tout ce qui est nécessaire pour entraîner le modèle !</p>
+</div>
+<p>Cette technique fonctionne remarquablement bien, comme on peut le voir dans la vidéo.</p>
+</section>
+<section id="l-importance-de-la-qualite-des-donnees">
+<h4>L’importance de la qualité des données<a class="headerlink" href="#l-importance-de-la-qualite-des-donnees" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Leçons clés :</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Le patient est le juge ultime</strong> : Tant que le patient est satisfait des résultats du modèle (le modèle dit ce que le patient veut dire), le modèle fonctionne. Si le patient voudrait dire quelque chose mais le modèle génère autre chose, c’est une erreur.</p></li>
+<li><p><strong>La collecte de données est cruciale</strong> : Trouver la meilleure façon de collecter les données nécessaires est une partie très importante de tous les projets d’apprentissage automatique.</p></li>
+<li><p><strong>Qualité = Performance</strong> : La performance de votre modèle est largement influencée par la qualité de vos données.</p></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="neuroprotheses-neuralink">
+<h3>1.2 Neuroprothèses : Neuralink<a class="headerlink" href="#neuroprotheses-neuralink" title="Lien vers cette rubrique">#</a></h3>
+<section id="le-projet-neuralink">
+<h4>Le projet Neuralink<a class="headerlink" href="#le-projet-neuralink" title="Lien vers cette rubrique">#</a></h4>
+<p>Un autre exemple de neuroprothèse provient de Neuralink, l’entreprise dirigée par Elon Musk.</p>
+<div class="tip admonition">
+<p class="admonition-title">Vidéo démonstration</p>
+<p>Regardez cette démonstration célèbre :
+<a class="reference external" href="https://www.youtube.com/watch?v=rsCul1sp4hQ">Pager, a nine year old Macaque, plays MindPong with his Neuralink</a></p>
+<p>Certains d’entre vous l’ont peut-être déjà vue grâce à leur publicité intensive !</p>
+</div>
+</section>
+<section id="id1">
+<h4>Le défi<a class="headerlink" href="#id1" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Objectif :</strong> Contrôler quelque chose avec l’activité cérébrale, par exemple :</p>
+<ul class="simple">
+<li><p>Jouer au jeu de pong</p></li>
+<li><p>Bouger un objet sur l’écran</p></li>
+<li><p><strong>Uniquement en y pensant, sans interface manuelle</strong></p></li>
+</ul>
+</section>
+<section id="le-role-de-l-apprentissage-automatique">
+<h4>Le rôle de l’apprentissage automatique<a class="headerlink" href="#le-role-de-l-apprentissage-automatique" title="Lien vers cette rubrique">#</a></h4>
+<div class="note admonition">
+<p class="admonition-title">Comment ça fonctionne</p>
+<p><strong>Architecture similaire au décodage de la parole :</strong></p>
+<p><strong>Activité cérébrale (entrée)</strong> → <strong>Modèle d’apprentissage automatique</strong> → <strong>Commandes de mouvement (sortie)</strong></p>
+<p>Le modèle apprend à traduire les intentions de mouvement (activité cérébrale) en commandes concrètes pour contrôler le curseur ou le jeu.</p>
+</div>
+</section>
+</section>
+<section id="modelisation-du-cerveau-utilisant-l-apprentissage-automatique">
+<h3>1.3 Modélisation du cerveau utilisant l’apprentissage automatique<a class="headerlink" href="#modelisation-du-cerveau-utilisant-l-apprentissage-automatique" title="Lien vers cette rubrique">#</a></h3>
+<section id="un-nouveau-paradigme-de-recherche">
+<h4>Un nouveau paradigme de recherche<a class="headerlink" href="#un-nouveau-paradigme-de-recherche" title="Lien vers cette rubrique">#</a></h4>
+<p>Au-delà des applications cliniques, l’apprentissage automatique, et particulièrement les <strong>réseaux de neurones artificiels</strong>, ouvre de nouvelles possibilités pour la recherche fondamentale en neurosciences.</p>
+<div class="tip admonition">
+<p class="admonition-title">Lecture recommandée</p>
+<p>Pour approfondir ce paradigme de recherche, consultez cet article de Nature Reviews Neuroscience :</p>
+<p><a class="reference external" href="https://www.nature.com/articles/s41583-023-00705-w">The neuroconnectionist research program</a></p>
+</div>
+</section>
+<section id="le-principe">
+<h4>Le principe<a class="headerlink" href="#le-principe" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Question de recherche :</strong> Est-il possible de développer un modèle capable de reproduire les activités des neurones du cerveau en réponse aux mêmes stimuli ?</p>
+<p><strong>Exemple concret :</strong> Créer un modèle qui peut imiter les activités du système visuel en réponse à une série de stimuli visuels.</p>
+<div class="note admonition">
+<p class="admonition-title">Architecture du modèle</p>
+<p><strong>Stimuli visuels (entrée)</strong> → <strong>Modèle de neurones artificiels</strong> → <strong>Activités neuronales prédites (sortie)</strong></p>
+<p>Le modèle est entraîné à générer des activités neuronales qui correspondent aux activités réelles mesurées dans le cerveau.</p>
+</div>
+<p><strong>Pourquoi est-ce important ?</strong></p>
+<p>Cette approche permet de :</p>
+<ol class="arabic simple">
+<li><p><strong>Tester des hypothèses</strong> sur le fonctionnement du cerveau</p></li>
+<li><p><strong>Comprendre les représentations</strong> dans différentes régions cérébrales</p></li>
+<li><p><strong>Prédire</strong> les réponses neuronales à de nouveaux stimuli</p></li>
+<li><p><strong>Développer des théories computationnelles</strong> de la cognition</p></li>
+</ol>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="les-elements-cles-de-l-apprentissage-automatique">
+<h2>2. Les éléments clés de l’apprentissage automatique<a class="headerlink" href="#les-elements-cles-de-l-apprentissage-automatique" title="Lien vers cette rubrique">#</a></h2>
+<p>Maintenant que nous avons vu plusieurs exemples d’applications, explorons les composantes fondamentales qui constituent tout système d’apprentissage automatique.</p>
+<section id="les-donnees-d-entrainement">
+<h3>2.1 Les données d’entraînement<a class="headerlink" href="#les-donnees-d-entrainement" title="Lien vers cette rubrique">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Définition :</strong>
+Les données d’entraînement sont les <strong>données d’entrée et de sortie à partir desquelles le modèle apprend</strong>.</p>
+</div>
+<p><strong>Dans tous nos exemples précédents :</strong></p>
+<ul class="simple">
+<li><p>Décodage de la parole : Activité cérébrale (entrée) + Parole correspondante (sortie)</p></li>
+<li><p>Neuralink : Activité cérébrale (entrée) + Mouvements désirés (sortie)</p></li>
+<li><p>Modélisation du cerveau : Stimuli visuels (entrée) + Activité neuronale (sortie)</p></li>
+</ul>
+<div class="warning admonition">
+<p class="admonition-title">Point critique</p>
+<p>Sans données appropriées et de qualité, il est impossible d’entraîner un modèle performant. La collecte et la préparation des données représentent souvent la majeure partie du travail dans un projet d’apprentissage automatique.</p>
+</div>
+</section>
+<section id="le-modele-parametrique-de-l-apprentissage-automatique">
+<h3>2.2 Le modèle paramétrique de l’apprentissage automatique<a class="headerlink" href="#le-modele-parametrique-de-l-apprentissage-automatique" title="Lien vers cette rubrique">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Définition :</strong>
+Le modèle est le <strong>type de structure paramétrique</strong> qui va apprendre à partir des données.</p>
+</div>
+<section id="questions-importantes-pour-les-chercheurs-et-developpeurs">
+<h4>Questions importantes pour les chercheurs et développeurs<a class="headerlink" href="#questions-importantes-pour-les-chercheurs-et-developpeurs" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Choix du modèle :</strong> Quel type de modèle est le plus approprié pour ce cas ?</p>
+<p><strong>Caractéristiques des modèles :</strong></p>
+<ul class="simple">
+<li><p>Les modèles sont <strong>paramétrés</strong> : ils ont des paramètres ajustables</p></li>
+<li><p>Ces paramètres permettent aux modèles de <strong>s’adapter à chaque tâche</strong></p></li>
+<li><p>Le processus d’apprentissage consiste à ajuster ces paramètres</p></li>
+</ul>
+<div class="note admonition">
+<p class="admonition-title">Exemples de types de modèles</p>
+<ul class="simple">
+<li><p>Régression linéaire (modèle simple)</p></li>
+<li><p>Réseaux de neurones artificiels (modèles complexes)</p></li>
+<li><p>Arbres de décision</p></li>
+<li><p>Support Vector Machines (SVM)</p></li>
+<li><p>Réseaux de neurones profonds (Deep Learning)</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="l-objectif-de-l-apprentissage-fonction-objectif">
+<h3>2.3 L’objectif de l’apprentissage (fonction objectif)<a class="headerlink" href="#l-objectif-de-l-apprentissage-fonction-objectif" title="Lien vers cette rubrique">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Définition :</strong>
+La fonction objectif est la <strong>fonction mathématique qui détermine le but ou l’objectif de l’apprentissage</strong>.</p>
+</div>
+<p><strong>Rôle :</strong> Elle quantifie à quel point le modèle performe bien sur les données d’entraînement.</p>
+<div class="tip admonition">
+<p class="admonition-title">Principe fondamental</p>
+<p>Dans chaque application, on a besoin de <strong>définir très précisément</strong> la fonction objectif du modèle. Cette fonction guide le processus d’apprentissage en indiquant ce que le modèle doit optimiser.</p>
+</div>
+</section>
+<section id="l-algorithme-d-entrainement-algorithme-d-optimisation">
+<h3>2.4 L’algorithme d’entraînement (algorithme d’optimisation)<a class="headerlink" href="#l-algorithme-d-entrainement-algorithme-d-optimisation" title="Lien vers cette rubrique">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Définition :</strong>
+L’algorithme d’entraînement est le <strong>processus qui ajuste les paramètres du modèle</strong> pour améliorer sa performance selon la fonction objectif.</p>
+</div>
+<p><strong>Comment ça fonctionne :</strong></p>
+<ol class="arabic simple">
+<li><p>L’algorithme évalue la performance actuelle du modèle (via la fonction objectif)</p></li>
+<li><p>Il détermine comment modifier les paramètres pour améliorer cette performance</p></li>
+<li><p>Il ajuste les paramètres en conséquence</p></li>
+<li><p>Le processus se répète jusqu’à convergence</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="types-de-donnees-en-apprentissage-automatique">
+<h2>3. Types de données en apprentissage automatique<a class="headerlink" href="#types-de-donnees-en-apprentissage-automatique" title="Lien vers cette rubrique">#</a></h2>
+<section id="la-diversite-des-types-de-donnees">
+<h3>3.1 La diversité des types de données<a class="headerlink" href="#la-diversite-des-types-de-donnees" title="Lien vers cette rubrique">#</a></h3>
+<p>L’une des forces de l’apprentissage automatique moderne est sa capacité à traiter une grande variété de types de données.</p>
+<div class="note admonition">
+<p class="admonition-title">Types de données courantes</p>
+<p><strong>Données structurées :</strong></p>
+<ul class="simple">
+<li><p>Images</p></li>
+<li><p>Vidéos</p></li>
+<li><p>Textes</p></li>
+<li><p>Audio/Sons</p></li>
+<li><p>Séries temporelles</p></li>
+</ul>
+<p><strong>Données scientifiques spécialisées :</strong></p>
+<ul class="simple">
+<li><p>Activités cérébrales (EEG, fMRI, enregistrements neuronaux)</p></li>
+<li><p>Données génomiques</p></li>
+<li><p>Données médicales (radiographies, IRM, etc.)</p></li>
+</ul>
+<p><strong>Données multi-modales :</strong></p>
+<ul class="simple">
+<li><p>Images + Textes (captions)</p></li>
+<li><p>Vidéos + Sons</p></li>
+<li><p>Combinaisons diverses</p></li>
+</ul>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Principe général :</strong>
+Toutes les données possibles qui peuvent être collectées de n’importe quelle manière peuvent potentiellement être utilisées pour entraîner des modèles d’apprentissage automatique.</p>
+</div>
+</section>
+<section id="l-apprentissage-multi-modal">
+<h3>3.2 L’apprentissage multi-modal<a class="headerlink" href="#l-apprentissage-multi-modal" title="Lien vers cette rubrique">#</a></h3>
+<p>On peut aussi utiliser un <strong>mélange de types de données</strong> comme entrées d’un modèle.</p>
+<p><strong>Exemples :</strong></p>
+<ul class="simple">
+<li><p>Images avec des textes qui décrivent le contenu (captions)</p></li>
+<li><p>Vidéos et leurs bandes sonores</p></li>
+<li><p>Textes et métadonnées temporelles</p></li>
+</ul>
+<p>Cette approche multi-modale est de plus en plus utilisée dans les systèmes modernes d’IA.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="l-apprentissage-supervise-classification">
+<h2>4. L’apprentissage supervisé : Classification<a class="headerlink" href="#l-apprentissage-supervise-classification" title="Lien vers cette rubrique">#</a></h2>
+<section id="introduction-a-la-classification">
+<h3>4.1 Introduction à la classification<a class="headerlink" href="#introduction-a-la-classification" title="Lien vers cette rubrique">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Définition :</strong>
+La classification est un type d’apprentissage supervisé où le modèle doit <strong>assigner chaque échantillon à une catégorie prédéfinie</strong>.</p>
+</div>
+<p>En fonction des sorties souhaitées du modèle, on peut avoir deux types différents d’apprentissage supervisé : la <strong>classification</strong> et la <strong>régression</strong>.</p>
+<div class="note admonition">
+<p class="admonition-title">Point clé</p>
+<p>Les <strong>entrées</strong> de ces deux types de problèmes ne sont pas différentes. Le même type d’entrées peut être utilisé pour la régression et la classification. C’est le <strong>type de sortie</strong> qui détermine s’il s’agit de classification ou de régression.</p>
+</div>
+</section>
+<section id="exemple-illustratif-chiens-et-chats">
+<h3>4.2 Exemple illustratif : Chiens et chats<a class="headerlink" href="#exemple-illustratif-chiens-et-chats" title="Lien vers cette rubrique">#</a></h3>
+<p>Considérons des images de chiens et de chats comme données d’entrée.</p>
+<p><strong>Pour la classification :</strong>
+On peut demander au modèle de déterminer s’il y a un chat ou un chien dans chaque image → <strong>Classification</strong></p>
+<p><strong>Pour la régression :</strong>
+On peut demander au modèle d’estimer l’âge du chat ou du chien dans chaque image → <strong>Régression</strong></p>
+<div class="tip admonition">
+<p class="admonition-title">Question de réflexion</p>
+<p>Qu’est-ce qu’on pourrait demander d’autre à un modèle avec ces données d’entrée ?</p>
+<p>Exemples possibles :</p>
+<ul class="simple">
+<li><p>Identifier la race de l’animal (classification multi-classe)</p></li>
+<li><p>Estimer le poids de l’animal (régression)</p></li>
+<li><p>Déterminer si l’animal est à l’intérieur ou à l’extérieur (classification)</p></li>
+</ul>
+</div>
+</section>
+<section id="les-sorties-categorielles">
+<h3>4.3 Les sorties catégorielles<a class="headerlink" href="#les-sorties-categorielles" title="Lien vers cette rubrique">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Caractéristique des sorties de classification :</strong></p>
+<p>Les sorties catégorielles <strong>classent les échantillons dans des catégories qualitatives</strong>.</p>
+<p>Il existe un <strong>nombre fini</strong> de catégories possibles pour chaque échantillon de données.</p>
+</div>
+<p><strong>Représentation numérique :</strong>
+Les sorties catégorielles sont représentées par des nombres entiers :</p>
+<ul class="simple">
+<li><p>2 classes : 0, 1</p></li>
+<li><p>3 classes : 0, 1, 2</p></li>
+<li><p>N classes : 0, 1, 2, …, N-1</p></li>
+</ul>
+<p><strong>Exemple binaire (chiens vs chats) :</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[&#39;chat&#39;, &#39;chat&#39;, &#39;chat&#39;, &#39;chien&#39;, &#39;chat&#39;, …, &#39;chien&#39;, &#39;chat&#39;]
+</pre></div>
+</div>
+<p>Devient :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Le modèle doit apprendre à générer le bon numéro pour chaque image en fonction de sa catégorie.</p>
+</section>
+<section id="exemple-en-neurosciences-classification-des-directions-de-mouvement">
+<h3>4.4 Exemple en neurosciences : Classification des directions de mouvement<a class="headerlink" href="#exemple-en-neurosciences-classification-des-directions-de-mouvement" title="Lien vers cette rubrique">#</a></h3>
+<section id="contexte-experimental">
+<h4>Contexte expérimental<a class="headerlink" href="#contexte-experimental" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Situation :</strong> Un singe bouge sa main dans 7 directions différentes :</p>
+<ul class="simple">
+<li><p>Gauche</p></li>
+<li><p>Droite</p></li>
+<li><p>Haut</p></li>
+<li><p>Bas</p></li>
+<li><p>Haut-gauche</p></li>
+<li><p>Haut-droite</p></li>
+<li><p>Bas-gauche</p></li>
+<li><p>Bas-droite</p></li>
+</ul>
+<p><strong>Mesure :</strong> En même temps, on enregistre les activités d’une région du cerveau, par exemple le <strong>cortex moteur</strong>.</p>
+<p><strong>Données obtenues :</strong> Mouvements de la main + Activité cérébrale correspondante</p>
+</section>
+<section id="definir-le-probleme-de-classification">
+<h4>Définir le problème de classification<a class="headerlink" href="#definir-le-probleme-de-classification" title="Lien vers cette rubrique">#</a></h4>
+<div class="tip admonition">
+<p class="admonition-title">Question</p>
+<p>Comment peut-on définir un problème d’apprentissage automatique de classification à partir de ces données ?</p>
+</div>
+<p><strong>Réponse :</strong></p>
+<p><strong>Entrées :</strong> Activité cérébrale (enregistrements neuronaux)
+<strong>Sorties :</strong> Direction du mouvement (0-7, une pour chaque direction)
+<strong>Objectif :</strong> Le modèle doit apprendre à prédire la direction du mouvement à partir de l’activité cérébrale</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Représentation des directions</span>
+<span class="n">directions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gauche&#39;</span><span class="p">,</span> <span class="s1">&#39;droite&#39;</span><span class="p">,</span> <span class="s1">&#39;haut&#39;</span><span class="p">,</span> <span class="s1">&#39;bas&#39;</span><span class="p">,</span> 
+              <span class="s1">&#39;haut-gauche&#39;</span><span class="p">,</span> <span class="s1">&#39;haut-droite&#39;</span><span class="p">,</span> <span class="s1">&#39;bas-gauche&#39;</span><span class="p">,</span> <span class="s1">&#39;bas-droite&#39;</span><span class="p">]</span>
+<span class="c1"># Encodées comme : [0, 1, 2, 3, 4, 5, 6, 7]</span>
+</pre></div>
+</div>
+</section>
+<section id="applications-de-ce-modele">
+<h4>Applications de ce modèle<a class="headerlink" href="#applications-de-ce-modele" title="Lien vers cette rubrique">#</a></h4>
+<div class="note admonition">
+<p class="admonition-title">Utilité du modèle entraîné</p>
+<p><strong>1. Application clinique (neuroprothèse) :</strong>
+Déterminer les mouvements possibles à partir de l’activité du cerveau lorsque l’animal (ou un patient) <strong>ne peut pas bouger sa main</strong>, c’est-à-dire lorsqu’il est paralysé.</p>
+<p><strong>2. Recherche fondamentale (décodage du cerveau) :</strong>
+Déterminer si ce type de classification est possible à partir des activités d’une région du cerveau. Est-ce que l’information nécessaire pour effectuer cette classification existe dans cette région ?</p>
+<p><strong>Résultats connus :</strong></p>
+<ul class="simple">
+<li><p>✅ Cortex moteur : Oui, la classification est possible (l’information est présente)</p></li>
+<li><p>❌ Cortex visuel : Non, l’information nécessaire n’est pas disponible dans cette région</p></li>
+</ul>
+</div>
+<p>Cette méthode scientifique s’appelle le <strong>décodage du cerveau</strong> (brain decoding).</p>
+</section>
+</section>
+<section id="exemple-en-neurosciences-classification-d-orientation-visuelle">
+<h3>4.5 Exemple en neurosciences : Classification d’orientation visuelle<a class="headerlink" href="#exemple-en-neurosciences-classification-d-orientation-visuelle" title="Lien vers cette rubrique">#</a></h3>
+<section id="id2">
+<h4>Contexte expérimental<a class="headerlink" href="#id2" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Situation :</strong> Une souris observe des stimuli visuels, en l’occurrence des <strong>motifs en noir et blanc</strong> (gratings) à des angles différents :</p>
+<ul class="simple">
+<li><p>Horizontal (0°)</p></li>
+<li><p>Vertical (90°)</p></li>
+<li><p>Oblique à 45°</p></li>
+<li><p>Oblique à 135°</p></li>
+<li><p>Etc.</p></li>
+</ul>
+<p><strong>Mesure :</strong> En même temps, on enregistre les activités d’une région du cerveau, par exemple le <strong>cortex visuel</strong>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Question</p>
+<p>Comment peut-on définir un problème d’apprentissage automatique de classification à partir de ces données ?</p>
+</div>
+</section>
+<section id="la-structure-des-donnees">
+<h4>La structure des données<a class="headerlink" href="#la-structure-des-donnees" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Représentation matricielle :</strong></p>
+<p>La matrice enregistrée présente toutes les données d’activité. Chaque élément de cette matrice montre la <strong>réponse d’un neurone</strong> à un <strong>stimulus spécifique</strong> à un <strong>angle spécifique</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>         <span class="n">Neurone</span> <span class="mi">1</span>  <span class="n">Neurone</span> <span class="mi">2</span>  <span class="n">Neurone</span> <span class="mi">3</span>  <span class="o">...</span>  <span class="n">Neurone</span> <span class="n">N</span>
+<span class="n">Essai</span> <span class="mi">1</span>     <span class="mf">0.43</span>      <span class="mf">0.87</span>       <span class="mf">0.12</span>    <span class="o">...</span>    <span class="mf">0.65</span>
+<span class="n">Essai</span> <span class="mi">2</span>     <span class="mf">0.51</span>      <span class="mf">0.79</span>       <span class="mf">0.21</span>    <span class="o">...</span>    <span class="mf">0.71</span>
+<span class="n">Essai</span> <span class="mi">3</span>     <span class="mf">0.38</span>      <span class="mf">0.92</span>       <span class="mf">0.08</span>    <span class="o">...</span>    <span class="mf">0.58</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p><strong>Entrées :</strong> Toutes les données enregistrées sur les neurones (vecteur d’activité de tous les neurones)
+<strong>Sorties :</strong> Angle correspondant (0°, 45°, 90°, 135°, etc.)</p>
+</section>
+<section id="application-du-modele">
+<h4>Application du modèle<a class="headerlink" href="#application-du-modele" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Après avoir formé ce modèle, que pourrait-il faire ?</p>
+<p><strong>Réponse :</strong> C’est un exemple très simplifié de <strong>« mind reading »</strong> !</p>
+<p>À partir de l’activité neuronale dans le cortex visuel, le modèle peut déterminer quel stimulus visuel (quelle orientation) l’animal est en train de regarder.</p>
+</div>
+<p>Cette technique a des implications profondes pour :</p>
+<ul class="simple">
+<li><p>Comprendre comment le cerveau encode l’information visuelle</p></li>
+<li><p>Développer des interfaces cerveau-machine</p></li>
+<li><p>Décoder les perceptions visuelles</p></li>
+</ul>
+</section>
+</section>
+<section id="la-geometrie-de-la-classification">
+<h3>4.6 La géométrie de la classification<a class="headerlink" href="#la-geometrie-de-la-classification" title="Lien vers cette rubrique">#</a></h3>
+<section id="visualisation-simplifiee-avec-deux-neurones">
+<h4>Visualisation simplifiée avec deux neurones<a class="headerlink" href="#visualisation-simplifiee-avec-deux-neurones" title="Lien vers cette rubrique">#</a></h4>
+<p>Considérons une version simplifiée de l’exemple de classification des directions de mouvement :</p>
+<ul class="simple">
+<li><p>Seulement <strong>deux directions</strong> : gauche et droite</p></li>
+<li><p>Seulement <strong>deux neurones</strong> enregistrés</p></li>
+</ul>
+<div class="note admonition">
+<p class="admonition-title">Représentation graphique</p>
+<p><strong>Diagramme de dispersion (scatter plot) :</strong></p>
+<p>Axe X : Activité du neurone 1
+Axe Y : Activité du neurone 2</p>
+<ul class="simple">
+<li><p>⚪ Cercles : Mouvements vers la gauche</p></li>
+<li><p>🔺 Triangles : Mouvements vers la droite</p></li>
+</ul>
+<p>Chaque point représente les activités des deux neurones pour l’une des deux directions.</p>
+</div>
+<p><strong>Objectif du modèle :</strong> Apprendre à déterminer si les activités correspondent à un mouvement vers la gauche ou vers la droite.</p>
+</section>
+<section id="classification-lineaire">
+<h4>Classification linéaire<a class="headerlink" href="#classification-lineaire" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Le modèle apprend une courbe qui sépare les échantillons des deux classes.</strong></p>
+<p>Pour la <strong>classification linéaire</strong>, cette courbe est une <strong>ligne droite</strong>.</p>
+</div>
+<p><strong>Caractéristiques :</strong></p>
+<ul class="simple">
+<li><p>De chaque côté de cette ligne, il n’y a que les échantillons d’une seule classe</p></li>
+<li><p>C’est appelé « linéaire » parce que la courbe est une ligne</p></li>
+<li><p>Mathématiquement : une combinaison linéaire des activités des neurones détermine la classe</p></li>
+</ul>
+<p><strong>Formule générale :</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>y = w₁ × x₁ + w₂ × x₂ + b
+</pre></div>
+</div>
+<p>Où :</p>
+<ul class="simple">
+<li><p>x₁, x₂ : activités des neurones 1 et 2</p></li>
+<li><p>w₁, w₂ : poids (paramètres à apprendre)</p></li>
+<li><p>b : biais (paramètre à apprendre)</p></li>
+</ul>
+</section>
+<section id="classification-non-lineaire">
+<h4>Classification non linéaire<a class="headerlink" href="#classification-non-lineaire" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>On peut avoir une <strong>classification non linéaire</strong> avec une courbe qui n’est pas une ligne et qui est plus complexe.</p>
+</div>
+<p><strong>Avantages d’un modèle non linéaire :</strong></p>
+<ul class="simple">
+<li><p>Plus complexe et plus adaptatif</p></li>
+<li><p>Plus de paramètres à ajuster</p></li>
+<li><p>Capable d’une classification plus complexe</p></li>
+<li><p>Peut séparer des classes qui ne sont pas linéairement séparables</p></li>
+</ul>
+<p><strong>Inconvénients :</strong></p>
+<ul class="simple">
+<li><p>Risque de surapprentissage (overfitting)</p></li>
+<li><p>Plus difficile à interpréter</p></li>
+<li><p>Nécessite plus de données d’entraînement</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="l-apprentissage-supervise-regression">
+<h2>5. L’apprentissage supervisé : Régression<a class="headerlink" href="#l-apprentissage-supervise-regression" title="Lien vers cette rubrique">#</a></h2>
+<section id="introduction-a-la-regression">
+<h3>5.1 Introduction à la régression<a class="headerlink" href="#introduction-a-la-regression" title="Lien vers cette rubrique">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Définition :</strong>
+La régression est un type d’apprentissage supervisé où le modèle doit <strong>prédire une valeur numérique continue</strong> pour chaque échantillon.</p>
+</div>
+</section>
+<section id="difference-entre-classification-et-regression">
+<h3>5.2 Différence entre classification et régression<a class="headerlink" href="#difference-entre-classification-et-regression" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>Comme mentionné précédemment, la différence réside uniquement dans les sorties :</strong></p>
+<p><strong>Classification :</strong></p>
+<ul class="simple">
+<li><p>Sorties catégorielles</p></li>
+<li><p>Nombre fini de possibilités</p></li>
+<li><p>Exemples : chat/chien, directions de mouvement</p></li>
+</ul>
+<p><strong>Régression :</strong></p>
+<ul class="simple">
+<li><p>Sorties numériques continues</p></li>
+<li><p>Peuvent prendre (théoriquement) toutes les valeurs possibles</p></li>
+<li><p>Exemples : âge, vitesse, température</p></li>
+</ul>
+<div class="note admonition">
+<p class="admonition-title">Point clé</p>
+<p>C’est différent de la classification où vous avez des sorties catégorielles avec des possibilités limitées. En régression, les sorties peuvent varier de manière continue dans une plage de valeurs.</p>
+</div>
+</section>
+<section id="exemple-en-neurosciences-regression-de-la-vitesse-de-mouvement">
+<h3>5.3 Exemple en neurosciences : Régression de la vitesse de mouvement<a class="headerlink" href="#exemple-en-neurosciences-regression-de-la-vitesse-de-mouvement" title="Lien vers cette rubrique">#</a></h3>
+<section id="id3">
+<h4>Contexte expérimental<a class="headerlink" href="#id3" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Situation :</strong> Notre singe bouge sa main dans différentes directions et à différentes vitesses. En même temps, on enregistre les activités du cerveau.</p>
+<div class="tip admonition">
+<p class="admonition-title">Question</p>
+<p>Pouvez-vous définir un problème de régression à partir de ces données ?</p>
+</div>
+</section>
+<section id="definition-du-probleme">
+<h4>Définition du problème<a class="headerlink" href="#definition-du-probleme" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Entrées :</strong> Activité cérébrale pendant les mouvements (mêmes données que pour la classification)
+<strong>Sorties :</strong> Vitesse du mouvement (valeur numérique continue)</p>
+<p><strong>Différence avec la classification :</strong>
+Au lieu de prédire la <strong>direction</strong> (catégorie), le modèle doit maintenant apprendre à estimer la <strong>vitesse</strong> (valeur numérique).</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Comme la vitesse peut prendre n’importe quelle valeur (dans une plage), il s’agit d’une <strong>régression</strong>.</p>
+</div>
+<p><strong>Représentation des sorties :</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">]</span> <span class="p">(</span><span class="n">m</span><span class="o">/</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="performance-du-modele">
+<h4>Performance du modèle<a class="headerlink" href="#performance-du-modele" title="Lien vers cette rubrique">#</a></h4>
+<p>Voici deux exemples de performances de modèles pour l’estimation de la vitesse à partir de données cérébrales, utilisant deux types de modèles :</p>
+<p><strong>LSTM (Long Short-Term Memory)</strong> et <strong>SVR (Support Vector Regression)</strong></p>
+<div class="note admonition">
+<p class="admonition-title">Visualisation de la performance</p>
+<p>Dans chaque diagramme :</p>
+<ul class="simple">
+<li><p><strong>Courbe noire</strong> : Vitesse réelle (véritable)</p></li>
+<li><p><strong>Courbes verte/rouge</strong> : Sorties du modèle (prédictions)</p></li>
+</ul>
+<p><strong>Évaluation de la performance :</strong></p>
+<ul class="simple">
+<li><p>Plus les courbes sont similaires, plus le modèle est précis</p></li>
+<li><p>Les deux courbes doivent être aussi similaires que possible</p></li>
+<li><p>La différence entre les deux courbes doit être minimale</p></li>
+</ul>
+</div>
+<p>Les résultats montrent que les sorties des modèles sont très proches des valeurs réelles, démontrant l’efficacité de l’approche.</p>
+</section>
+</section>
+<section id="exemple-en-neurosciences-prediction-d-activite-neuronale">
+<h3>5.4 Exemple en neurosciences : Prédiction d’activité neuronale<a class="headerlink" href="#exemple-en-neurosciences-prediction-d-activite-neuronale" title="Lien vers cette rubrique">#</a></h3>
+<section id="id4">
+<h4>Contexte expérimental<a class="headerlink" href="#id4" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Situation :</strong> Un modèle capable de générer des activités du cerveau à partir de stimuli visuels.</p>
+<div class="tip admonition">
+<p class="admonition-title">Questions de réflexion</p>
+<ul class="simple">
+<li><p>Comment peut-on faire cela ?</p></li>
+<li><p>Quelles sont les données d’entrée ?</p></li>
+<li><p>Quelles sont les sorties ?</p></li>
+<li><p>Comment peut-on collecter ces données ?</p></li>
+</ul>
+</div>
+</section>
+<section id="id5">
+<h4>Définition du problème<a class="headerlink" href="#id5" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Entrées :</strong> Stimuli visuels (images)
+<strong>Sorties :</strong> Activités neuronales prédites (valeurs numériques continues pour chaque neurone)</p>
+<p><strong>Processus de collecte :</strong></p>
+<ol class="arabic simple">
+<li><p>Présenter des images à un animal (ou humain)</p></li>
+<li><p>Enregistrer simultanément l’activité de neurones dans le cortex visuel</p></li>
+<li><p>Obtenir des paires (image, activité neuronale)</p></li>
+</ol>
+<p><strong>Application :</strong>
+Ce type de modèle permet de :</p>
+<ul class="simple">
+<li><p>Prédire comment le cerveau répondra à de nouveaux stimuli</p></li>
+<li><p>Tester des hypothèses sur le traitement visuel</p></li>
+<li><p>Comprendre les représentations neuronales</p></li>
+</ul>
+</section>
+</section>
+<section id="la-geometrie-de-la-regression">
+<h3>5.5 La géométrie de la régression<a class="headerlink" href="#la-geometrie-de-la-regression" title="Lien vers cette rubrique">#</a></h3>
+<section id="visualisation-avec-un-seul-neurone">
+<h4>Visualisation avec un seul neurone<a class="headerlink" href="#visualisation-avec-un-seul-neurone" title="Lien vers cette rubrique">#</a></h4>
+<p>Considérons un exemple très simplifié basé sur l’estimation de la vitesse à partir de données du cerveau.</p>
+<p><strong>Hypothèse simplificatrice :</strong> On a seulement <strong>un neurone</strong> enregistré pendant les mouvements du singe.</p>
+<p><strong>Objectif :</strong> Entraîner le modèle pour estimer la vitesse à partir des activités de ce seul neurone.</p>
+<div class="note admonition">
+<p class="admonition-title">Représentation graphique</p>
+<p><strong>Diagramme de dispersion :</strong></p>
+<p>Axe X : Activité du neurone
+Axe Y : Vitesse du mouvement</p>
+<p>Les points montrent la relation entre l’activité neuronale et la vitesse observée.</p>
+</div>
+</section>
+<section id="le-modele-comme-une-courbe">
+<h4>Le modèle comme une courbe<a class="headerlink" href="#le-modele-comme-une-courbe" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Les courbes en rouge sont les modèles.</strong></p>
+<p>Chaque courbe peut nous donner la vitesse pour chaque valeur d’activité de neurone.</p>
+</div>
+<p><strong>Deux types de modèles :</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Modèle linéaire :</strong></p>
+<ul class="simple">
+<li><p>La courbe est une ligne droite</p></li>
+<li><p>Formule : <code class="docutils literal notranslate"><span class="pre">vitesse</span> <span class="pre">=</span> <span class="pre">w</span> <span class="pre">×</span> <span class="pre">activité</span> <span class="pre">+</span> <span class="pre">b</span></code></p></li>
+<li><p>Simple mais limité</p></li>
+</ul>
+</li>
+<li><p><strong>Modèle non linéaire :</strong></p>
+<ul class="simple">
+<li><p>La courbe est plus complexe qu’une ligne</p></li>
+<li><p>Peut capturer des relations plus subtiles</p></li>
+<li><p>Plus de paramètres, plus adaptatif</p></li>
+</ul>
+</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Principe général :</strong></p>
+<p>Le modèle est une <strong>courbe</strong> qu’on peut entraîner (ou optimiser) pour faire quelque chose, estimer quelque chose, etc.</p>
+<p>Les paramètres du modèle déterminent la forme de cette courbe.</p>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="entrainement-du-modele-la-fonction-objectif">
+<h2>6. Entraînement du modèle : La fonction objectif<a class="headerlink" href="#entrainement-du-modele-la-fonction-objectif" title="Lien vers cette rubrique">#</a></h2>
+<section id="introduction-a-la-fonction-objectif">
+<h3>6.1 Introduction à la fonction objectif<a class="headerlink" href="#introduction-a-la-fonction-objectif" title="Lien vers cette rubrique">#</a></h3>
+<p>Maintenant que nous comprenons ce qu’est un modèle et comment il peut faire des prédictions (classification ou régression), une question cruciale se pose :</p>
+<div class="tip admonition">
+<p class="admonition-title">Question centrale</p>
+<p>Comment peut-on <strong>quantifier</strong> si un modèle fonctionne bien ou mal ?</p>
+<p>Comment peut-on mesurer sa <strong>performance</strong> ?</p>
+</div>
+<p><strong>Réponse :</strong> Nous avons besoin d’une <strong>fonction objectif</strong> (aussi appelée <strong>fonction de perte</strong> ou <strong>loss function</strong>).</p>
+</section>
+<section id="principe-de-la-quantification-de-l-erreur">
+<h3>6.2 Principe de la quantification de l’erreur<a class="headerlink" href="#principe-de-la-quantification-de-l-erreur" title="Lien vers cette rubrique">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Pour <strong>quantifier la performance</strong> d’un modèle, nous devons comparer :</p>
+<ul class="simple">
+<li><p>Les sorties <strong>réelles</strong> (les vraies valeurs)</p></li>
+<li><p>Les sorties <strong>prédites</strong> par le modèle</p></li>
+</ul>
+<p>La <strong>différence</strong> entre ces deux valeurs constitue l”<strong>erreur</strong> du modèle.</p>
+</div>
+</section>
+<section id="notation-mathematique">
+<h3>6.3 Notation mathématique<a class="headerlink" href="#notation-mathematique" title="Lien vers cette rubrique">#</a></h3>
+<p><strong>Convention de notation :</strong></p>
+<ul class="simple">
+<li><p><strong>y</strong> : Sorties réelles (ground truth, vraies valeurs)</p></li>
+<li><p><strong>ŷ</strong> (y chapeau) : Sorties estimées/prédites par le modèle</p></li>
+</ul>
+<p><strong>Pour différents échantillons :</strong></p>
+<ul class="simple">
+<li><p>y₁, y₂, y₃, … : vraies valeurs pour les échantillons 1, 2, 3, …</p></li>
+<li><p>ŷ₁, ŷ₂, ŷ₃, … : valeurs prédites pour les échantillons 1, 2, 3, …</p></li>
+</ul>
+</section>
+<section id="mean-squared-error-mse-erreur-quadratique-moyenne">
+<h3>6.4 Mean Squared Error (MSE) - Erreur quadratique moyenne<a class="headerlink" href="#mean-squared-error-mse-erreur-quadratique-moyenne" title="Lien vers cette rubrique">#</a></h3>
+<p>L’une des fonctions objectif les plus courantes pour la régression est le <strong>Mean Squared Error</strong> (MSE).</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Formule du MSE :</strong></p>
+<p>MSE = (1/n) × Σ(yᵢ - ŷᵢ)²</p>
+<p>Où :</p>
+<ul class="simple">
+<li><p>n : nombre d’échantillons</p></li>
+<li><p>yᵢ : valeur réelle pour l’échantillon i</p></li>
+<li><p>ŷᵢ : valeur prédite pour l’échantillon i</p></li>
+<li><p>Σ : somme sur tous les échantillons</p></li>
+</ul>
+</div>
+<p><strong>Calcul étape par étape :</strong></p>
+<ol class="arabic simple">
+<li><p>Pour chaque échantillon, prendre la sortie réelle (y) et la sortie estimée (ŷ)</p></li>
+<li><p>Calculer la différence : (y - ŷ)</p></li>
+<li><p>Calculer le carré de cette différence : (y - ŷ)²</p></li>
+<li><p>Faire la moyenne sur tous les échantillons</p></li>
+</ol>
+<div class="note admonition">
+<p class="admonition-title">Pourquoi utiliser le carré ?</p>
+<p><strong>Raisons d’utiliser (y - ŷ)² plutôt que |y - ŷ| :</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Pénalise davantage les grandes erreurs</strong> : Une erreur de 10 donne 100, alors qu’une erreur de 2 donne seulement 4</p></li>
+<li><p><strong>Propriétés mathématiques avantageuses</strong> : Le carré est différentiable partout, ce qui facilite l’optimisation</p></li>
+<li><p><strong>Convention standard</strong> : Permet de comparer facilement différents modèles</p></li>
+</ol>
+</div>
+<p><strong>Interprétation :</strong></p>
+<ul class="simple">
+<li><p>MSE = 0 : Modèle parfait (prédictions exactes)</p></li>
+<li><p>MSE petit : Bon modèle</p></li>
+<li><p>MSE grand : Modèle imprécis</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="entrainement-du-modele-l-algorithme-d-optimisation">
+<h2>7. Entraînement du modèle : L’algorithme d’optimisation<a class="headerlink" href="#entrainement-du-modele-l-algorithme-d-optimisation" title="Lien vers cette rubrique">#</a></h2>
+<section id="le-role-de-l-algorithme-d-apprentissage">
+<h3>7.1 Le rôle de l’algorithme d’apprentissage<a class="headerlink" href="#le-role-de-l-algorithme-d-apprentissage" title="Lien vers cette rubrique">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Avec une quantification des erreurs (fonction objectif), maintenant on peut <strong>entraîner le modèle</strong>.</p>
+<p>L”<strong>algorithme d’apprentissage</strong> (aka algorithme d’optimisation) utilise la sortie de la fonction objectif pour <strong>changer, ajuster, ou optimiser les paramètres du modèle</strong> (W).</p>
+</div>
+<p><strong>Objectif :</strong> L’algorithme d’apprentissage modifie les paramètres de manière que :</p>
+<ul class="simple">
+<li><p>Le taux d’erreur du modèle soit <strong>réduit</strong></p></li>
+<li><p>La performance du modèle <strong>augmente, s’améliore</strong> !</p></li>
+</ul>
+</section>
+<section id="une-analogie-le-guessing-game">
+<h3>7.2 Une analogie : Le « Guessing Game »<a class="headerlink" href="#une-analogie-le-guessing-game" title="Lien vers cette rubrique">#</a></h3>
+<p>Pour comprendre comment fonctionne l’algorithme d’apprentissage, considérons une analogie simple : le jeu de devinette.</p>
+<section id="le-jeu">
+<h4>Le jeu<a class="headerlink" href="#le-jeu" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Règles du jeu :</strong></p>
+<ol class="arabic simple">
+<li><p>Je choisis un chiffre (par exemple, 5014)</p></li>
+<li><p>Vous devez le deviner</p></li>
+<li><p>À chaque essai, je vous indique :</p>
+<ul class="simple">
+<li><p>La <strong>direction</strong> de votre erreur (trop haut ou trop bas)</p></li>
+<li><p>La <strong>magnitude</strong> de votre erreur (à quelle distance vous êtes)</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="parallele-avec-l-apprentissage-automatique">
+<h4>Parallèle avec l’apprentissage automatique<a class="headerlink" href="#parallele-avec-l-apprentissage-automatique" title="Lien vers cette rubrique">#</a></h4>
+<div class="note admonition">
+<p class="admonition-title">Correspondances</p>
+<p><strong>Dans le jeu :</strong></p>
+<ul class="simple">
+<li><p>Votre estimation = Sortie du modèle</p></li>
+<li><p>Le vrai chiffre = Vraie valeur (y)</p></li>
+<li><p>Mon feedback = Fonction objectif</p></li>
+<li><p>Comment vous ajustez votre estimation = Algorithme d’apprentissage</p></li>
+</ul>
+</div>
+</section>
+<section id="le-processus-iteratif">
+<h4>Le processus itératif<a class="headerlink" href="#le-processus-iteratif" title="Lien vers cette rubrique">#</a></h4>
+<p><strong>Itération 1 :</strong></p>
+<ul class="simple">
+<li><p>Vous : « 300 » (estimation initiale aléatoire)</p></li>
+<li><p>Moi : « ↑ Trop bas, erreur = 4714 »</p></li>
+</ul>
+<p><strong>Itération 2 :</strong></p>
+<ul class="simple">
+<li><p>Vous : « 2000 » (ajustement basé sur le feedback)</p></li>
+<li><p>Moi : « ↑ Trop bas, erreur = 3014 »</p></li>
+</ul>
+<p><strong>Itération 3 :</strong></p>
+<ul class="simple">
+<li><p>Vous : « 5000 » (ajustement)</p></li>
+<li><p>Moi : « ↑ Trop bas, erreur = 14 »</p></li>
+</ul>
+<p><strong>Itération 4 :</strong></p>
+<ul class="simple">
+<li><p>Vous : « 5100 » (ajustement)</p></li>
+<li><p>Moi : « ↓ Trop haut, erreur = 86 »</p></li>
+</ul>
+<p><strong>Itération 5 :</strong></p>
+<ul class="simple">
+<li><p>Vous : « 5050 » (ajustement)</p></li>
+<li><p>Moi : « ↓ Trop haut, erreur = 36 »</p></li>
+</ul>
+<p><strong>Itération 6 :</strong></p>
+<ul class="simple">
+<li><p>Vous : « 5010 » (ajustement)</p></li>
+<li><p>Moi : « ↓ Trop haut, erreur = 4 »</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Observation clé :</strong></p>
+<p>À chaque itération, l”<strong>erreur diminue</strong> (en général). C’est exactement ce qui se passe dans l’apprentissage automatique !</p>
+</div>
+</section>
+</section>
+<section id="la-courbe-d-apprentissage">
+<h3>7.3 La courbe d’apprentissage<a class="headerlink" href="#la-courbe-d-apprentissage" title="Lien vers cette rubrique">#</a></h3>
+<p>La <strong>courbe d’apprentissage</strong> montre l’évolution de l’erreur au cours du processus d’entraînement.</p>
+<div class="tip admonition">
+<p class="admonition-title">Caractéristiques d’une bonne courbe d’apprentissage</p>
+<p><strong>On veut que cette courbe montre la réduction des erreurs au cours de la période d’apprentissage.</strong></p>
+<p>Axe X : Nombre d’itérations (epochs)
+Axe Y : Erreur (fonction objectif)</p>
+<p>Une bonne courbe d’apprentissage :</p>
+<ul class="simple">
+<li><p>↘ Décroissante</p></li>
+<li><p>Converge vers une valeur faible</p></li>
+<li><p>Stable (sans oscillations excessives)</p></li>
+</ul>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Signes de problèmes</p>
+<p>Si l’erreur <strong>ne diminue pas</strong> au cours de l’apprentissage, cela indique un problème :</p>
+<ul class="simple">
+<li><p>❌ La quantification de l’erreur ne fonctionne pas</p></li>
+<li><p>❌ L’algorithme d’apprentissage ne fonctionne pas</p></li>
+<li><p>❌ Le modèle n’est pas adapté au problème</p></li>
+<li><p>❌ Les données ne sont pas appropriées</p></li>
+</ul>
+</div>
+</section>
+<section id="elements-cles-du-processus-d-apprentissage">
+<h3>7.4 Éléments clés du processus d’apprentissage<a class="headerlink" href="#elements-cles-du-processus-d-apprentissage" title="Lien vers cette rubrique">#</a></h3>
+<p>En revisitant notre analogie du « Guessing Game », on identifie les éléments essentiels :</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Composantes de l’apprentissage :</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Initialisation</strong> : On commence par une estimation aléatoire</p>
+<ul class="simple">
+<li><p>Sans feedback, on n’a aucune information</p></li>
+<li><p>La première estimation est par hasard</p></li>
+</ul>
+</li>
+<li><p><strong>Feedback</strong> : Les erreurs sont le feedback nécessaire</p>
+<ul class="simple">
+<li><p>Indiquent la direction et la magnitude du changement nécessaire</p></li>
+<li><p>Essentiels pour guider l’ajustement</p></li>
+</ul>
+</li>
+<li><p><strong>Ajustement</strong> : Modification basée sur le feedback</p>
+<ul class="simple">
+<li><p>Les paramètres sont modifiés pour réduire l’erreur</p></li>
+<li><p>Processus itératif et progressif</p></li>
+</ul>
+</li>
+</ol>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="les-parametres-du-modele-metaphore-des-boutons-ajustables">
+<h2>8. Les paramètres du modèle : Métaphore des boutons ajustables<a class="headerlink" href="#les-parametres-du-modele-metaphore-des-boutons-ajustables" title="Lien vers cette rubrique">#</a></h2>
+<section id="visualisation-des-parametres">
+<h3>8.1 Visualisation des paramètres<a class="headerlink" href="#visualisation-des-parametres" title="Lien vers cette rubrique">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Métaphore utile :</strong></p>
+<p>Le modèle est comme un <strong>appareil avec beaucoup de boutons ajustables</strong> (knobs).</p>
+<p>Les <strong>paramètres du modèle</strong> sont ces boutons ajustables.</p>
+</div>
+<p><strong>Rôle de l’algorithme d’apprentissage :</strong>
+L’algorithme doit changer les paramètres selon les erreurs du modèle, permettant au modèle d’améliorer sa performance.</p>
+</section>
+<section id="le-processus-d-ajustement">
+<h3>8.2 Le processus d’ajustement<a class="headerlink" href="#le-processus-d-ajustement" title="Lien vers cette rubrique">#</a></h3>
+<div class="note admonition">
+<p class="admonition-title">Processus d’optimisation</p>
+<p><strong>Étape 1 : Initialisation</strong></p>
+<ul class="simple">
+<li><p>Tous les paramètres sont ajustés à des valeurs <strong>aléatoires</strong></p></li>
+<li><p>La première sortie du modèle est donc aléatoire</p></li>
+</ul>
+<p><strong>Étape 2 : Itérations d’entraînement</strong></p>
+<ul class="simple">
+<li><p>Les paramètres sont ajustés à chaque itération</p></li>
+<li><p>Objectif : <strong>Réduire ou minimiser la perte</strong> (fonction objectif)</p></li>
+</ul>
+<p><strong>Étape 3 : Convergence</strong></p>
+<ul class="simple">
+<li><p>Le processus continue jusqu’à ce que l’erreur soit minimale</p></li>
+<li><p>Ou jusqu’à ce qu’elle cesse de diminuer significativement</p></li>
+</ul>
+</div>
+</section>
+<section id="exemple-regression-lineaire">
+<h3>8.3 Exemple : Régression linéaire<a class="headerlink" href="#exemple-regression-lineaire" title="Lien vers cette rubrique">#</a></h3>
+<p>Pour comprendre concrètement les paramètres, considérons le modèle de régression le plus simple : la <strong>régression linéaire</strong>.</p>
+<section id="parametrisation-du-modele">
+<h4>Paramétrisation du modèle<a class="headerlink" href="#parametrisation-du-modele" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Formule du modèle linéaire :</strong></p>
+<p>y = W · x + b</p>
+<p>Où :</p>
+<ul class="simple">
+<li><p><strong>x</strong> : données d’entrée</p></li>
+<li><p><strong>W</strong> : poids (weights) - PARAMÈTRE à apprendre</p></li>
+<li><p><strong>b</strong> : biais (bias) - PARAMÈTRE à apprendre</p></li>
+<li><p><strong>y</strong> : sortie du modèle</p></li>
+</ul>
+</div>
+<p><strong>Il y a deux paramètres ajustables :</strong></p>
+<ol class="arabic simple">
+<li><p>Les poids <strong>W</strong></p></li>
+<li><p>Les biais <strong>b</strong></p></li>
+</ol>
+<p>Ce sont ces paramètres qui sont ajustés pendant l’entraînement.</p>
+</section>
+<section id="visualisation-geometrique-le-role-des-poids-w">
+<h4>Visualisation géométrique : Le rôle des poids (W)<a class="headerlink" href="#visualisation-geometrique-le-role-des-poids-w" title="Lien vers cette rubrique">#</a></h4>
+<div class="note admonition">
+<p class="admonition-title">Impact du poids W</p>
+<p>Le modèle est représenté par une <strong>ligne</strong> qui détermine la sortie selon les entrées.</p>
+<p><strong>Les poids changent la pente de la ligne.</strong></p>
+<p>Pendant l’entraînement, la pente est ajustée pour trouver la <strong>meilleure pente</strong> pour ces données.</p>
+</div>
+<p><strong>Exemple : Estimation de la vitesse de mouvement</strong></p>
+<p>Axe X : Activité neuronale
+Axe Y : Vitesse prédite</p>
+<p>Différentes valeurs de W donnent différentes pentes :</p>
+<ul class="simple">
+<li><p>W petit → ligne presque horizontale</p></li>
+<li><p>W moyen → pente modérée</p></li>
+<li><p>W grand → ligne très inclinée</p></li>
+</ul>
+</section>
+<section id="visualisation-geometrique-le-role-du-biais-b">
+<h4>Visualisation géométrique : Le rôle du biais (b)<a class="headerlink" href="#visualisation-geometrique-le-role-du-biais-b" title="Lien vers cette rubrique">#</a></h4>
+<div class="note admonition">
+<p class="admonition-title">Impact du biais b</p>
+<p>Le biais peut changer la <strong>position</strong> de la ligne (décalage vertical).</p>
+<p>L’algorithme d’apprentissage l’ajuste pour obtenir le <strong>meilleur ajustement</strong> possible.</p>
+</div>
+<p><strong>Effet du biais :</strong></p>
+<ul class="simple">
+<li><p>b = 0 : la ligne passe par l’origine</p></li>
+<li><p>b &gt; 0 : la ligne est décalée vers le haut</p></li>
+<li><p>b &lt; 0 : la ligne est décalée vers le bas</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Objectif de l’optimisation :</strong></p>
+<p>Trouver les valeurs de W et b qui donnent la ligne qui <strong>s’ajuste le mieux</strong> aux données (minimise l’erreur quadratique moyenne).</p>
+</div>
+</section>
+</section>
+<section id="comment-l-algorithme-ajuste-t-il-les-parametres">
+<h3>8.4 Comment l’algorithme ajuste-t-il les paramètres ?<a class="headerlink" href="#comment-l-algorithme-ajuste-t-il-les-parametres" title="Lien vers cette rubrique">#</a></h3>
+<div class="note admonition">
+<p class="admonition-title">Aperçu (détails dans le cours d’apprentissage profond)</p>
+<p><strong>Question :</strong> Comment l’algorithme d’apprentissage peut-il faire ça ?</p>
+<p><strong>Réponse courte :</strong> C’est un sujet que nous explorerons en détail dans le cours d’apprentissage profond.</p>
+<p><strong>Idée générale :</strong></p>
+<ul class="simple">
+<li><p>L’algorithme calcule le <strong>gradient</strong> (dérivée) de la fonction objectif par rapport aux paramètres</p></li>
+<li><p>Ce gradient indique dans quelle direction changer chaque paramètre</p></li>
+<li><p>Les paramètres sont ajustés dans cette direction</p></li>
+<li><p>Le processus est répété itérativement</p></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="concepts-cles-a-retenir">
+<h2>9. Concepts clés à retenir<a class="headerlink" href="#concepts-cles-a-retenir" title="Lien vers cette rubrique">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Points essentiels de cette séance :</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Applications en neurosciences</strong> : L’apprentissage automatique permet des avancées majeures dans les neuroprothèses (décodage de la parole, contrôle par la pensée) et la modélisation du cerveau.</p></li>
+<li><p><strong>Éléments clés de l’apprentissage automatique</strong> :</p>
+<ul class="simple">
+<li><p>Données d’entraînement (entrées + sorties)</p></li>
+<li><p>Modèle paramétrique</p></li>
+<li><p>Fonction objectif</p></li>
+<li><p>Algorithme d’optimisation</p></li>
+</ul>
+</li>
+<li><p><strong>Classification vs Régression</strong> :</p>
+<ul class="simple">
+<li><p><strong>Classification</strong> : sorties catégorielles (nombre fini de classes)</p></li>
+<li><p><strong>Régression</strong> : sorties numériques continues</p></li>
+<li><p>La différence réside dans le type de sortie, pas dans les entrées</p></li>
+</ul>
+</li>
+<li><p><strong>Géométrie de l’apprentissage</strong> :</p>
+<ul class="simple">
+<li><p><strong>Classification</strong> : trouver une courbe qui sépare les classes</p></li>
+<li><p><strong>Régression</strong> : trouver une courbe qui prédit les valeurs</p></li>
+<li><p>Modèles linéaires vs non linéaires</p></li>
+</ul>
+</li>
+<li><p><strong>Entraînement du modèle</strong> :</p>
+<ul class="simple">
+<li><p><strong>Fonction objectif</strong> : quantifie l’erreur (ex: MSE)</p></li>
+<li><p><strong>Algorithme d’optimisation</strong> : ajuste les paramètres pour réduire l’erreur</p></li>
+<li><p><strong>Processus itératif</strong> : amélioration progressive par feedback</p></li>
+</ul>
+</li>
+<li><p><strong>Paramètres du modèle</strong> : boutons ajustables qui déterminent le comportement du modèle (ex: poids W et biais b dans la régression linéaire)</p></li>
+<li><p><strong>Importance de la qualité des données</strong> : la performance du modèle dépend crucialement de la qualité et de la pertinence des données d’entraînement</p></li>
+</ol>
+</div>
+</section>
+<hr class="docutils" />
+<section id="questions-de-reflexion">
+<h2>10. Questions de réflexion<a class="headerlink" href="#questions-de-reflexion" title="Lien vers cette rubrique">#</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">Pour approfondir votre compréhension</p>
+<ol class="arabic simple">
+<li><p><strong>Applications cliniques</strong> : Quelles autres applications neuroprothétiques pourrait-on développer avec l’apprentissage automatique ? Pensez à différentes fonctions cérébrales qui pourraient être restaurées.</p></li>
+<li><p><strong>Éthique et neuroprothèses</strong> : Quelles sont les implications éthiques du décodage de l’activité cérébrale ? Où tracer la ligne entre aide médicale et invasion de la vie privée mentale ?</p></li>
+<li><p><strong>Classification vs régression</strong> : Donnez trois exemples de problèmes de classification et trois exemples de problèmes de régression en psychologie.</p></li>
+<li><p><strong>Qualité des données</strong> : Pourquoi la qualité des données est-elle si cruciale ? Quels problèmes peuvent survenir avec des données biaisées ou de mauvaise qualité ?</p></li>
+<li><p><strong>Modèles linéaires vs non linéaires</strong> : Dans quelles situations un modèle linéaire serait-il suffisant ? Quand aurait-on absolument besoin d’un modèle non linéaire ?</p></li>
+<li><p><strong>Fonction objectif</strong> : Pourquoi utilise-t-on l’erreur quadratique (carrée) plutôt que l’erreur absolue ? Quels sont les avantages et inconvénients ?</p></li>
+<li><p><strong>Décodage du cerveau</strong> : Comment le décodage du cerveau peut-il aider à comprendre comment différentes régions cérébrales traitent l’information ?</p></li>
+</ol>
+</div>
+</section>
+<hr class="docutils" />
+<section id="ressources-complementaires">
+<h2>11. Ressources complémentaires<a class="headerlink" href="#ressources-complementaires" title="Lien vers cette rubrique">#</a></h2>
+<section id="articles-scientifiques">
+<h3>Articles scientifiques<a class="headerlink" href="#articles-scientifiques" title="Lien vers cette rubrique">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Lectures recommandées</p>
+<p><strong>Sur les neuroprothèses et le décodage de la parole :</strong></p>
+<ul class="simple">
+<li><p>Metzger et al. (2023). « A high-performance neuroprosthesis for speech decoding and avatar control. » <em>Nature</em>. <a class="reference external" href="https://doi.org/10.1038/s41586-023-06443-4">doi: 10.1038/s41586-023-06443-4</a></p></li>
+</ul>
+<p><strong>Sur la modélisation du cerveau avec l’apprentissage automatique :</strong></p>
+<ul class="simple">
+<li><p>Richards et al. (2023). « The neuroconnectionist research program. » <em>Nature Reviews Neuroscience</em>. <a class="reference external" href="https://www.nature.com/articles/s41583-023-00705-w">Article disponible</a></p></li>
+</ul>
+</div>
+</section>
+<section id="videos">
+<h3>Vidéos<a class="headerlink" href="#videos" title="Lien vers cette rubrique">#</a></h3>
+<div class="note admonition">
+<p class="admonition-title">Démonstrations visuelles</p>
+<p><strong>Neuroprothèse de décodage de la parole :</strong>
+<a class="reference external" href="https://www.youtube.com/watch?v=vL7yMn6kiMg">Vidéo démonstration</a></p>
+<p><strong>Neuralink - Contrôle par la pensée :</strong>
+<a class="reference external" href="https://www.youtube.com/watch?v=rsCul1sp4hQ">Pager joue à MindPong</a></p>
+</div>
+</section>
+<section id="concepts-pour-la-prochaine-seance">
+<h3>Concepts pour la prochaine séance<a class="headerlink" href="#concepts-pour-la-prochaine-seance" title="Lien vers cette rubrique">#</a></h3>
+<p>Dans la prochaine séance, nous approfondirons :</p>
+<ul class="simple">
+<li><p>Les différents types d’algorithmes d’apprentissage automatique</p></li>
+<li><p>L’apprentissage non supervisé</p></li>
+<li><p>Les réseaux de neurones et l’apprentissage profond</p></li>
+<li><p>Comment éviter le surapprentissage (overfitting)</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Fin de la Séance 3</strong></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="seance2.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">Séance 2 : Introduction à l’Apprentissage Automatique</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vue-d-ensemble">Vue d’ensemble</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-de-l-apprentissage-automatique-en-psychologie-et-neurosciences">1. Applications de l’apprentissage automatique en psychologie et neurosciences</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neuroprotheses-decodage-de-la-parole-chez-les-patients-paralyses">1.1 Neuroprothèses : Décodage de la parole chez les patients paralysés</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-defi">Le défi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#les-resultats-actuels">Les résultats actuels</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#comment-le-modele-d-apprentissage-automatique-fonctionne">Comment le modèle d’apprentissage automatique fonctionne</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-defi-de-la-collecte-de-donnees">Le défi de la collecte de données</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#l-importance-de-la-qualite-des-donnees">L’importance de la qualité des données</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neuroprotheses-neuralink">1.2 Neuroprothèses : Neuralink</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-projet-neuralink">Le projet Neuralink</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Le défi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-role-de-l-apprentissage-automatique">Le rôle de l’apprentissage automatique</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelisation-du-cerveau-utilisant-l-apprentissage-automatique">1.3 Modélisation du cerveau utilisant l’apprentissage automatique</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#un-nouveau-paradigme-de-recherche">Un nouveau paradigme de recherche</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-principe">Le principe</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-elements-cles-de-l-apprentissage-automatique">2. Les éléments clés de l’apprentissage automatique</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-donnees-d-entrainement">2.1 Les données d’entraînement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#le-modele-parametrique-de-l-apprentissage-automatique">2.2 Le modèle paramétrique de l’apprentissage automatique</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-importantes-pour-les-chercheurs-et-developpeurs">Questions importantes pour les chercheurs et développeurs</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l-objectif-de-l-apprentissage-fonction-objectif">2.3 L’objectif de l’apprentissage (fonction objectif)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l-algorithme-d-entrainement-algorithme-d-optimisation">2.4 L’algorithme d’entraînement (algorithme d’optimisation)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-de-donnees-en-apprentissage-automatique">3. Types de données en apprentissage automatique</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-diversite-des-types-de-donnees">3.1 La diversité des types de données</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l-apprentissage-multi-modal">3.2 L’apprentissage multi-modal</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l-apprentissage-supervise-classification">4. L’apprentissage supervisé : Classification</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-a-la-classification">4.1 Introduction à la classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-illustratif-chiens-et-chats">4.2 Exemple illustratif : Chiens et chats</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-sorties-categorielles">4.3 Les sorties catégorielles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-en-neurosciences-classification-des-directions-de-mouvement">4.4 Exemple en neurosciences : Classification des directions de mouvement</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#contexte-experimental">Contexte expérimental</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#definir-le-probleme-de-classification">Définir le problème de classification</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-de-ce-modele">Applications de ce modèle</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-en-neurosciences-classification-d-orientation-visuelle">4.5 Exemple en neurosciences : Classification d’orientation visuelle</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Contexte expérimental</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#la-structure-des-donnees">La structure des données</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#application-du-modele">Application du modèle</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-geometrie-de-la-classification">4.6 La géométrie de la classification</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-simplifiee-avec-deux-neurones">Visualisation simplifiée avec deux neurones</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-lineaire">Classification linéaire</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-non-lineaire">Classification non linéaire</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l-apprentissage-supervise-regression">5. L’apprentissage supervisé : Régression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-a-la-regression">5.1 Introduction à la régression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-entre-classification-et-regression">5.2 Différence entre classification et régression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-en-neurosciences-regression-de-la-vitesse-de-mouvement">5.3 Exemple en neurosciences : Régression de la vitesse de mouvement</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Contexte expérimental</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-du-probleme">Définition du problème</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-du-modele">Performance du modèle</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-en-neurosciences-prediction-d-activite-neuronale">5.4 Exemple en neurosciences : Prédiction d’activité neuronale</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Contexte expérimental</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Définition du problème</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-geometrie-de-la-regression">5.5 La géométrie de la régression</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-avec-un-seul-neurone">Visualisation avec un seul neurone</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-modele-comme-une-courbe">Le modèle comme une courbe</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entrainement-du-modele-la-fonction-objectif">6. Entraînement du modèle : La fonction objectif</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-a-la-fonction-objectif">6.1 Introduction à la fonction objectif</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principe-de-la-quantification-de-l-erreur">6.2 Principe de la quantification de l’erreur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notation-mathematique">6.3 Notation mathématique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-squared-error-mse-erreur-quadratique-moyenne">6.4 Mean Squared Error (MSE) - Erreur quadratique moyenne</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entrainement-du-modele-l-algorithme-d-optimisation">7. Entraînement du modèle : L’algorithme d’optimisation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#le-role-de-l-algorithme-d-apprentissage">7.1 Le rôle de l’algorithme d’apprentissage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#une-analogie-le-guessing-game">7.2 Une analogie : Le « Guessing Game »</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-jeu">Le jeu</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parallele-avec-l-apprentissage-automatique">Parallèle avec l’apprentissage automatique</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-processus-iteratif">Le processus itératif</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-courbe-d-apprentissage">7.3 La courbe d’apprentissage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elements-cles-du-processus-d-apprentissage">7.4 Éléments clés du processus d’apprentissage</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-parametres-du-modele-metaphore-des-boutons-ajustables">8. Les paramètres du modèle : Métaphore des boutons ajustables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-des-parametres">8.1 Visualisation des paramètres</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#le-processus-d-ajustement">8.2 Le processus d’ajustement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-regression-lineaire">8.3 Exemple : Régression linéaire</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parametrisation-du-modele">Paramétrisation du modèle</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-geometrique-le-role-des-poids-w">Visualisation géométrique : Le rôle des poids (W)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-geometrique-le-role-du-biais-b">Visualisation géométrique : Le rôle du biais (b)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comment-l-algorithme-ajuste-t-il-les-parametres">8.4 Comment l’algorithme ajuste-t-il les paramètres ?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts-cles-a-retenir">9. Concepts clés à retenir</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-de-reflexion">10. Questions de réflexion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ressources-complementaires">11. Ressources complémentaires</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#articles-scientifiques">Articles scientifiques</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Vidéos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts-pour-la-prochaine-seance">Concepts pour la prochaine séance</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par PSY3913 / 6913
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
